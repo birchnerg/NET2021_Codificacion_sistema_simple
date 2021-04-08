@@ -2,10 +2,10 @@ Año: 2021
 UTN-FRRO
 NET-3k1
 
-Repositorio del TP2 "completar_nombre" 
+Repositorio del TP2 "La academia" 
 
 Integrantes:
--Birchner German  
--Caruso Pablo
--Sotto Diaz Milton
--
+-Birchner German  -  birchnerg@gmail.com
+-Caruso Pablo  -  ***@***.***
+-Sotto Diaz Milton   -  ***@***.***
+- **** Marcos   -  ***@***.***
