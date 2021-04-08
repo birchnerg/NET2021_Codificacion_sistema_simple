@@ -5,6 +5,6 @@ Grupo: 09
 
 Integrantes:
 -Birchner German  -  birchnerg@gmail.com
--Caruso Pablo  -  ***@***.***
+-Caruso Pablo  -  pabloezequiel024@gmail.com
 -Sotto Diaz Milton   -  sottodiaz.milton@gmail.com
--Carrizo Marcos   -  ***@***.***
+-Carrizo Marcos   -  marcoosemanuel@gmail.com
