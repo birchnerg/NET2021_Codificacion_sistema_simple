@@ -56,11 +56,17 @@ namespace Business.Entities
             get { return _Legajo; }
             set { _Legajo = value; }
         }
-        private TipoPersonas _TipoPersonas;
-        public TipoPersonas TipoPersonas
+        private TipoPersonas _TiposPersonas;
+        public TipoPersonas TiposPersonas
         {
-            get { return _TipoPersonas; }
-            set { _TipoPersonas = value; }
+            get { return _TiposPersonas; }
+            set { _TiposPersonas = value; }
+        }
+
+        public enum TipoPersonas
+        {
+            Juridica,
+            Fisica
         }
     }
 }
