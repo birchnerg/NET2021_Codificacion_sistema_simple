@@ -26,5 +26,10 @@ namespace Business.Entities
             get { return _Cargo; }
             set { _Cargo = value; }
         }
+        public enum TiposCargos
+        {
+            Cargo1,
+            Cargo2
+        }
     }
 }
