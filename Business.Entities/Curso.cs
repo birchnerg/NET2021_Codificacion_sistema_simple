@@ -15,7 +15,7 @@ namespace Business.Entities
             set { _Descripcion = value; }
         }
         private int _AnioCalendario;
-        public int _AnioCalendario
+        public int AnioCalendario
         {
             get { return _AnioCalendario; }
             set { _AnioCalendario = value; }
