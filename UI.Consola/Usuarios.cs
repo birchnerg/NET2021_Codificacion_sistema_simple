@@ -63,7 +63,7 @@ namespace UI.Consola
                     case (ConsoleKey.D6):
                     case (ConsoleKey.NumPad6):
                         Console.WriteLine("");
-                        Console.WriteLine("Precione cualquier tecla para salir");
+                        Console.WriteLine("Presione cualquier tecla para salir");
                         Console.ReadLine();
                         break;
                 }
@@ -78,7 +78,7 @@ namespace UI.Consola
             {
                 MostrarDatos(usr);
             }
-            Console.WriteLine("Precione cualquier tecla para volver al menu principal");
+            Console.WriteLine("Presione cualquier tecla para volver al menu principal");
             Console.ReadKey();
         }
         public void MostrarDatos(Usuario usr)
@@ -136,7 +136,7 @@ namespace UI.Consola
             UsuarioNegocio.Save(usuario);
             Console.WriteLine();
             Console.WriteLine("ID: {0}", usuario.ID);
-            Console.WriteLine("Precione una tecla para volver al menu");
+            Console.WriteLine("Presione una tecla para volver al menu");
             Console.ReadKey();
         }
         public void Modificar()
@@ -148,20 +148,27 @@ namespace UI.Consola
                 Console.WriteLine("Ingrese el ID del usuario a modificar: ");
                 int id = int.Parse(Console.ReadLine());
                 Usuario usuario = UsuarioNegocio.GetOne(id);
-                Console.Write("Ingrese Nombre: ");
-                usuario.Nombre = Console.ReadLine();
-                Console.Write("Ingrese Apellido: ");
-                usuario.Apellido = Console.ReadLine();
-                Console.Write("Ingrese Nombre de usuario: ");
-                usuario.NombreUsuario = Console.ReadLine();
-                Console.Write("Ingrese clave: ");
-                usuario.Clave = Console.ReadLine();
-                Console.Write("Ingrese Email: ");
-                usuario.Email = Console.ReadLine();
-                Console.Write("Ingrese Habilitacion de Usuario (1-Si/otro-No): ");
-                usuario.Habilitado = Console.ReadLine()=="1";
-                usuario.State = BusinessEntity.States.Modified;
-                UsuarioNegocio.Save(usuario);
+                if (usuario != null)
+                {
+                    Console.Write("Ingrese Nombre: ");
+                    usuario.Nombre = Console.ReadLine();
+                    Console.Write("Ingrese Apellido: ");
+                    usuario.Apellido = Console.ReadLine();
+                    Console.Write("Ingrese Nombre de usuario: ");
+                    usuario.NombreUsuario = Console.ReadLine();
+                    Console.Write("Ingrese clave: ");
+                    usuario.Clave = Console.ReadLine();
+                    Console.Write("Ingrese Email: ");
+                    usuario.Email = Console.ReadLine();
+                    Console.Write("Ingrese Habilitacion de Usuario (1-Si/otro-No): ");
+                    usuario.Habilitado = Console.ReadLine() == "1";
+                    usuario.State = BusinessEntity.States.Modified;
+                    UsuarioNegocio.Save(usuario);
+                }
+                else
+                {
+                    Console.WriteLine("La ID ingresada no coincide con la de ningún usuario");
+                }
             }
             catch (FormatException)
             {
@@ -185,8 +192,16 @@ namespace UI.Consola
                 Console.WriteLine("5 - Eliminar");
                 Console.WriteLine("Ingrese el ID del usuario a eliminar: ");
                 int id = int.Parse(Console.ReadLine());
-                UsuarioNegocio.Delete(id);
-                Console.WriteLine("Usuario {0} eliminado correctamente", id);
+                Usuario usuario = UsuarioNegocio.GetOne(id);
+                if (usuario != null)
+                {
+                    UsuarioNegocio.Delete(id);
+                    Console.WriteLine("Usuario {0} eliminado correctamente", id);
+                }
+                else
+                {
+                    Console.WriteLine("La ID ingresada no coincide con la de ningún usuario");
+                }          
             }
             catch (FormatException)
             {
