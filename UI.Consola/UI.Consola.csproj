@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E04B4564-A1E5-4FDF-809E-25311FB3075A}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Business.Entities</RootNamespace>
-    <AssemblyName>Business.Entities</AssemblyName>
+    <ProjectGuid>{36FC5506-EC92-4AD3-AA2E-9781EDD4EDBD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>UI.Consola</RootNamespace>
+    <AssemblyName>UI.Consola</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,19 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessEntity.cs" />
-    <Compile Include="AlumnoInscripcion.cs" />
-    <Compile Include="Comision.cs" />
-    <Compile Include="DocenteCurso.cs" />
-    <Compile Include="Curso.cs" />
-    <Compile Include="Personas.cs" />
-    <Compile Include="Materia.cs" />
-    <Compile Include="Especialidad.cs" />
-    <Compile Include="Plan.cs" />
-    <Compile Include="ModuloUsuario.cs" />
-    <Compile Include="Modulo.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj">
+      <Project>{e04b4564-a1e5-4fdf-809e-25311fb3075a}</Project>
+      <Name>Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Logic\Business.Logic.csproj">
+      <Project>{e4dbc4f1-326e-4a81-b192-3ca7fa31b2b6}</Project>
+      <Name>Business.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
