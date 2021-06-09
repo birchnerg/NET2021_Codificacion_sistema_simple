@@ -26,7 +26,7 @@ namespace Data.Database
                     usr.Nombre = "Casimiro";
                     usr.Apellido = "Cegado";
                     usr.NombreUsuario = "casicegado";
-                    usr.Clave = "miro";
+                    usr.Clave = "mirocegado";
                     usr.Email = "casimirocegado@gmail.com";
                     usr.Habilitado = true;
                     _Usuarios.Add(usr);
