@@ -92,7 +92,14 @@ namespace UI.Desktop
         {
             MapearADatos();
             UsuarioLogic u = new UsuarioLogic();
-            u.Save(UsuarioActual);
+            if (this.Modo == ModoForm.Baja)
+            {
+                u.Delete(UsuarioActual.ID);
+            }
+            else
+            {
+                u.Save(UsuarioActual);
+            }
         }
         public override bool Validar() 
         {
