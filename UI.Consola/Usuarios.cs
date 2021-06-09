@@ -37,27 +37,22 @@ namespace UI.Consola
                 {
                     case (ConsoleKey.D1):
                     case (ConsoleKey.NumPad1):
-                        Console.WriteLine("1– Listado General");
                         ListadoGeneral();
                         break;
                     case (ConsoleKey.D2):
                     case (ConsoleKey.NumPad2):
-                        Console.WriteLine("2– Consulta");
                         Consulta();
                         break;
                     case (ConsoleKey.D3):
                     case (ConsoleKey.NumPad3):
-                        Console.WriteLine("3– Agregar");
                         Agregar();
                         break;
                     case (ConsoleKey.D4):
                     case (ConsoleKey.NumPad4):
-                        Console.WriteLine("4 - Modificar");
                         Modificar();
                         break;
                     case (ConsoleKey.D5):
                     case (ConsoleKey.NumPad5):
-                        Console.WriteLine("5 - Eliminar");
                         Eliminar();
                         break;
                     case (ConsoleKey.D6):
@@ -119,6 +114,7 @@ namespace UI.Consola
         public void Agregar()
         {
             Usuario usuario = new Usuario();
+            Console.Clear();
             Console.WriteLine("3– Agregar"); 
             Console.Write("Ingrese Nombre: ");
             usuario.Nombre = Console.ReadLine();
