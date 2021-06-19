@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Business.Entities;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Data.Database
 {
@@ -61,7 +63,38 @@ namespace Data.Database
 
         public List<Usuario> GetAll()
         {
-            return new List<Usuario>(Usuarios);
+            //return new List<Usuario>(Usuarios);
+            List<Usuario> usuarios = new List<Usuario>();
+
+            this.OpenConnection();
+
+            //Objeto SqlCommand para la sentencia SQL que se va a ejecutar
+            SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios", sqlConn);
+
+            //DataReader para recuperar los datos de la DB
+            SqlDataReader drUsuario = cmdUsuarios.ExecuteReader();
+
+            //Read() lee una fila de las devueltas por el commandSql, devuelve true mientras pueda leer datos y avanza 
+            //a la siguiente fila
+            while (drUsuario.Read())
+            {
+                //Creamos un obj Usuario de la capa de entidades para copiar los datos del DataReader
+                Usuario usr = new Usuario();
+
+                usr.ID = (int)drUsuario["id_usuario"];
+                usr.NombreUsuario = (string)drUsuario["nombre_usuario"];
+                usr.Clave = (string)drUsuario["clave"];
+                usr.Habilitado = (bool)drUsuario["habilitado"];
+                usr.Nombre = (string)drUsuario["nombre"];
+                usr.Apellido = (string)drUsuario["apellido"];
+                usr.Email = (string)drUsuario["email"];
+
+                usuarios.Add(usr);
+            }
+            drUsuario.Close();
+            this.CloseConnection();
+
+            return usuarios;
         }
 
         public Business.Entities.Usuario GetOne(int ID)

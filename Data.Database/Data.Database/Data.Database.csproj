@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -53,6 +54,9 @@
       <Project>{e04b4564-a1e5-4fdf-809e-25311fb3075a}</Project>
       <Name>Business.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
