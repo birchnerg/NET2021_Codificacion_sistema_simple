@@ -37,27 +37,22 @@ namespace UI.Consola
                 {
                     case (ConsoleKey.D1):
                     case (ConsoleKey.NumPad1):
-                        Console.WriteLine("1– Listado General");
                         ListadoGeneral();
                         break;
                     case (ConsoleKey.D2):
                     case (ConsoleKey.NumPad2):
-                        Console.WriteLine("2– Consulta");
                         Consulta();
                         break;
                     case (ConsoleKey.D3):
                     case (ConsoleKey.NumPad3):
-                        Console.WriteLine("3– Agregar");
                         Agregar();
                         break;
                     case (ConsoleKey.D4):
                     case (ConsoleKey.NumPad4):
-                        Console.WriteLine("4 - Modificar");
                         Modificar();
                         break;
                     case (ConsoleKey.D5):
                     case (ConsoleKey.NumPad5):
-                        Console.WriteLine("5 - Eliminar");
                         Eliminar();
                         break;
                     case (ConsoleKey.D6):
@@ -119,6 +114,7 @@ namespace UI.Consola
         public void Agregar()
         {
             Usuario usuario = new Usuario();
+            Console.Clear();
             Console.WriteLine("3– Agregar"); 
             Console.Write("Ingrese Nombre: ");
             usuario.Nombre = Console.ReadLine();
@@ -126,10 +122,35 @@ namespace UI.Consola
             usuario.Apellido = Console.ReadLine();
             Console.Write("Ingrese Nombre de usuario: ");
             usuario.NombreUsuario = Console.ReadLine();
-            Console.Write("Ingrese clave: ");
-            usuario.Clave = Console.ReadLine();
-            Console.Write("Ingrese Email: ");
-            usuario.Email = Console.ReadLine();
+
+            ///Verificacion de clave
+            string clave;
+            do
+            {
+                Console.Write("Ingrese clave: ");
+                clave = Console.ReadLine();
+                if (!ValidadoresLogic.ValidarClave(clave))
+                {
+                    Console.WriteLine("La clave debe contener por lo menos 8 caracteres");
+                }
+
+            } while (!ValidadoresLogic.ValidarClave(clave));
+            usuario.Clave = clave;
+
+            ///Verificacion de email ingresado correcto
+            string email;
+            do
+            {
+                Console.Write("Ingrese Email: ");
+                email = Console.ReadLine();
+                if (!ValidadoresLogic.ValidarEmail(email))
+                {
+                    Console.WriteLine("Ingrese un email valido");
+                }
+
+            } while (!ValidadoresLogic.ValidarEmail(email));
+            usuario.Email = email;
+
             Console.Write("Ingrese Habilitacion de Usuario (1-Si/otro-No): ");
             usuario.Habilitado = Console.ReadLine() == "1";
             usuario.State = BusinessEntity.States.New;
@@ -156,10 +177,33 @@ namespace UI.Consola
                     usuario.Apellido = Console.ReadLine();
                     Console.Write("Ingrese Nombre de usuario: ");
                     usuario.NombreUsuario = Console.ReadLine();
-                    Console.Write("Ingrese clave: ");
-                    usuario.Clave = Console.ReadLine();
-                    Console.Write("Ingrese Email: ");
-                    usuario.Email = Console.ReadLine();
+                    ///Verificacion de clave
+                    string clave;
+                    do
+                    {
+                        Console.Write("Ingrese clave: ");
+                        clave = Console.ReadLine();
+                        if (!ValidadoresLogic.ValidarClave(clave))
+                        {
+                            Console.WriteLine("La clave debe contener por lo menos 8 caracteres");
+                        }
+
+                    } while (!ValidadoresLogic.ValidarClave(clave));
+                    usuario.Clave = clave;
+
+                    ///Verificacion de email ingresado correcto
+                    string email;
+                    do
+                    {
+                        Console.Write("Ingrese Email: ");
+                        email = Console.ReadLine();
+                        if (!ValidadoresLogic.ValidarEmail(email))
+                        {
+                            Console.WriteLine("Ingrese un email valido");
+                        }
+
+                    } while (!ValidadoresLogic.ValidarEmail(email));
+                    usuario.Email = email;
                     Console.Write("Ingrese Habilitacion de Usuario (1-Si/otro-No): ");
                     usuario.Habilitado = Console.ReadLine() == "1";
                     usuario.State = BusinessEntity.States.Modified;
