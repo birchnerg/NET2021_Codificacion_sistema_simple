@@ -43,8 +43,8 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            UsuarioDesktop formUsuario = new UsuarioDesktop(ApplicationForm.ModoForm.Alta);
-            formUsuario.ShowDialog();
+            PersonaDesktop formPersona = new PersonaDesktop(ApplicationForm.ModoForm.Alta);
+            formPersona.ShowDialog();
             this.Listar();
             dgvPersonas.ClearSelection();
         }
@@ -54,8 +54,8 @@ namespace UI.Desktop
             if (this.dgvPersonas.SelectedRows.Count != 0)
             {
                 int ID = ((Business.Entities.Usuario)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-                formUsuario.ShowDialog();
+                PersonaDesktop formPersona = new PersonaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                formPersona.ShowDialog();
                 this.Listar();
                 dgvPersonas.ClearSelection();
             }
@@ -69,9 +69,9 @@ namespace UI.Desktop
         {
             if (this.dgvPersonas.SelectedRows.Count != 0)
             {
-                int ID = ((Business.Entities.Usuario)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
-                UsuarioDesktop formUsuario = new UsuarioDesktop(ID, ApplicationForm.ModoForm.Baja);
-                formUsuario.ShowDialog();
+                int ID = ((Business.Entities.Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
+                PersonaDesktop formPersona = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
+                formPersona.ShowDialog();
                 this.Listar();
                 dgvPersonas.ClearSelection();
             }

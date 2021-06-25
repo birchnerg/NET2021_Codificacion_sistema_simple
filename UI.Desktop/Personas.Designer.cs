@@ -156,7 +156,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsUsuarios.Location = new System.Drawing.Point(4, 0);
             this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(100, 27);
+            this.tsUsuarios.Size = new System.Drawing.Size(139, 27);
             this.tsUsuarios.TabIndex = 0;
             // 
             // tsbNuevo

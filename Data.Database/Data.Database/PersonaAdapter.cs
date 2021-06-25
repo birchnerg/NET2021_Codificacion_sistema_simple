@@ -166,7 +166,7 @@ namespace Data.Database
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("INSERT INTO personas (nombre," +
                     "apellido,email,direccion,telefono,fecha_nac,legajo,id_plan) VALUES(@nombre," +
-                    "@nombre,@apellido,@email,@direccion,@telefono,@fecha_nac,@legajo,@id_plan)" +
+                    "@apellido,@email,@direccion,@telefono,@fecha_nac,@legajo,@id_plan)" +
                     "SELECT @@identity", //Recupera el ID que asigno el SQL automaticamente
                     sqlConn);
 

@@ -52,11 +52,11 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonasDesktop.cs">
+    <Compile Include="PersonaDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PersonasDesktop.Designer.cs">
-      <DependentUpon>PersonasDesktop.cs</DependentUpon>
+    <Compile Include="PersonaDesktop.Designer.cs">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </Compile>
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
@@ -78,8 +78,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PersonasDesktop.resx">
-      <DependentUpon>PersonasDesktop.cs</DependentUpon>
+    <EmbeddedResource Include="PersonaDesktop.resx">
+      <DependentUpon>PersonaDesktop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
