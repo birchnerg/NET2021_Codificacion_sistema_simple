@@ -63,10 +63,17 @@ namespace Business.Entities
             set { _TiposPersonas = value; }
         }
 
+        // Retorno del TipoPersonas como INT para poder almacenarlo en la DB
+        public int TipoPersonasInt
+        {
+            get { return (int)_TiposPersonas; }
+            set { _TiposPersonas = (TipoPersonas)value; }
+        }
+
         public enum TipoPersonas
         {
-            Juridica,
-            Fisica
+            Juridica = 0,
+            Fisica = 1
         }
     }
 }

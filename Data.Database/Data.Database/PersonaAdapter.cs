@@ -39,7 +39,7 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     per.Legajo = (int)drPersona["legajo"];
                     per.IDPlan = (int)drPersona["id_plan"];
-                    //per.TiposPersonas = () drPersona["tipo_persona"];
+                    per.TipoPersonasInt = (int)drPersona["tipo_persona"];
 
                     personas.Add(per);
                 }
@@ -66,7 +66,7 @@ namespace Data.Database
                 this.OpenConnection();
 
                 //Objeto SqlCommand para la sentencia SQL que se va a ejecutar
-                SqlCommand cmdPersonas = new SqlCommand("SELECT * FROM personas WHERE id_usuario=@id", sqlConn);
+                SqlCommand cmdPersonas = new SqlCommand("SELECT * FROM personas WHERE id_persona=@id", sqlConn);
                 cmdPersonas.Parameters.Add("@id", SqlDbType.Int).Value = ID;
 
                 //DataReader para recuperar los datos de la DB
@@ -84,7 +84,7 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     per.Legajo = (int)drPersona["legajo"];
                     per.IDPlan = (int)drPersona["id_plan"];
-                    //per.TiposPersonas = () drPersona["tipo_persona"];
+                    per.TipoPersonasInt = (int)drPersona["tipo_persona"];
 
                 }
                 drPersona.Close();
@@ -131,8 +131,8 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("UPDATE personas SET nombre = @nombre, apellido = @apellido," +
-                    "email = @email, direccion = @direccion, telefono = @telefono, fecha_nac = @fechaNacimiento" +
-                    "legajo = @legajo, id_plan = @id_plan" +
+                    "email = @email, direccion = @direccion, telefono = @telefono, fecha_nac = @fecha_nac," +
+                    "legajo = @legajo, id_plan = @id_plan, tipo_persona = @tipo_persona" +
                     " WHERE id_persona  = @id",sqlConn);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = persona.ID;
@@ -144,8 +144,8 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = persona.IDPlan;
-           
-                //per.TiposPersonas = () drPersona["tipo_persona"];
+                cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = persona.TipoPersonasInt;
+
                 cmdSave.ExecuteNonQuery();
             }
             catch (Exception Ex)
@@ -165,8 +165,8 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("INSERT INTO personas (nombre," +
-                    "apellido,email,direccion,telefono,fecha_nac,legajo,id_plan) VALUES(@nombre," +
-                    "@apellido,@email,@direccion,@telefono,@fecha_nac,@legajo,@id_plan)" +
+                    "apellido,email,direccion,telefono,fecha_nac,legajo,id_plan,tipo_persona) VALUES(@nombre," +
+                    "@apellido,@email,@direccion,@telefono,@fecha_nac,@legajo,@id_plan,@tipo_persona)" +
                     "SELECT @@identity", //Recupera el ID que asigno el SQL automaticamente
                     sqlConn);
 
@@ -179,8 +179,8 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@fecha_nac", SqlDbType.DateTime).Value = persona.FechaNacimiento;
                 cmdSave.Parameters.Add("@legajo", SqlDbType.Int).Value = persona.Legajo;
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = persona.IDPlan;
+                cmdSave.Parameters.Add("@tipo_persona", SqlDbType.Int).Value = persona.TipoPersonasInt;
 
-                //per.TiposPersonas = () drPersona["tipo_persona"];
                 persona.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //asi se obtiene el id que se asigno al DB automaticamente
             }

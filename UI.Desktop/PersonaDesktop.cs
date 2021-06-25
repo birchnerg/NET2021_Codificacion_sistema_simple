@@ -49,6 +49,8 @@ namespace UI.Desktop
             this.txtTelefono.Text = this.PersonaActual.Telefono;
             this.txtLegajo.Text = this.PersonaActual.Legajo.ToString();
             this.dtpFechaNacimiento.Text = this.PersonaActual.FechaNacimiento.ToString();
+            this.txtIDPlan.Text = this.PersonaActual.IDPlan.ToString();
+            this.cmboTipoPersona.Text = this.PersonaActual.TipoPersonasInt.ToString();
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -76,6 +78,8 @@ namespace UI.Desktop
                     PersonaActual.Telefono = this.txtTelefono.Text;
                     PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
                     PersonaActual.FechaNacimiento = DateTime.Parse(this.dtpFechaNacimiento.Text);
+                    PersonaActual.IDPlan = Int32.Parse(this.txtIDPlan.Text);
+                    PersonaActual.TipoPersonasInt = Int32.Parse(this.cmboTipoPersona.Text);
                     PersonaActual.State = BusinessEntity.States.New;
                     break;
                 case ModoForm.Modificacion:
@@ -86,6 +90,8 @@ namespace UI.Desktop
                     PersonaActual.Telefono = this.txtTelefono.Text;
                     PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
                     PersonaActual.FechaNacimiento = DateTime.Parse(this.dtpFechaNacimiento.Text);
+                    PersonaActual.IDPlan = Int32.Parse(this.txtIDPlan.Text);
+                    PersonaActual.TipoPersonasInt = Int32.Parse(this.cmboTipoPersona.Text);
                     PersonaActual.State = BusinessEntity.States.Modified;
                     break;
             }
@@ -107,7 +113,7 @@ namespace UI.Desktop
         {
             if (string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtApellido.Text) || string.IsNullOrEmpty(this.txtDireccion.Text)
                 || string.IsNullOrEmpty(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtLegajo.Text) || string.IsNullOrEmpty(this.txtTelefono.Text)
-                || string.IsNullOrEmpty(this.txtIDPlan.Text) || string.IsNullOrEmpty(this.dtpFechaNacimiento.Text))
+                || string.IsNullOrEmpty(this.txtIDPlan.Text) || string.IsNullOrEmpty(this.dtpFechaNacimiento.Text) || string.IsNullOrEmpty(this.cmboTipoPersona.Text))
             {
                 Notificar("Error", "Campos vacíos. Por favor complételos.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

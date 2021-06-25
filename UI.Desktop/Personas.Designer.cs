@@ -40,6 +40,7 @@ namespace UI.Desktop
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,6 +103,7 @@ namespace UI.Desktop
             this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.tipo_persona,
             this.legajo,
             this.nombre,
             this.apellido,
@@ -156,7 +158,7 @@ namespace UI.Desktop
             this.tsbEliminar});
             this.tsUsuarios.Location = new System.Drawing.Point(4, 0);
             this.tsUsuarios.Name = "tsUsuarios";
-            this.tsUsuarios.Size = new System.Drawing.Size(139, 27);
+            this.tsUsuarios.Size = new System.Drawing.Size(100, 27);
             this.tsUsuarios.TabIndex = 0;
             // 
             // tsbNuevo
@@ -198,6 +200,15 @@ namespace UI.Desktop
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.Width = 50;
+            // 
+            // tipo_persona
+            // 
+            this.tipo_persona.DataPropertyName = "TipoPersonasInt";
+            this.tipo_persona.HeaderText = "Tipo Persona";
+            this.tipo_persona.MinimumWidth = 6;
+            this.tipo_persona.Name = "tipo_persona";
+            this.tipo_persona.ReadOnly = true;
+            this.tipo_persona.Width = 122;
             // 
             // legajo
             // 
@@ -306,6 +317,7 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo_persona;
         private System.Windows.Forms.DataGridViewTextBoxColumn legajo;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
