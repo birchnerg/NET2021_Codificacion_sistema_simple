@@ -11,7 +11,7 @@ namespace Data.Database
         //private SqlConnection sqlConnection = new SqlConnection("ConnectionString;");
 
         //Clave por defecto a utlizar para la cadena de conexion
-        const string consKeyDefaultCnnString = "ConnStringExpress";
+        const string consKeyDefaultCnnString = "ConnStringExpressGer";
 
         protected SqlConnection sqlConn;
 
