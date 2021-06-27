@@ -94,22 +94,25 @@ namespace UI.Desktop
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(81, 3);
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(82, 3);
             this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(196, 20);
             this.txtID.TabIndex = 3;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(81, 32);
+            this.txtDescripcion.Location = new System.Drawing.Point(82, 32);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(196, 20);
             this.txtDescripcion.TabIndex = 4;
             // 
             // boxEspecialidad
             // 
+            this.boxEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxEspecialidad.FormattingEnabled = true;
-            this.boxEspecialidad.Location = new System.Drawing.Point(81, 61);
+            this.boxEspecialidad.Location = new System.Drawing.Point(82, 61);
             this.boxEspecialidad.Name = "boxEspecialidad";
             this.boxEspecialidad.Size = new System.Drawing.Size(196, 21);
             this.boxEspecialidad.TabIndex = 5;
@@ -122,15 +125,17 @@ namespace UI.Desktop
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(81, 90);
+            this.btnCancelar.Location = new System.Drawing.Point(82, 90);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // PlanDesktop
             // 
