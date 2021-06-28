@@ -126,9 +126,6 @@
     <EmbeddedResource Include="UsuarioDesktop.resx">
       <DependentUpon>UsuarioDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personas.resx">
-      <DependentUpon>Personas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
