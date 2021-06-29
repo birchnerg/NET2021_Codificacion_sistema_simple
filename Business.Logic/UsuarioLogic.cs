@@ -38,5 +38,9 @@ namespace Business.Logic
         {
             UsuarioData.Delete(_id);
         }
+        public bool Auth(string _usuario, string _clave)
+        {
+            return UsuarioData.Auth(_usuario, _clave);
+        }
     }
 }
