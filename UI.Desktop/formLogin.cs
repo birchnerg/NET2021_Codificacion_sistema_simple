@@ -45,7 +45,7 @@ namespace UI.Desktop
             {
                 MessageBox.Show("Usted ha ingresado al sistema correctamente."
                 , "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                this.DialogResult = DialogResult.OK;
             }
             else
             {

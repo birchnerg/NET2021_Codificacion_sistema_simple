@@ -16,7 +16,6 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
-
         private void btnCursos_Click(object sender, EventArgs e)
         {
             MenuCursos formCursos = new MenuCursos();
@@ -38,6 +37,16 @@ namespace UI.Desktop
         {
             Usuarios formUsuarios = new Usuarios();
             formUsuarios.ShowDialog();
+        }
+
+        private void MenuPpal_Shown(object sender, EventArgs e)
+        {
+            formLogin login = new formLogin();
+            
+            if (login.ShowDialog() != DialogResult.OK)
+            {
+                this.Dispose();
+            }
         }
     }
 }
