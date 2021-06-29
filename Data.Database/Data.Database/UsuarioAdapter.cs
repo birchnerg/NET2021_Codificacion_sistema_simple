@@ -248,5 +248,38 @@ namespace Data.Database
             }
             usuario.State = BusinessEntity.States.Unmodified;            
         }
+        public bool Auth(string usuario, string clave)
+        {
+            bool auth = false;
+            try
+            {
+                this.OpenConnection();
+
+                //Objeto SqlCommand para la sentencia SQL que se va a ejecutar
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@usuario AND clave=@clave", sqlConn);
+                cmdUsuarios.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = usuario;
+                cmdUsuarios.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = clave;
+                //DataReader para recuperar los datos de la DB
+                SqlDataReader drUsuario = cmdUsuarios.ExecuteReader();
+
+                //Read() lee una fila de las devueltas por el commandSql, devuelve true mientras pueda leer datos
+                if (drUsuario.Read())
+                {
+                    auth = true;
+
+                }
+                drUsuario.Close();
+            }
+            catch (Exception Ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al loguear usuario", Ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return auth;
+        }
     }
 }
