@@ -52,6 +52,24 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuCursos.Designer.cs">
+      <DependentUpon>MenuCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuAcademia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAcademia.Designer.cs">
+      <DependentUpon>MenuAcademia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPpal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPpal.Designer.cs">
+      <DependentUpon>MenuPpal.cs</DependentUpon>
+    </Compile>
     <Compile Include="formLogin.cs">
       <SubType>Form</SubType>
     </Compile>

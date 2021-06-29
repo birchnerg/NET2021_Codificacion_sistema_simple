@@ -19,7 +19,7 @@ namespace UI.Desktop
             //Application.Run(new Usuarios());
             //Application.Run(new Personas());
             //Application.Run(new Especialidades());
-            Application.Run(new formLogin());
+            Application.Run(new MenuPpal());
 
         }
     }
