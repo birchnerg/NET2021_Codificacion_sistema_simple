@@ -176,7 +176,7 @@ namespace UI.Desktop
             // 
             // id_comision
             // 
-            this.id_comision.DataPropertyName = "id_comision";
+            this.id_comision.DataPropertyName = "ID";
             this.id_comision.HeaderText = "ID";
             this.id_comision.MinimumWidth = 6;
             this.id_comision.Name = "id_comision";
@@ -185,7 +185,7 @@ namespace UI.Desktop
             // 
             // descripcion
             // 
-            this.descripcion.DataPropertyName = "desc_comision";
+            this.descripcion.DataPropertyName = "Descripcion";
             this.descripcion.HeaderText = "Descripción";
             this.descripcion.MinimumWidth = 6;
             this.descripcion.Name = "descripcion";
@@ -194,7 +194,7 @@ namespace UI.Desktop
             // 
             // anio_especialidad
             // 
-            this.anio_especialidad.DataPropertyName = "anio_especialidad";
+            this.anio_especialidad.DataPropertyName = "AnioEspecialidad";
             this.anio_especialidad.HeaderText = "Año Especialidad";
             this.anio_especialidad.MinimumWidth = 6;
             this.anio_especialidad.Name = "anio_especialidad";
@@ -203,7 +203,7 @@ namespace UI.Desktop
             // 
             // id_plan
             // 
-            this.id_plan.DataPropertyName = "id_plan";
+            this.id_plan.DataPropertyName = "IDPlan";
             this.id_plan.HeaderText = "Id Plan";
             this.id_plan.MinimumWidth = 6;
             this.id_plan.Name = "id_plan";

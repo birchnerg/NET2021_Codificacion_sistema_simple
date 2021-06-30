@@ -128,6 +128,9 @@ namespace Data.Database
                 if (drComision.Read())
                 {
                     com.ID = (int)drComision["id_comision"];
+                    com.Descripcion = (string)drComision["desc_comision"];
+                    com.AnioEspecialidad = (int)drComision["anio_especialidad"];
+                    com.IDPlan = (int)drComision["id_plan"];
                     //usr.NombreComision = (string)drComision["nombre_comision"];
                     //usr.Clave = (string)drUsuario["clave"];
                     //usr.Habilitado = (bool)drUsuario["habilitado"];
@@ -180,7 +183,7 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("UPDATE comisiones SET desc_comision = @desc_comision," +
-                    "anio_especialidad = @anio_especialidad, id_plan = @id_plan WHERE id_comision  = @id",sqlConn);
+                    "anio_especialidad = @anio_especialidad, id_plan = @id_plan WHERE id_comision  = @id_comision",sqlConn);
 
                 cmdSave.Parameters.Add("@id_comision", SqlDbType.Int).Value = comision.ID;
                 cmdSave.Parameters.Add("@desc_comision", SqlDbType.VarChar, 50).Value = comision.Descripcion;
@@ -205,8 +208,8 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO comisiones (desc_comision,anio_especialidad,id_plan) +" +
-                    " VALUES(@desc_comision,@anio_especialidad," +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO comisiones (desc_comision,anio_especialidad,id_plan) VALUES" +
+                    "(@desc_comision,@anio_especialidad," +
                     "@id_plan)" +
                     "SELECT @@identity", //Recupera el ID que asigno el SQL automaticamente
                     sqlConn);
@@ -215,6 +218,9 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@desc_comision", SqlDbType.VarChar, 50).Value = comision.Descripcion;
                 cmdSave.Parameters.Add("@anio_especialidad", SqlDbType.Int).Value = comision.AnioEspecialidad;
                 cmdSave.Parameters.Add("@id_plan", SqlDbType.Int).Value = comision.IDPlan;
+                //asi se obtiene el id que se asigno al DB automaticamente
+
+                comision.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //asi se obtiene el id que se asigno al DB automaticamente
             }
             catch (Exception Ex)
