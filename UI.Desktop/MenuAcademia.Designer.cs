@@ -72,6 +72,7 @@ namespace UI.Desktop
             this.btnComisiones.TabIndex = 0;
             this.btnComisiones.Text = "Comisiones";
             this.btnComisiones.UseVisualStyleBackColor = true;
+            this.btnComisiones.Click += new System.EventHandler(this.btnComisiones_Click);
             // 
             // lblTitulo
             // 
@@ -102,6 +103,7 @@ namespace UI.Desktop
             this.btnPlanes.TabIndex = 3;
             this.btnPlanes.Text = "Planes";
             this.btnPlanes.UseVisualStyleBackColor = true;
+            this.btnPlanes.Click += new System.EventHandler(this.btnPlanes_Click);
             // 
             // btnEspecialidad
             // 
@@ -111,6 +113,7 @@ namespace UI.Desktop
             this.btnEspecialidad.TabIndex = 4;
             this.btnEspecialidad.Text = "Especialidad";
             this.btnEspecialidad.UseVisualStyleBackColor = true;
+            this.btnEspecialidad.Click += new System.EventHandler(this.btnEspecialidad_Click);
             // 
             // btnSalir
             // 

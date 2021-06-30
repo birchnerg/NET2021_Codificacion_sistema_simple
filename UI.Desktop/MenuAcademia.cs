@@ -21,5 +21,23 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void btnComisiones_Click(object sender, EventArgs e)
+        {
+            Comisiones formComisiones = new Comisiones();
+            formComisiones.ShowDialog();
+        }
+
+        private void btnPlanes_Click(object sender, EventArgs e)
+        {
+            Planes formPlanes = new Planes();
+            formPlanes.ShowDialog();
+        }
+
+        private void btnEspecialidad_Click(object sender, EventArgs e)
+        {
+            Especialidades formEspecialidades = new Especialidades();
+            formEspecialidades.ShowDialog();
+        }
     }
 }
