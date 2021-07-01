@@ -208,6 +208,7 @@ namespace UI.Desktop
             this.id_plan.MinimumWidth = 6;
             this.id_plan.Name = "id_plan";
             this.id_plan.ReadOnly = true;
+            this.id_plan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.id_plan.Width = 60;
             // 
             // Comisiones

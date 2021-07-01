@@ -17,7 +17,22 @@ namespace UI.Desktop
         public ComisionDesktop()
         {
             InitializeComponent();
+            //PlanLogic p = new PlanLogic();
+            //List<Plan> plan = p.GetAll();
+            //DataTable planes = new DataTable();
+            //planes.Columns.Add("id_plan", typeof(int));
+            //planes.Columns.Add("desc_plan", typeof(string));
+            //foreach (var e in plan)
+            //{
+            //    planes.Rows.Add(new object[] { e.ID, e.Descripcion });
+            //}
+            //this.boxPlan.DataSource = planes;
+            //this.boxPlan.ValueMember = "id_plan";
+            //this.boxPlan.DisplayMember = "id_plan";
+            //this.boxPlan.SelectedIndex = -1;
         }
+
+
 
         public ComisionDesktop(ModoForm modo):this() 
         {
@@ -44,7 +59,8 @@ namespace UI.Desktop
             this.txtID.Text = this.ComisionActual.ID.ToString();
             this.txtDescripcion.Text = this.ComisionActual.Descripcion;
             this.txtAnioEspecialidad.Text = this.ComisionActual.AnioEspecialidad.ToString();
-            this.txtIdPlan.Text = this.ComisionActual.IDPlan.ToString();
+            //this.boxPlan.SelectedIndex = this.ComisionActual.IDPlan - 1;
+            this.boxPlan.Text = this.ComisionActual.IDPlan.ToString();
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -53,6 +69,9 @@ namespace UI.Desktop
                     break;
                 case ModoForm.Baja:
                     this.btnAceptar.Text = "Eliminar";
+                    this.txtDescripcion.Enabled = false;
+                    this.txtAnioEspecialidad.Enabled = false;
+                    this.boxPlan.Enabled = false;
                     break;
                 case ModoForm.Consulta:
                     this.btnAceptar.Text = "Aceptar";
@@ -67,14 +86,14 @@ namespace UI.Desktop
                     ComisionActual = new Comision();
                     ComisionActual.Descripcion = this.txtDescripcion.Text;
                     ComisionActual.AnioEspecialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
-                    ComisionActual.IDPlan = Int32.Parse(this.txtIdPlan.Text);
+                    ComisionActual.IDPlan = this.boxPlan.SelectedIndex + 1;
            
                     ComisionActual.State = BusinessEntity.States.New;
                     break;
                 case ModoForm.Modificacion:
                     ComisionActual.Descripcion = this.txtDescripcion.Text;
                     ComisionActual.AnioEspecialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
-                    ComisionActual.IDPlan = Int32.Parse(this.txtIdPlan.Text);
+                    ComisionActual.IDPlan = this.boxPlan.SelectedIndex + 1;
                     ComisionActual.State = BusinessEntity.States.Modified;
                     break;
             }
@@ -94,9 +113,20 @@ namespace UI.Desktop
         }
         public override bool Validar() 
         {
-            if (string.IsNullOrEmpty(this.txtDescripcion.Text) || string.IsNullOrEmpty(this.txtAnioEspecialidad.Text) || string.IsNullOrEmpty(this.txtIdPlan.Text))
+            int i;
+            if (string.IsNullOrEmpty(this.txtDescripcion.Text) || string.IsNullOrEmpty(this.txtAnioEspecialidad.Text))
             {
                 Notificar("Error", "Campos vacíos. Por favor complételos.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (!int.TryParse(this.txtAnioEspecialidad.Text, out i))
+            {
+                Notificar("Error", "Año especialidad incorrecto. Por favor ingrese un año válido.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (this.boxPlan.SelectedIndex == -1)
+            {
+                Notificar("Error", "Plan no indicado. Por favor seleccione una.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else return true;
@@ -118,6 +148,15 @@ namespace UI.Desktop
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void ComisionDesktop_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'tp2_netDataSet.planes' Puede moverla o quitarla según sea necesario.
+            this.planesTableAdapter1.Fill(this.tp2_netDataSet.planes);
+            // TODO: esta línea de código carga datos en la tabla 'tp2_netDataSet1.planes' Puede moverla o quitarla según sea necesario.
+            this.planesTableAdapter.Fill(this.tp2_netDataSet1.planes);
 
         }
     }

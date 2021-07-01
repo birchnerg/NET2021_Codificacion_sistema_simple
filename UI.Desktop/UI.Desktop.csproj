@@ -117,6 +117,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>tp2_netDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="tp2_netDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tp2_netDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UsuarioDesktop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +150,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLogin.resx">
+      <DependentUpon>formLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuAcademia.resx">
       <DependentUpon>MenuAcademia.cs</DependentUpon>
@@ -210,6 +218,17 @@
     </None>
     <None Include="tp2_netDataSet.xss">
       <DependentUpon>tp2_netDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="tp2_netDataSet1.xsc">
+      <DependentUpon>tp2_netDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="tp2_netDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>tp2_netDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="tp2_netDataSet1.xss">
+      <DependentUpon>tp2_netDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

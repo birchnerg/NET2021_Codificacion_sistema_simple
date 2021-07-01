@@ -29,18 +29,29 @@ namespace UI.Desktop
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtAnioEspecialidad = new System.Windows.Forms.TextBox();
-            this.txtIdPlan = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.boxPlan = new System.Windows.Forms.ComboBox();
+            this.planesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tp2_netDataSet1 = new UI.Desktop.tp2_netDataSet1();
+            this.planesTableAdapter = new UI.Desktop.tp2_netDataSet1TableAdapters.planesTableAdapter();
+            this.tp2_netDataSet = new UI.Desktop.tp2_netDataSet();
+            this.planesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.planesTableAdapter1 = new UI.Desktop.tp2_netDataSetTableAdapters.planesTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -49,17 +60,17 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.55556F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.44444F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtAnioEspecialidad, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtIdPlan, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.boxPlan, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -74,7 +85,7 @@ namespace UI.Desktop
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(147, 3);
+            this.txtID.Location = new System.Drawing.Point(144, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(167, 20);
@@ -82,14 +93,14 @@ namespace UI.Desktop
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(147, 28);
+            this.txtDescripcion.Location = new System.Drawing.Point(144, 28);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(167, 20);
             this.txtDescripcion.TabIndex = 3;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(333, 102);
+            this.btnAceptar.Location = new System.Drawing.Point(328, 102);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 26);
             this.btnAceptar.TabIndex = 15;
@@ -99,7 +110,7 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(417, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(412, 102);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 26);
             this.btnCancelar.TabIndex = 16;
@@ -109,17 +120,10 @@ namespace UI.Desktop
             // 
             // txtAnioEspecialidad
             // 
-            this.txtAnioEspecialidad.Location = new System.Drawing.Point(147, 53);
+            this.txtAnioEspecialidad.Location = new System.Drawing.Point(144, 53);
             this.txtAnioEspecialidad.Name = "txtAnioEspecialidad";
             this.txtAnioEspecialidad.Size = new System.Drawing.Size(167, 20);
             this.txtAnioEspecialidad.TabIndex = 7;
-            // 
-            // txtIdPlan
-            // 
-            this.txtIdPlan.Location = new System.Drawing.Point(147, 77);
-            this.txtIdPlan.Name = "txtIdPlan";
-            this.txtIdPlan.Size = new System.Drawing.Size(167, 20);
-            this.txtIdPlan.TabIndex = 11;
             // 
             // label1
             // 
@@ -158,6 +162,46 @@ namespace UI.Desktop
             this.label4.TabIndex = 10;
             this.label4.Text = "ID Plan";
             // 
+            // boxPlan
+            // 
+            this.boxPlan.DataSource = this.planesBindingSource1;
+            this.boxPlan.DisplayMember = "desc_plan";
+            this.boxPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.boxPlan.FormattingEnabled = true;
+            this.boxPlan.Location = new System.Drawing.Point(144, 77);
+            this.boxPlan.Name = "boxPlan";
+            this.boxPlan.Size = new System.Drawing.Size(167, 21);
+            this.boxPlan.TabIndex = 17;
+            this.boxPlan.ValueMember = "id_plan";
+            // 
+            // planesBindingSource
+            // 
+            this.planesBindingSource.DataMember = "planes";
+            this.planesBindingSource.DataSource = this.tp2_netDataSet1;
+            // 
+            // tp2_netDataSet1
+            // 
+            this.tp2_netDataSet1.DataSetName = "tp2_netDataSet1";
+            this.tp2_netDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // planesTableAdapter
+            // 
+            this.planesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tp2_netDataSet
+            // 
+            this.tp2_netDataSet.DataSetName = "tp2_netDataSet";
+            this.tp2_netDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // planesBindingSource1
+            // 
+            this.planesBindingSource1.DataMember = "planes";
+            this.planesBindingSource1.DataSource = this.tp2_netDataSet;
+            // 
+            // planesTableAdapter1
+            // 
+            this.planesTableAdapter1.ClearBeforeFill = true;
+            // 
             // ComisionDesktop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,8 +210,13 @@ namespace UI.Desktop
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ComisionDesktop";
             this.Text = "ComisionDesktop";
+            this.Load += new System.EventHandler(this.ComisionDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,7 +232,13 @@ namespace UI.Desktop
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtAnioEspecialidad;
-        private System.Windows.Forms.TextBox txtIdPlan;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.ComboBox boxPlan;
+        private tp2_netDataSet1 tp2_netDataSet1;
+        private System.Windows.Forms.BindingSource planesBindingSource;
+        private tp2_netDataSet1TableAdapters.planesTableAdapter planesTableAdapter;
+        private tp2_netDataSet tp2_netDataSet;
+        private System.Windows.Forms.BindingSource planesBindingSource1;
+        private tp2_netDataSetTableAdapters.planesTableAdapter planesTableAdapter1;
     }
 }
