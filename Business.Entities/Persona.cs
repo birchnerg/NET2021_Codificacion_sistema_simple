@@ -70,6 +70,13 @@ namespace Business.Entities
             set { _TiposPersonas = (TipoPersonas)value; }
         }
 
+        // Retorno del TipoPersonas como String para poder mostrarlo
+        public string TipoPersonasString
+        {
+            get { return _TiposPersonas.ToString(); }
+            set { _TiposPersonas = (TipoPersonas)Enum.Parse(typeof(TipoPersonas), value, true); }
+        }
+
         public enum TipoPersonas
         {
             Juridica = 0,

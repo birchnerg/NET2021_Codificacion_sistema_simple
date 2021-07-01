@@ -39,8 +39,7 @@ namespace Data.Database
                     per.FechaNacimiento = (DateTime)drPersona["fecha_nac"];
                     per.Legajo = (int)drPersona["legajo"];
                     per.IDPlan = (int)drPersona["id_plan"];
-                    per.TipoPersonasInt = (int)drPersona["tipo_persona"];
-
+                    per.TipoPersonasString = Enum.GetName(typeof(Persona.TipoPersonas),drPersona["tipo_persona"]);
                     personas.Add(per);
                 }
                 drPersona.Close();
