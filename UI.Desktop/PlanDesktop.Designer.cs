@@ -145,6 +145,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(291, 116);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PlanDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlanDesktop";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

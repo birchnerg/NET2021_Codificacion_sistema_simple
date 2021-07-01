@@ -17,19 +17,19 @@ namespace UI.Desktop
         public ComisionDesktop()
         {
             InitializeComponent();
-            //PlanLogic p = new PlanLogic();
-            //List<Plan> plan = p.GetAll();
-            //DataTable planes = new DataTable();
-            //planes.Columns.Add("id_plan", typeof(int));
-            //planes.Columns.Add("desc_plan", typeof(string));
-            //foreach (var e in plan)
-            //{
-            //    planes.Rows.Add(new object[] { e.ID, e.Descripcion });
-            //}
-            //this.boxPlan.DataSource = planes;
-            //this.boxPlan.ValueMember = "id_plan";
-            //this.boxPlan.DisplayMember = "id_plan";
-            //this.boxPlan.SelectedIndex = -1;
+            PlanLogic p = new PlanLogic();
+            List<Plan> plan = p.GetAll();
+            DataTable planes = new DataTable();
+            planes.Columns.Add("id_plan", typeof(int));
+            planes.Columns.Add("desc_plan", typeof(string));
+            foreach (var e in plan)
+            {
+                planes.Rows.Add(new object[] { e.ID, e.Descripcion });
+            }
+            this.boxPlan.DataSource = planes;
+            this.boxPlan.ValueMember = "id_plan";
+            this.boxPlan.DisplayMember = "id_plan";
+            this.boxPlan.SelectedIndex = -1;
         }
 
 
@@ -153,11 +153,11 @@ namespace UI.Desktop
 
         private void ComisionDesktop_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'tp2_netDataSet.planes' Puede moverla o quitarla según sea necesario.
+ /*           // TODO: esta línea de código carga datos en la tabla 'tp2_netDataSet.planes' Puede moverla o quitarla según sea necesario.
             this.planesTableAdapter1.Fill(this.tp2_netDataSet.planes);
             // TODO: esta línea de código carga datos en la tabla 'tp2_netDataSet1.planes' Puede moverla o quitarla según sea necesario.
             this.planesTableAdapter.Fill(this.tp2_netDataSet1.planes);
-
+ */
         }
     }
 }

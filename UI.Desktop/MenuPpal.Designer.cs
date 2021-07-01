@@ -134,6 +134,7 @@ namespace UI.Desktop
             this.Controls.Add(this.tlMenu);
             this.IsMdiContainer = true;
             this.Name = "MenuPpal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Shown += new System.EventHandler(this.MenuPpal_Shown);
             this.tlMenu.ResumeLayout(false);

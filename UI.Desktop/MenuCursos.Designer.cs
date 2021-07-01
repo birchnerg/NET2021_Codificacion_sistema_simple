@@ -132,6 +132,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(358, 272);
             this.Controls.Add(this.tlMenu);
             this.Name = "MenuCursos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuCursos";
             this.tlMenu.ResumeLayout(false);
             this.tlMenu.PerformLayout();
