@@ -41,17 +41,17 @@ namespace UI.Desktop
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.boxPlan = new System.Windows.Forms.ComboBox();
+            this.planesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tp2_netDataSet = new UI.Desktop.tp2_netDataSet();
             this.planesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tp2_netDataSet1 = new UI.Desktop.tp2_netDataSet1();
             this.planesTableAdapter = new UI.Desktop.tp2_netDataSet1TableAdapters.planesTableAdapter();
-            this.tp2_netDataSet = new UI.Desktop.tp2_netDataSet();
-            this.planesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.planesTableAdapter1 = new UI.Desktop.tp2_netDataSetTableAdapters.planesTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -60,7 +60,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.55556F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.44444F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 4);
@@ -100,7 +100,7 @@ namespace UI.Desktop
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(328, 102);
+            this.btnAceptar.Location = new System.Drawing.Point(326, 102);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 26);
             this.btnAceptar.TabIndex = 15;
@@ -110,7 +110,7 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(412, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(410, 102);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 26);
             this.btnCancelar.TabIndex = 16;
@@ -174,6 +174,16 @@ namespace UI.Desktop
             this.boxPlan.TabIndex = 17;
             this.boxPlan.ValueMember = "id_plan";
             // 
+            // planesBindingSource1
+            // 
+            this.planesBindingSource1.DataMember = "planes";
+            this.planesBindingSource1.DataSource = this.tp2_netDataSet;
+            // 
+            // tp2_netDataSet
+            // 
+            this.tp2_netDataSet.DataSetName = "tp2_netDataSet";
+            this.tp2_netDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // planesBindingSource
             // 
             this.planesBindingSource.DataMember = "planes";
@@ -188,16 +198,6 @@ namespace UI.Desktop
             // 
             this.planesTableAdapter.ClearBeforeFill = true;
             // 
-            // tp2_netDataSet
-            // 
-            this.tp2_netDataSet.DataSetName = "tp2_netDataSet";
-            this.tp2_netDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // planesBindingSource1
-            // 
-            this.planesBindingSource1.DataMember = "planes";
-            this.planesBindingSource1.DataSource = this.tp2_netDataSet;
-            // 
             // planesTableAdapter1
             // 
             this.planesTableAdapter1.ClearBeforeFill = true;
@@ -209,14 +209,15 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(511, 136);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ComisionDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ComisionDesktop";
             this.Load += new System.EventHandler(this.ComisionDesktop_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tp2_netDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.planesBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

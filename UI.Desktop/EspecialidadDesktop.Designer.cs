@@ -122,6 +122,7 @@ namespace UI.Desktop
             this.ClientSize = new System.Drawing.Size(303, 235);
             this.Controls.Add(this.tlEspecialidad);
             this.Name = "EspecialidadDesktop";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EspecialidadDesktop";
             this.Load += new System.EventHandler(this.EspecialidadDesktop_Load);
             this.tlEspecialidad.ResumeLayout(false);
