@@ -79,8 +79,9 @@ namespace Business.Entities
 
         public enum TipoPersonas
         {
-            Juridica = 0,
-            Fisica = 1
+            Alumno = 0,
+            Docente = 1,
+            NoDocente = 2
         }
     }
 }
