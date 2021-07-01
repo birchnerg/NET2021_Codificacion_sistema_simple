@@ -64,7 +64,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.71287F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.28713F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 194F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 196F));
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtNombre, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txtEmail, 1, 2);
@@ -102,30 +102,30 @@ namespace UI.Desktop
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(71, 3);
+            this.txtID.Location = new System.Drawing.Point(70, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(162, 20);
+            this.txtID.Size = new System.Drawing.Size(161, 20);
             this.txtID.TabIndex = 1;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(71, 28);
+            this.txtNombre.Location = new System.Drawing.Point(70, 28);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(162, 20);
+            this.txtNombre.Size = new System.Drawing.Size(161, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(71, 53);
+            this.txtEmail.Location = new System.Drawing.Point(70, 53);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(162, 20);
+            this.txtEmail.Size = new System.Drawing.Size(161, 20);
             this.txtEmail.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(239, 25);
+            this.label5.Location = new System.Drawing.Point(237, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 4;
@@ -134,7 +134,7 @@ namespace UI.Desktop
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(239, 50);
+            this.label6.Location = new System.Drawing.Point(237, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 8;
@@ -142,14 +142,14 @@ namespace UI.Desktop
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(313, 28);
+            this.txtApellido.Location = new System.Drawing.Point(311, 28);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(173, 20);
             this.txtApellido.TabIndex = 2;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(313, 53);
+            this.txtDireccion.Location = new System.Drawing.Point(311, 53);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(173, 20);
             this.txtDireccion.TabIndex = 4;
@@ -192,16 +192,16 @@ namespace UI.Desktop
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(70, 80);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefono.Location = new System.Drawing.Point(69, 80);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(164, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(163, 20);
             this.txtTelefono.TabIndex = 5;
             // 
             // txtLegajo
             // 
-            this.txtLegajo.Location = new System.Drawing.Point(312, 80);
-            this.txtLegajo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLegajo.Location = new System.Drawing.Point(310, 80);
+            this.txtLegajo.Margin = new System.Windows.Forms.Padding(2);
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(174, 20);
             this.txtLegajo.TabIndex = 6;
@@ -209,7 +209,7 @@ namespace UI.Desktop
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(238, 0);
+            this.label8.Location = new System.Drawing.Point(236, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(42, 13);
@@ -219,7 +219,7 @@ namespace UI.Desktop
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(239, 78);
+            this.label7.Location = new System.Drawing.Point(237, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 12;
@@ -227,7 +227,7 @@ namespace UI.Desktop
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(239, 136);
+            this.btnAceptar.Location = new System.Drawing.Point(237, 136);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(68, 26);
             this.btnAceptar.TabIndex = 9;
@@ -237,7 +237,7 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(313, 136);
+            this.btnCancelar.Location = new System.Drawing.Point(311, 136);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 26);
             this.btnCancelar.TabIndex = 10;
@@ -257,16 +257,16 @@ namespace UI.Desktop
             // 
             // dtpFechaNacimiento
             // 
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(70, 106);
-            this.dtpFechaNacimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(69, 106);
+            this.dtpFechaNacimiento.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(164, 20);
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(163, 20);
             this.dtpFechaNacimiento.TabIndex = 7;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(238, 104);
+            this.label10.Location = new System.Drawing.Point(236, 104);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 26);
@@ -276,8 +276,8 @@ namespace UI.Desktop
             // cmboTipoPersona
             // 
             this.cmboTipoPersona.FormattingEnabled = true;
-            this.cmboTipoPersona.Location = new System.Drawing.Point(312, 106);
-            this.cmboTipoPersona.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmboTipoPersona.Location = new System.Drawing.Point(310, 106);
+            this.cmboTipoPersona.Margin = new System.Windows.Forms.Padding(2);
             this.cmboTipoPersona.Name = "cmboTipoPersona";
             this.cmboTipoPersona.Size = new System.Drawing.Size(174, 21);
             this.cmboTipoPersona.TabIndex = 8;
@@ -285,8 +285,8 @@ namespace UI.Desktop
             // cmboIDPaln
             // 
             this.cmboIDPaln.FormattingEnabled = true;
-            this.cmboIDPaln.Location = new System.Drawing.Point(312, 2);
-            this.cmboIDPaln.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmboIDPaln.Location = new System.Drawing.Point(310, 2);
+            this.cmboIDPaln.Margin = new System.Windows.Forms.Padding(2);
             this.cmboIDPaln.Name = "cmboIDPaln";
             this.cmboIDPaln.Size = new System.Drawing.Size(174, 21);
             this.cmboIDPaln.TabIndex = 24;

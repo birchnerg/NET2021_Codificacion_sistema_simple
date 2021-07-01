@@ -28,8 +28,15 @@ namespace UI.Desktop
         {
             Modo = modo;
             UsuarioLogic usuario = new UsuarioLogic();
-            UsuarioActual = usuario.GetOne(ID);
-            MapearDeDatos();
+            try
+            {
+                UsuarioActual = usuario.GetOne(ID);
+                MapearDeDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private Usuario _usuario;
@@ -94,11 +101,25 @@ namespace UI.Desktop
             UsuarioLogic u = new UsuarioLogic();
             if (this.Modo == ModoForm.Baja)
             {
-                u.Delete(UsuarioActual.ID);
+                try
+                {
+                    u.Delete(UsuarioActual.ID);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }               
             }
             else
             {
-                u.Save(UsuarioActual);
+                try
+                {
+                    u.Save(UsuarioActual);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }                
             }
         }
         public override bool Validar() 

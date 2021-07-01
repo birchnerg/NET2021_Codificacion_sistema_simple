@@ -26,8 +26,15 @@ namespace UI.Desktop
         {
             Modo = modo;
             EspecialidadLogic especialidad = new EspecialidadLogic();
-            EspecialidadActual = especialidad.GetOne(ID);
-            MapearDeDatos();
+            try
+            {
+                EspecialidadActual = especialidad.GetOne(ID);
+                MapearDeDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private Especialidad _especialidad;
         public Especialidad EspecialidadActual
@@ -75,11 +82,25 @@ namespace UI.Desktop
             EspecialidadLogic esp = new EspecialidadLogic();
             if (this.Modo == ModoForm.Baja)
             {
-                esp.Delete(EspecialidadActual.ID);
+                try
+                {
+                    esp.Delete(EspecialidadActual.ID);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
-                esp.Save(EspecialidadActual);
+                try
+                {
+                    esp.Save(EspecialidadActual);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         public override bool Validar()

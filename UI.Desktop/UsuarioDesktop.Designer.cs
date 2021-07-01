@@ -56,7 +56,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.11111F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.88889F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.tableLayoutPanel1.Controls.Add(this.chkHabilitado, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtNombre, 1, 1);
@@ -88,7 +88,7 @@ namespace UI.Desktop
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(230, 3);
+            this.chkHabilitado.Location = new System.Drawing.Point(229, 3);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 14;
@@ -101,19 +101,19 @@ namespace UI.Desktop
             this.txtID.Location = new System.Drawing.Point(55, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(169, 20);
+            this.txtID.Size = new System.Drawing.Size(168, 20);
             this.txtID.TabIndex = 1;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(55, 28);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(169, 20);
+            this.txtNombre.Size = new System.Drawing.Size(168, 20);
             this.txtNombre.TabIndex = 3;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(230, 102);
+            this.btnAceptar.Location = new System.Drawing.Point(229, 102);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 26);
             this.btnAceptar.TabIndex = 15;
@@ -123,7 +123,7 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(318, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(317, 102);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 26);
             this.btnCancelar.TabIndex = 16;
@@ -135,20 +135,20 @@ namespace UI.Desktop
             // 
             this.txtEmail.Location = new System.Drawing.Point(55, 53);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(169, 20);
+            this.txtEmail.Size = new System.Drawing.Size(168, 20);
             this.txtEmail.TabIndex = 7;
             // 
             // txtClave
             // 
             this.txtClave.Location = new System.Drawing.Point(55, 77);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(169, 20);
+            this.txtClave.Size = new System.Drawing.Size(168, 20);
             this.txtClave.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(230, 25);
+            this.label5.Location = new System.Drawing.Point(229, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 4;
@@ -157,7 +157,7 @@ namespace UI.Desktop
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(230, 50);
+            this.label6.Location = new System.Drawing.Point(229, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 8;
@@ -166,7 +166,7 @@ namespace UI.Desktop
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(230, 74);
+            this.label7.Location = new System.Drawing.Point(229, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 12;
@@ -174,21 +174,21 @@ namespace UI.Desktop
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(318, 28);
+            this.txtApellido.Location = new System.Drawing.Point(317, 28);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(173, 20);
             this.txtApellido.TabIndex = 5;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(318, 53);
+            this.txtUsuario.Location = new System.Drawing.Point(317, 53);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(173, 20);
             this.txtUsuario.TabIndex = 9;
             // 
             // txtConfirmarClave
             // 
-            this.txtConfirmarClave.Location = new System.Drawing.Point(318, 77);
+            this.txtConfirmarClave.Location = new System.Drawing.Point(317, 77);
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.Size = new System.Drawing.Size(173, 20);
             this.txtConfirmarClave.TabIndex = 13;

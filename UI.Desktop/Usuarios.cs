@@ -26,9 +26,9 @@ namespace UI.Desktop
             {
                 this.dgvUsuarios.DataSource = u1.GetAll();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 

@@ -22,18 +22,25 @@ namespace UI.Desktop
                 this.cmboTipoPersona.Items.Add(item);
             }
             PlanLogic p = new PlanLogic();
-            List<Plan> plan = p.GetAll();
-            DataTable planes = new DataTable();
-            planes.Columns.Add("id_plan", typeof(int));
-            planes.Columns.Add("desc_plan", typeof(string));
-            foreach (var e in plan)
+            try
             {
-                planes.Rows.Add(new object[] { e.ID, e.Descripcion });
+                List<Plan> plan = p.GetAll();
+                DataTable planes = new DataTable();
+                planes.Columns.Add("id_plan", typeof(int));
+                planes.Columns.Add("desc_plan", typeof(string));
+                foreach (var e in plan)
+                {
+                    planes.Rows.Add(new object[] { e.ID, e.Descripcion });
+                }
+                this.cmboIDPaln.DataSource = planes;
+                this.cmboIDPaln.ValueMember = "id_plan";
+                this.cmboIDPaln.DisplayMember = "id_plan";
+                this.cmboIDPaln.SelectedIndex = -1;
             }
-            this.cmboIDPaln.DataSource = planes;
-            this.cmboIDPaln.ValueMember = "id_plan";
-            this.cmboIDPaln.DisplayMember = "id_plan";
-            this.cmboIDPaln.SelectedIndex = -1;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public PersonaDesktop(ModoForm modo):this() 
@@ -45,7 +52,14 @@ namespace UI.Desktop
         {
             Modo = modo;
             PersonaLogic persona = new PersonaLogic();
-            PersonaActual = persona.GetOne(ID);
+            try
+            {
+                PersonaActual = persona.GetOne(ID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             MapearDeDatos();
         }
 
@@ -128,11 +142,25 @@ namespace UI.Desktop
             PersonaLogic u = new PersonaLogic();
             if (this.Modo == ModoForm.Baja)
             {
-                u.Delete(PersonaActual.ID);
+                try
+                {
+                    u.Delete(PersonaActual.ID);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
-                u.Save(PersonaActual);
+                try
+                {
+                    u.Save(PersonaActual);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         public override bool Validar() 

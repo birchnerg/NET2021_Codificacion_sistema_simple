@@ -60,7 +60,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.55556F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.44444F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 4);
@@ -85,7 +85,7 @@ namespace UI.Desktop
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(144, 3);
+            this.txtID.Location = new System.Drawing.Point(143, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(167, 20);
@@ -93,14 +93,14 @@ namespace UI.Desktop
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(144, 28);
+            this.txtDescripcion.Location = new System.Drawing.Point(143, 28);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(167, 20);
             this.txtDescripcion.TabIndex = 3;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(326, 102);
+            this.btnAceptar.Location = new System.Drawing.Point(324, 102);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 26);
             this.btnAceptar.TabIndex = 15;
@@ -110,7 +110,7 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(410, 102);
+            this.btnCancelar.Location = new System.Drawing.Point(408, 102);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 26);
             this.btnCancelar.TabIndex = 16;
@@ -120,7 +120,7 @@ namespace UI.Desktop
             // 
             // txtAnioEspecialidad
             // 
-            this.txtAnioEspecialidad.Location = new System.Drawing.Point(144, 53);
+            this.txtAnioEspecialidad.Location = new System.Drawing.Point(143, 53);
             this.txtAnioEspecialidad.Name = "txtAnioEspecialidad";
             this.txtAnioEspecialidad.Size = new System.Drawing.Size(167, 20);
             this.txtAnioEspecialidad.TabIndex = 7;
@@ -168,7 +168,7 @@ namespace UI.Desktop
             this.boxPlan.DisplayMember = "desc_plan";
             this.boxPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxPlan.FormattingEnabled = true;
-            this.boxPlan.Location = new System.Drawing.Point(144, 77);
+            this.boxPlan.Location = new System.Drawing.Point(143, 77);
             this.boxPlan.Name = "boxPlan";
             this.boxPlan.Size = new System.Drawing.Size(167, 21);
             this.boxPlan.TabIndex = 17;

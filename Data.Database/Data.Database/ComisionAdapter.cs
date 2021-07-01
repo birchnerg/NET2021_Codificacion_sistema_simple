@@ -97,9 +97,9 @@ namespace Data.Database
                 }
                 drComision.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de comisiones", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -141,9 +141,9 @@ namespace Data.Database
                 }
                 drComision.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la comisión", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la comisión", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -166,9 +166,9 @@ namespace Data.Database
                 //Ejecutamos la sentencia
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar la comisión", Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar la comisión", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -192,9 +192,9 @@ namespace Data.Database
 
                 cmdSave.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos de la comisión", Ex);
+                Exception ExcepcionManejada = new Exception("Error al modificar datos de la comisión", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -223,9 +223,9 @@ namespace Data.Database
                 comision.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //asi se obtiene el id que se asigno al DB automaticamente
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear comisión", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear comisión", ex);
                 throw ExcepcionManejada;
             }
             finally
