@@ -39,9 +39,9 @@ namespace UI.Desktop
                     };
                 this.dgvPlanes.DataSource = consultaPlanes.ToList();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show(ex.Message);
             }            
         }
 

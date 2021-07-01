@@ -38,9 +38,9 @@ namespace Data.Database
                 }
                 drPlan.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de planes", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de planes", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -74,9 +74,9 @@ namespace Data.Database
                 }
                 drPlan.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos del plan", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos del plan", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -99,9 +99,9 @@ namespace Data.Database
                 //Ejecutamos la sentencia
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar plan", Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar plan", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -122,9 +122,9 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@id_especialidad", SqlDbType.Int).Value = plan.IDEspecialidad;
                 cmdSave.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del plan", Ex);
+                Exception ExcepcionManejada = new Exception("Error al modificar datos del plan", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -148,9 +148,9 @@ namespace Data.Database
                 plan.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //asi se obtiene el id que se asigno al DB automaticamente
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear plan", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear plan", ex);
                 throw ExcepcionManejada;
             }
             finally

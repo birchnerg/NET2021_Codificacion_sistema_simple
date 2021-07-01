@@ -44,9 +44,9 @@ namespace Data.Database
                 }
                 drPersona.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de personas", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de personas", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -88,9 +88,9 @@ namespace Data.Database
                 }
                 drPersona.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la persona", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de la persona", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -113,9 +113,9 @@ namespace Data.Database
                 //Ejecutamos la sentencia
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar persona", Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar persona", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -147,9 +147,9 @@ namespace Data.Database
 
                 cmdSave.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos de la persona", Ex);
+                Exception ExcepcionManejada = new Exception("Error al modificar datos de la persona", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -183,9 +183,9 @@ namespace Data.Database
                 persona.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //asi se obtiene el id que se asigno al DB automaticamente
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear Persona", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear Persona", ex);
                 throw ExcepcionManejada;
             }
             finally

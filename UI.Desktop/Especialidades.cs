@@ -26,9 +26,9 @@ namespace UI.Desktop
             {
                 this.dvgEspecialidades.DataSource = el.GetAll();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show(ex.Message);
             }            
         }
 

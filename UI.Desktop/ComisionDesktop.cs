@@ -18,18 +18,25 @@ namespace UI.Desktop
         {
             InitializeComponent();
             PlanLogic p = new PlanLogic();
-            List<Plan> plan = p.GetAll();
-            DataTable planes = new DataTable();
-            planes.Columns.Add("id_plan", typeof(int));
-            planes.Columns.Add("desc_plan", typeof(string));
-            foreach (var e in plan)
+            try
             {
-                planes.Rows.Add(new object[] { e.ID, e.Descripcion });
+                List<Plan> plan = p.GetAll();
+                DataTable planes = new DataTable();
+                planes.Columns.Add("id_plan", typeof(int));
+                planes.Columns.Add("desc_plan", typeof(string));
+                foreach (var e in plan)
+                {
+                    planes.Rows.Add(new object[] { e.ID, e.Descripcion });
+                }
+                this.boxPlan.DataSource = planes;
+                this.boxPlan.ValueMember = "id_plan";
+                this.boxPlan.DisplayMember = "id_plan";
+                this.boxPlan.SelectedIndex = -1;
             }
-            this.boxPlan.DataSource = planes;
-            this.boxPlan.ValueMember = "id_plan";
-            this.boxPlan.DisplayMember = "id_plan";
-            this.boxPlan.SelectedIndex = -1;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -39,12 +46,19 @@ namespace UI.Desktop
             Modo = modo;
         }
 
-        public ComisionDesktop(int ID, ModoForm modo):this() 
+        public ComisionDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
             ComisionLogic comision = new ComisionLogic();
-            ComisionActual = comision.GetOne(ID);
-            MapearDeDatos();
+            try
+            { 
+                ComisionActual = comision.GetOne(ID);
+                MapearDeDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private Comision _comision;
@@ -104,11 +118,25 @@ namespace UI.Desktop
             ComisionLogic c = new ComisionLogic();
             if (this.Modo == ModoForm.Baja)
             {
-                c.Delete(ComisionActual.ID);
+                try
+                {
+                    c.Delete(ComisionActual.ID);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
-                c.Save(ComisionActual);
+                try
+                {
+                    c.Save(ComisionActual);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         public override bool Validar() 

@@ -94,9 +94,9 @@ namespace Data.Database
                 }
                 drUsuario.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de usuarios", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -135,9 +135,9 @@ namespace Data.Database
                 }
                 drUsuario.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos del usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos del usuario", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -160,9 +160,9 @@ namespace Data.Database
                 //Ejecutamos la sentencia
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar usuario", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -189,9 +189,9 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = usuario.Email;
                 cmdSave.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos del usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al modificar datos del usuario", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -221,9 +221,9 @@ namespace Data.Database
                 usuario.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //asi se obtiene el id que se asigno al DB automaticamente
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear usuario", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -270,9 +270,9 @@ namespace Data.Database
                 }
                 drUsuario.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al loguear usuario", Ex);
+                Exception ExcepcionManejada = new Exception("Error al loguear usuario", ex);
                 throw ExcepcionManejada;
             }
             finally

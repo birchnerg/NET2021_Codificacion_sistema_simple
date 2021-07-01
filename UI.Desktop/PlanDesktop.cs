@@ -18,18 +18,25 @@ namespace UI.Desktop
         {
             InitializeComponent();
             EspecialidadLogic el = new EspecialidadLogic();
-            List<Especialidad> especialidades = el.GetAll();
-            DataTable dtEspecialidad = new DataTable();
-            dtEspecialidad.Columns.Add("id_especialidad", typeof(int));
-            dtEspecialidad.Columns.Add("desc_especialidad", typeof(string));      
-            foreach (var e in especialidades)
+            try
             {
-                dtEspecialidad.Rows.Add(new object[] { e.ID, e.Descripcion });
+                List<Especialidad> especialidades = el.GetAll();
+                DataTable dtEspecialidad = new DataTable();
+                dtEspecialidad.Columns.Add("id_especialidad", typeof(int));
+                dtEspecialidad.Columns.Add("desc_especialidad", typeof(string));
+                foreach (var e in especialidades)
+                {
+                    dtEspecialidad.Rows.Add(new object[] { e.ID, e.Descripcion });
+                }
+                this.boxEspecialidad.DataSource = dtEspecialidad;
+                this.boxEspecialidad.ValueMember = "id_especialidad";
+                this.boxEspecialidad.DisplayMember = "desc_especialidad";
+                this.boxEspecialidad.SelectedIndex = -1;
             }
-            this.boxEspecialidad.DataSource = dtEspecialidad;
-            this.boxEspecialidad.ValueMember = "id_especialidad";
-            this.boxEspecialidad.DisplayMember = "desc_especialidad";
-            this.boxEspecialidad.SelectedIndex = -1;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }           
         }
 
         public PlanDesktop(ModoForm modo) : this()
@@ -41,8 +48,15 @@ namespace UI.Desktop
         {
             Modo = modo;
             PlanLogic plan = new PlanLogic();
-            PlanActual = plan.GetOne(ID);
-            MapearDeDatos();
+            try
+            {
+                PlanActual = plan.GetOne(ID);
+                MapearDeDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private Plan _plan;
@@ -100,12 +114,26 @@ namespace UI.Desktop
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    p.Delete(PlanActual.ID);
+                    try
+                    {
+                        p.Delete(PlanActual.ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
             {
-                p.Save(PlanActual);
+                try
+                {
+                    p.Save(PlanActual);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         public override bool Validar()

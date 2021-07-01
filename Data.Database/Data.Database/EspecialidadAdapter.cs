@@ -38,9 +38,9 @@ namespace Data.Database
                 }
                 drEspecialidad.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar lista de especialidades", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar lista de especialidades", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -72,9 +72,9 @@ namespace Data.Database
                 }
                 drEspecialidad.Close();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al recuperar datos de especialidades", Ex);
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos de especialidades", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -96,9 +96,9 @@ namespace Data.Database
                 //Ejecutamos la sentencia
                 cmdDelete.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al eliminar especialidad", Ex);
+                Exception ExcepcionManejada = new Exception("Error al eliminar especialidad", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -119,9 +119,9 @@ namespace Data.Database
                 cmdSave.Parameters.Add("@descripcion", SqlDbType.VarChar, 50).Value = especialidad.Descripcion;
                 cmdSave.ExecuteNonQuery();
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al modificar datos de especialidad", Ex);
+                Exception ExcepcionManejada = new Exception("Error al modificar datos de especialidad", ex);
                 throw ExcepcionManejada;
             }
             finally
@@ -145,9 +145,9 @@ namespace Data.Database
                 especialidad.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //asi se obtiene el id que se asigno al DB automaticamente
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                Exception ExcepcionManejada = new Exception("Error al crear especialidad", Ex);
+                Exception ExcepcionManejada = new Exception("Error al crear especialidad", ex);
                 throw ExcepcionManejada;
             }
             finally

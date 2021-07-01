@@ -29,9 +29,9 @@ namespace UI.Desktop
             {
                 this.dgvComisiones.DataSource = cl.GetAll(); //Lo reemplazo por la lista debajo
             }
-            catch (Exception Ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show(ex.Message);
             }
 
             
