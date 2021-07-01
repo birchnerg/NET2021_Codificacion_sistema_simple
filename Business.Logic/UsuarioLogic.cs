@@ -24,23 +24,64 @@ namespace Business.Logic
 
         public List<Usuario> GetAll() 
         {
-            return UsuarioData.GetAll();
+            List<Usuario> usuarios = new List<Usuario>();
+            try
+            {
+                usuarios = UsuarioData.GetAll();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return usuarios;
         }
         public Business.Entities.Usuario GetOne(int _id) 
         {
-            return UsuarioData.GetOne(_id);
+            Usuario usu = new Usuario();
+            try
+            {
+                usu = UsuarioData.GetOne(_id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return usu;
         }
         public void Save(Business.Entities.Usuario _usuario) 
         {
-            UsuarioData.Save(_usuario);
+            try
+            {
+                UsuarioData.Save(_usuario);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public void Delete(int _id)
         {
-            UsuarioData.Delete(_id);
+            try
+            {
+                UsuarioData.Delete(_id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public bool Auth(string _usuario, string _clave)
         {
-            return UsuarioData.Auth(_usuario, _clave);
+            bool exito;
+            try
+            {
+                exito = UsuarioData.Auth(_usuario, _clave);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return exito;
         }
     }
 }

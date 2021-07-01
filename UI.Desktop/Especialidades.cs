@@ -21,8 +21,15 @@ namespace UI.Desktop
         }
         public void Listar()
         {
-            EspecialidadLogic el = new EspecialidadLogic();           
-            this.dvgEspecialidades.DataSource = el.GetAll();
+            EspecialidadLogic el = new EspecialidadLogic();
+            try
+            {
+                this.dvgEspecialidades.DataSource = el.GetAll();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }            
         }
 
         private void Especialidades_Load(object sender, EventArgs e)
