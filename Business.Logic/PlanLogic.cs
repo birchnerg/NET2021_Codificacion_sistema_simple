@@ -24,19 +24,51 @@ namespace Business.Logic
 
         public List<Plan> GetAll()
         {
-            return PlanData.GetAll();
+            List<Plan> planes = new List<Plan>();
+            try
+            {
+                planes = PlanData.GetAll();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return planes;
         }
         public Business.Entities.Plan GetOne(int _id)
         {
-            return PlanData.GetOne(_id);
+            Plan pl = new Plan();
+            try
+            {
+                pl = PlanData.GetOne(_id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return pl;
         }
         public void Save(Business.Entities.Plan _plan)
         {
-            PlanData.Save(_plan);
+            try
+            {
+                PlanData.Save(_plan);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public void Delete(int _id)
         {
-            PlanData.Delete(_id);
+            try
+            {
+                PlanData.Delete(_id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

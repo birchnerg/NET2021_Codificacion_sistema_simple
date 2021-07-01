@@ -24,19 +24,51 @@ namespace Business.Logic
 
         public List<Especialidad> GetAll()
         {
-            return EspecialidadData.GetAll();
+            List<Especialidad> especialidades = new List<Especialidad>();
+            try
+            {
+                especialidades = EspecialidadData.GetAll();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return especialidades;
         }
         public Business.Entities.Especialidad GetOne(int _id)
         {
-            return EspecialidadData.GetOne(_id);
+            Especialidad esp = new Especialidad();
+            try
+            {
+                esp = EspecialidadData.GetOne(_id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return esp;
         }
         public void Save(Business.Entities.Especialidad _especialidad)
         {
-            EspecialidadData.Save(_especialidad);
+            try
+            {
+                EspecialidadData.Save(_especialidad);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public void Delete(int _id)
         {
-            EspecialidadData.Delete(_id);
+            try
+            {
+                EspecialidadData.Delete(_id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }            
         }
     }
 }

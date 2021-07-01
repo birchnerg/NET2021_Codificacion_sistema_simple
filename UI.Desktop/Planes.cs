@@ -22,20 +22,27 @@ namespace UI.Desktop
         public void Listar()
         {
             PlanLogic pl = new PlanLogic();
-            List<Plan> planes = pl.GetAll();
             EspecialidadLogic el = new EspecialidadLogic();
-            List<Especialidad> especialidades = el.GetAll();
-            var consultaPlanes =
-                from p in planes
-                join e in especialidades
-                on p.IDEspecialidad equals e.ID
-                select new
-                {
-                    ID = p.ID,
-                    Descripcion = p.Descripcion,
-                    Especialidad = e.Descripcion
-                };
-            this.dgvPlanes.DataSource = consultaPlanes.ToList();
+            try
+            {
+                List<Plan> planes = pl.GetAll();
+                List<Especialidad> especialidades = el.GetAll();
+                var consultaPlanes =
+                    from p in planes
+                    join e in especialidades
+                    on p.IDEspecialidad equals e.ID
+                    select new
+                    {
+                        ID = p.ID,
+                        Descripcion = p.Descripcion,
+                        Especialidad = e.Descripcion
+                    };
+                this.dgvPlanes.DataSource = consultaPlanes.ToList();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }            
         }
 
         private void Planes_Load(object sender, EventArgs e)

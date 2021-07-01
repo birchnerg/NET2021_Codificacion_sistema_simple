@@ -24,19 +24,51 @@ namespace Business.Logic
 
         public List<Comision> GetAll() 
         {
-            return ComisionData.GetAll();
+            List<Comision> comisiones = new List<Comision>();
+            try
+            {
+                comisiones = ComisionData.GetAll();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return comisiones;
         }
         public Business.Entities.Comision GetOne(int _id) 
         {
-            return ComisionData.GetOne(_id);
+            Comision com = new Comision();
+            try
+            {
+                com = ComisionData.GetOne(_id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return com;
         }
         public void Save(Business.Entities.Comision _comision) 
         {
-            ComisionData.Save(_comision);
+            try
+            {
+                ComisionData.Save(_comision);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public void Delete(int _id)
         {
-            ComisionData.Delete(_id);
+            try
+            {
+                ComisionData.Delete(_id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         //public bool Auth(string _usuario, string _clave)
         //{

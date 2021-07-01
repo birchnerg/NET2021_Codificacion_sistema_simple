@@ -22,7 +22,14 @@ namespace UI.Desktop
         public void Listar()
         {
             PersonaLogic u1 = new PersonaLogic();
-            this.dgvPersonas.DataSource = u1.GetAll();
+            try
+            {
+                this.dgvPersonas.DataSource = u1.GetAll();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }            
         }
 
         private void Usuarios_Load(object sender, EventArgs e)

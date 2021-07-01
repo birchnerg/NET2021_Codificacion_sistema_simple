@@ -25,7 +25,15 @@ namespace UI.Desktop
 
             //Obtengo todas las comisiones
             ComisionLogic cl = new ComisionLogic();
-            this.dgvComisiones.DataSource = cl.GetAll(); //Lo reemplazo por la lista debajo
+            try
+            {
+                this.dgvComisiones.DataSource = cl.GetAll(); //Lo reemplazo por la lista debajo
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+
             
             //List<Comision> comisiones = cl.GetAll();
 
