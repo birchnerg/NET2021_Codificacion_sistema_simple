@@ -21,5 +21,11 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void btnCursos_Click(object sender, EventArgs e)
+        {
+            Cursos formCursos = new Cursos();
+            formCursos.ShowDialog();
+        }
     }
 }

@@ -53,6 +53,7 @@ namespace UI.Desktop
             this.tlMenu.Controls.Add(this.btnCursos, 1, 1);
             this.tlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlMenu.Location = new System.Drawing.Point(0, 0);
+            this.tlMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlMenu.Name = "tlMenu";
             this.tlMenu.RowCount = 6;
             this.tlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -61,32 +62,35 @@ namespace UI.Desktop
             this.tlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlMenu.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlMenu.Size = new System.Drawing.Size(358, 272);
+            this.tlMenu.Size = new System.Drawing.Size(477, 335);
             this.tlMenu.TabIndex = 1;
             // 
             // btnAlumno
             // 
-            this.btnAlumno.Location = new System.Drawing.Point(114, 167);
+            this.btnAlumno.Location = new System.Drawing.Point(153, 204);
+            this.btnAlumno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAlumno.Name = "btnAlumno";
-            this.btnAlumno.Size = new System.Drawing.Size(100, 30);
+            this.btnAlumno.Size = new System.Drawing.Size(133, 37);
             this.btnAlumno.TabIndex = 3;
             this.btnAlumno.Text = "Alumno";
             this.btnAlumno.UseVisualStyleBackColor = true;
             // 
             // btnProfesor
             // 
-            this.btnProfesor.Location = new System.Drawing.Point(114, 203);
+            this.btnProfesor.Location = new System.Drawing.Point(153, 249);
+            this.btnProfesor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProfesor.Name = "btnProfesor";
-            this.btnProfesor.Size = new System.Drawing.Size(100, 31);
+            this.btnProfesor.Size = new System.Drawing.Size(133, 38);
             this.btnProfesor.TabIndex = 4;
             this.btnProfesor.Text = "Profesor";
             this.btnProfesor.UseVisualStyleBackColor = true;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(114, 240);
+            this.btnSalir.Location = new System.Drawing.Point(153, 295);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(100, 29);
+            this.btnSalir.Size = new System.Drawing.Size(133, 36);
             this.btnSalir.TabIndex = 5;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -98,9 +102,10 @@ namespace UI.Desktop
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(114, 0);
+            this.label1.Location = new System.Drawing.Point(153, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 118);
+            this.label1.Size = new System.Drawing.Size(171, 142);
             this.label1.TabIndex = 6;
             this.label1.Text = "Bienvenido a la Academia";
             // 
@@ -110,27 +115,31 @@ namespace UI.Desktop
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblInscribir.AutoSize = true;
-            this.lblInscribir.Location = new System.Drawing.Point(114, 151);
+            this.lblInscribir.Location = new System.Drawing.Point(153, 183);
+            this.lblInscribir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInscribir.Name = "lblInscribir";
-            this.lblInscribir.Size = new System.Drawing.Size(130, 13);
+            this.lblInscribir.Size = new System.Drawing.Size(171, 17);
             this.lblInscribir.TabIndex = 1;
             this.lblInscribir.Text = "Inscribir a curso";
             // 
             // btnCursos
             // 
-            this.btnCursos.Location = new System.Drawing.Point(114, 121);
+            this.btnCursos.Location = new System.Drawing.Point(153, 146);
+            this.btnCursos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCursos.Name = "btnCursos";
-            this.btnCursos.Size = new System.Drawing.Size(100, 27);
+            this.btnCursos.Size = new System.Drawing.Size(133, 33);
             this.btnCursos.TabIndex = 2;
             this.btnCursos.Text = "Cursos";
             this.btnCursos.UseVisualStyleBackColor = true;
+            this.btnCursos.Click += new System.EventHandler(this.btnCursos_Click);
             // 
             // MenuCursos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 272);
+            this.ClientSize = new System.Drawing.Size(477, 335);
             this.Controls.Add(this.tlMenu);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MenuCursos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuCursos";

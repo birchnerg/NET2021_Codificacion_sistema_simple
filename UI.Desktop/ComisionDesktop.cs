@@ -73,7 +73,6 @@ namespace UI.Desktop
             this.txtID.Text = this.ComisionActual.ID.ToString();
             this.txtDescripcion.Text = this.ComisionActual.Descripcion;
             this.txtAnioEspecialidad.Text = this.ComisionActual.AnioEspecialidad.ToString();
-            //this.boxPlan.SelectedIndex = this.ComisionActual.IDPlan - 1;
             this.boxPlan.Text = this.ComisionActual.IDPlan.ToString();
             switch (this.Modo)
             {
