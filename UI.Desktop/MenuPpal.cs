@@ -16,28 +16,6 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
-        private void btnCursos_Click(object sender, EventArgs e)
-        {
-            MenuCursos formCursos = new MenuCursos();
-            formCursos.ShowDialog();
-        }
-
-        private void btnAcademia_Click(object sender, EventArgs e)
-        {
-            MenuAcademia formAcademia = new MenuAcademia();
-            formAcademia.ShowDialog();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnUsuarios_Click(object sender, EventArgs e)
-        {
-            Usuarios formUsuarios = new Usuarios();
-            formUsuarios.ShowDialog();
-        }
 
         private void MenuPpal_Shown(object sender, EventArgs e)
         {
@@ -53,6 +31,41 @@ namespace UI.Desktop
         {
             Personas formPersonas = new Personas();
             formPersonas.ShowDialog();
+        }
+
+        private void verPlanesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Planes formPlanes = new Planes();
+            formPlanes.ShowDialog();
+        }
+
+        private void verEspecialidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Especialidades formEspecialidades = new Especialidades();
+            formEspecialidades.ShowDialog();
+        }
+
+        private void verUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Usuarios formUsuarios = new Usuarios();
+            formUsuarios.ShowDialog();
+        }
+
+        private void verPersonasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Personas formPersonas = new Personas();
+            formPersonas.ShowDialog();
+        }
+
+        private void verComisionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Comisiones formComisiones = new Comisiones();
+            formComisiones.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
