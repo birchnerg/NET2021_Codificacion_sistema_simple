@@ -19,12 +19,33 @@ namespace UI.Desktop
             InitializeComponent();
             this.dgvPersonas.AutoGenerateColumns = false;   
         }
+
         public void Listar()
         {
-            PersonaLogic u1 = new PersonaLogic();
+            PersonaLogic p = new PersonaLogic();
+            PlanLogic pl = new PlanLogic();
             try
             {
-                this.dgvPersonas.DataSource = u1.GetAll();
+                List<Persona> personas = p.GetAll();
+                List<Plan> planes = pl.GetAll();
+                var consultaPersonas =
+                    from per in personas
+                    join pla in planes
+                    on per.IDPlan equals pla.ID
+                    select new
+                    {
+                        ID = per.ID,
+                        TipoPersonasString = per.TipoPersonasString,
+                        Legajo = per.Legajo,
+                        Nombre = per.Nombre,
+                        Apellido = per.Apellido,
+                        FechaNacimiento = per.FechaNacimiento,
+                        Email = per.Email,
+                        Direccion = per.Direccion,
+                        Telefono = per.Telefono,
+                        Plan = pla.Descripcion
+                    };
+                this.dgvPersonas.DataSource = consultaPersonas.ToList();
             }
             catch (Exception ex)
             {
@@ -32,7 +53,7 @@ namespace UI.Desktop
             }            
         }
 
-        private void Usuarios_Load(object sender, EventArgs e)
+        private void Personas_Load(object sender, EventArgs e)
         {
             Listar();
             dgvPersonas.ClearSelection();
@@ -60,7 +81,7 @@ namespace UI.Desktop
         {
             if (this.dgvPersonas.SelectedRows.Count != 0)
             {
-                int ID = ((Business.Entities.Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
+                int ID = (int)this.dgvPersonas.SelectedRows[0].Cells["Id"].Value;
                 PersonaDesktop formPersona = new PersonaDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 formPersona.ShowDialog();
                 this.Listar();
@@ -76,7 +97,7 @@ namespace UI.Desktop
         {
             if (this.dgvPersonas.SelectedRows.Count != 0)
             {
-                int ID = ((Business.Entities.Persona)this.dgvPersonas.SelectedRows[0].DataBoundItem).ID;
+                int ID = (int)this.dgvPersonas.SelectedRows[0].Cells["Id"].Value;
                 PersonaDesktop formPersona = new PersonaDesktop(ID, ApplicationForm.ModoForm.Baja);
                 formPersona.ShowDialog();
                 this.Listar();
