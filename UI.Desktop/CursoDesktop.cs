@@ -37,7 +37,6 @@ namespace UI.Desktop
             {
                 MessageBox.Show(ex.Message);
             }*/
-
             ComisionLogic com = new ComisionLogic();
             try
             {
@@ -112,6 +111,7 @@ namespace UI.Desktop
                     break;
             }
         }
+
         public override void MapearADatos()
         {
             switch (this.Modo)
@@ -137,6 +137,7 @@ namespace UI.Desktop
                     break;
             }
         }
+
         public override void GuardarCambios()
         {
             MapearADatos();
@@ -169,6 +170,7 @@ namespace UI.Desktop
                 }
             }
         }
+
         public override bool Validar()
         {
             int i;
@@ -213,6 +215,5 @@ namespace UI.Desktop
         {
             this.Close();
         }
-
     }
 }
