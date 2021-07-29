@@ -30,7 +30,7 @@ namespace UI.Desktop
                 }
                 this.boxPlan.DataSource = planes;
                 this.boxPlan.ValueMember = "id_plan";
-                this.boxPlan.DisplayMember = "id_plan";
+                this.boxPlan.DisplayMember = "desc_plan";
                 this.boxPlan.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -38,8 +38,6 @@ namespace UI.Desktop
                 MessageBox.Show(ex.Message);
             }
         }
-
-
 
         public ComisionDesktop(ModoForm modo):this() 
         {
@@ -73,7 +71,7 @@ namespace UI.Desktop
             this.txtID.Text = this.ComisionActual.ID.ToString();
             this.txtDescripcion.Text = this.ComisionActual.Descripcion;
             this.txtAnioEspecialidad.Text = this.ComisionActual.AnioEspecialidad.ToString();
-            this.boxPlan.Text = this.ComisionActual.IDPlan.ToString();
+            this.boxPlan.SelectedValue = this.ComisionActual.IDPlan;
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -91,6 +89,7 @@ namespace UI.Desktop
                     break;
             }
         }
+
         public override void MapearADatos() 
         {
             switch (this.Modo)
@@ -99,31 +98,36 @@ namespace UI.Desktop
                     ComisionActual = new Comision();
                     ComisionActual.Descripcion = this.txtDescripcion.Text;
                     ComisionActual.AnioEspecialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
-                    ComisionActual.IDPlan = this.boxPlan.SelectedIndex + 1;
-           
+                    ComisionActual.IDPlan = Int32.Parse(this.boxPlan.SelectedValue.ToString());
                     ComisionActual.State = BusinessEntity.States.New;
                     break;
                 case ModoForm.Modificacion:
                     ComisionActual.Descripcion = this.txtDescripcion.Text;
                     ComisionActual.AnioEspecialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
-                    ComisionActual.IDPlan = this.boxPlan.SelectedIndex + 1;
+                    ComisionActual.IDPlan = Int32.Parse(this.boxPlan.SelectedValue.ToString());
                     ComisionActual.State = BusinessEntity.States.Modified;
                     break;
             }
         }
+
         public override void GuardarCambios() 
         {
             MapearADatos();
             ComisionLogic c = new ComisionLogic();
             if (this.Modo == ModoForm.Baja)
             {
-                try
+                var resultado = MessageBox.Show("¿Desea eliminar el registro?", "Confirmar eliminación",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
                 {
-                    c.Delete(ComisionActual.ID);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        c.Delete(ComisionActual.ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
@@ -138,6 +142,7 @@ namespace UI.Desktop
                 }
             }
         }
+
         public override bool Validar() 
         {
             int i;
@@ -171,11 +176,6 @@ namespace UI.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ComisionDesktop_Load(object sender, EventArgs e)

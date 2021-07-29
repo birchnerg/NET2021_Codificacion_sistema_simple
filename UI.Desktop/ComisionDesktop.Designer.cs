@@ -33,8 +33,6 @@ namespace UI.Desktop
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.txtAnioEspecialidad = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +41,8 @@ namespace UI.Desktop
             this.boxPlan = new System.Windows.Forms.ComboBox();
             this.planesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tp2_netDataSet = new UI.Desktop.tp2_netDataSet();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.planesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tp2_netDataSet1 = new UI.Desktop.tp2_netDataSet1();
             this.planesTableAdapter = new UI.Desktop.tp2_netDataSet1TableAdapters.planesTableAdapter();
@@ -56,73 +56,52 @@ namespace UI.Desktop
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.55556F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.44444F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.35821F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.64179F));
             this.tableLayoutPanel1.Controls.Add(this.txtID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.txtAnioEspecialidad, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.boxPlan, 1, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 4);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(505, 132);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(335, 136);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(143, 3);
+            this.txtID.Location = new System.Drawing.Point(98, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(167, 20);
+            this.txtID.Size = new System.Drawing.Size(225, 20);
             this.txtID.TabIndex = 1;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(143, 28);
+            this.txtDescripcion.Location = new System.Drawing.Point(98, 30);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(167, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(225, 20);
             this.txtDescripcion.TabIndex = 3;
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(324, 102);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 26);
-            this.btnAceptar.TabIndex = 15;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(408, 102);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 26);
-            this.btnCancelar.TabIndex = 16;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtAnioEspecialidad
             // 
-            this.txtAnioEspecialidad.Location = new System.Drawing.Point(143, 53);
+            this.txtAnioEspecialidad.Location = new System.Drawing.Point(98, 57);
             this.txtAnioEspecialidad.Name = "txtAnioEspecialidad";
-            this.txtAnioEspecialidad.Size = new System.Drawing.Size(167, 20);
+            this.txtAnioEspecialidad.Size = new System.Drawing.Size(225, 20);
             this.txtAnioEspecialidad.TabIndex = 7;
             // 
             // label1
@@ -137,17 +116,16 @@ namespace UI.Desktop
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 25);
+            this.label2.Location = new System.Drawing.Point(3, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Descripcion";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Text = "Descripción";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 50);
+            this.label3.Location = new System.Drawing.Point(3, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 6;
@@ -156,11 +134,11 @@ namespace UI.Desktop
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 74);
+            this.label4.Location = new System.Drawing.Point(3, 81);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "ID Plan";
+            this.label4.Text = "Plan";
             // 
             // boxPlan
             // 
@@ -168,10 +146,10 @@ namespace UI.Desktop
             this.boxPlan.DisplayMember = "desc_plan";
             this.boxPlan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxPlan.FormattingEnabled = true;
-            this.boxPlan.Location = new System.Drawing.Point(143, 77);
+            this.boxPlan.Location = new System.Drawing.Point(98, 84);
             this.boxPlan.Name = "boxPlan";
-            this.boxPlan.Size = new System.Drawing.Size(167, 21);
-            this.boxPlan.TabIndex = 17;
+            this.boxPlan.Size = new System.Drawing.Size(225, 21);
+            this.boxPlan.TabIndex = 11;
             this.boxPlan.ValueMember = "id_plan";
             // 
             // planesBindingSource1
@@ -183,6 +161,28 @@ namespace UI.Desktop
             // 
             this.tp2_netDataSet.DataSetName = "tp2_netDataSet";
             this.tp2_netDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAceptar.Location = new System.Drawing.Point(17, 111);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 22);
+            this.btnAceptar.TabIndex = 15;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(98, 111);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 22);
+            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // planesBindingSource
             // 
@@ -204,9 +204,11 @@ namespace UI.Desktop
             // 
             // ComisionDesktop
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 136);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(335, 136);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ComisionDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

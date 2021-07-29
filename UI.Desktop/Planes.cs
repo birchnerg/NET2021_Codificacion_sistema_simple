@@ -19,6 +19,7 @@ namespace UI.Desktop
             InitializeComponent();
             this.dgvPlanes.AutoGenerateColumns = false;
         }
+
         public void Listar()
         {
             PlanLogic pl = new PlanLogic();
@@ -73,7 +74,6 @@ namespace UI.Desktop
         {
             if (this.dgvPlanes.SelectedRows.Count != 0)
             {
-                //int ID = ((Business.Entities.Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
                 int ID = (int)this.dgvPlanes.SelectedRows[0].Cells["Id"].Value;
                 PlanDesktop formPlan = new PlanDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 formPlan.ShowDialog();
@@ -90,7 +90,6 @@ namespace UI.Desktop
         {
             if (this.dgvPlanes.SelectedRows.Count != 0)
             {
-                //int ID = ((Business.Entities.Plan)this.dgvPlanes.SelectedRows[0].DataBoundItem).ID;
                 int ID = (int)this.dgvPlanes.SelectedRows[0].Cells["Id"].Value;
                 PlanDesktop formPlan = new PlanDesktop(ID, ApplicationForm.ModoForm.Baja);
                 formPlan.ShowDialog();

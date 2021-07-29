@@ -17,14 +17,15 @@ namespace UI.Desktop
         public Especialidades()
         {
             InitializeComponent(); 
-            this.dvgEspecialidades.AutoGenerateColumns = false;
+            this.dgvEspecialidades.AutoGenerateColumns = false;
         }
+
         public void Listar()
         {
             EspecialidadLogic el = new EspecialidadLogic();
             try
             {
-                this.dvgEspecialidades.DataSource = el.GetAll();
+                this.dgvEspecialidades.DataSource = el.GetAll();
             }
             catch (Exception ex)
             {
@@ -35,6 +36,7 @@ namespace UI.Desktop
         private void Especialidades_Load(object sender, EventArgs e)
         {
             Listar();
+            dgvEspecialidades.ClearSelection();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -47,28 +49,23 @@ namespace UI.Desktop
             this.Close();
         }
 
-        private void dvgEspecialidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void tsbAlta_Click(object sender, EventArgs e)
         {
             EspecialidadDesktop formEspecialidad = new EspecialidadDesktop(ApplicationForm.ModoForm.Alta);
             formEspecialidad.ShowDialog();
             this.Listar();
-            dvgEspecialidades.ClearSelection();
+            dgvEspecialidades.ClearSelection();
         }
 
         private void tsbEditar_Click(object sender, EventArgs e)
         {
-            if (this.dvgEspecialidades.SelectedRows.Count != 0)
+            if (this.dgvEspecialidades.SelectedRows.Count != 0)
             {
-                int ID = ((Business.Entities.Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((Business.Entities.Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
                 EspecialidadDesktop formEspecialidad = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Modificacion);
                 formEspecialidad.ShowDialog();
                 this.Listar();
-                dvgEspecialidades.ClearSelection();
+                dgvEspecialidades.ClearSelection();
             }
             else
             {
@@ -78,13 +75,13 @@ namespace UI.Desktop
 
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
-            if (this.dvgEspecialidades.SelectedRows.Count != 0)
+            if (this.dgvEspecialidades.SelectedRows.Count != 0)
             {
-                int ID = ((Business.Entities.Especialidad)this.dvgEspecialidades.SelectedRows[0].DataBoundItem).ID;
+                int ID = ((Business.Entities.Especialidad)this.dgvEspecialidades.SelectedRows[0].DataBoundItem).ID;
                 EspecialidadDesktop formEspecialidad = new EspecialidadDesktop(ID, ApplicationForm.ModoForm.Baja);
                 formEspecialidad.ShowDialog();
                 this.Listar();
-                dvgEspecialidades.ClearSelection();
+                dgvEspecialidades.ClearSelection();
             }
             else
             {

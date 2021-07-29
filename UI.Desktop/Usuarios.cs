@@ -19,6 +19,7 @@ namespace UI.Desktop
             InitializeComponent();
             this.dgvUsuarios.AutoGenerateColumns = false;   
         }
+
         public void Listar()
         {
             UsuarioLogic u1 = new UsuarioLogic();

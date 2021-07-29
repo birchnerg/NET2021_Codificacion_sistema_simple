@@ -18,10 +18,12 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+
         public EspecialidadDesktop(ModoForm modo) : this()
         {
             Modo = modo;
         }
+
         public EspecialidadDesktop(int ID, ModoForm modo) : this()
         {
             Modo = modo;
@@ -36,12 +38,14 @@ namespace UI.Desktop
                 MessageBox.Show(ex.Message);
             }
         }
+
         private Especialidad _especialidad;
         public Especialidad EspecialidadActual
         {
             get { return _especialidad; }
             set { _especialidad = value; }
         }
+
         public override void MapearDeDatos()
         {
             this.txtID.Text = this.EspecialidadActual.ID.ToString();
@@ -54,13 +58,14 @@ namespace UI.Desktop
                     break;
                 case ModoForm.Baja:
                     this.btnAceptar.Text = "Eliminar";
-                    this.txtDescripcion.ReadOnly = true;
+                    this.txtDescripcion.Enabled = true;
                     break;
                 case ModoForm.Consulta:
                     this.btnAceptar.Text = "Aceptar";
                     break;
             }
         }
+
         public override void MapearADatos()
         {
             switch (this.Modo)
@@ -76,19 +81,25 @@ namespace UI.Desktop
                     break;
             }
         }
+
         public override void GuardarCambios()
         {
             MapearADatos();
             EspecialidadLogic esp = new EspecialidadLogic();
             if (this.Modo == ModoForm.Baja)
             {
-                try
+                var resultado = MessageBox.Show("¿Desea eliminar el registro?", "Confirmar eliminación",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
                 {
-                    esp.Delete(EspecialidadActual.ID);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        esp.Delete(EspecialidadActual.ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
@@ -103,6 +114,7 @@ namespace UI.Desktop
                 }
             }
         }
+
         public override bool Validar()
         {
             if (string.IsNullOrEmpty(this.txtDescripcion.Text))
@@ -112,12 +124,8 @@ namespace UI.Desktop
             }            
             else return true;
         }
+
         private void EspecialidadDesktop_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }

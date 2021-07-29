@@ -44,8 +44,8 @@ namespace UI.Desktop
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.14777F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.85223F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.28358F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.71642F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -62,7 +62,7 @@ namespace UI.Desktop
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(291, 116);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(335, 116);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -95,30 +95,31 @@ namespace UI.Desktop
             // txtID
             // 
             this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(82, 3);
+            this.txtID.Location = new System.Drawing.Point(81, 3);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(196, 20);
+            this.txtID.Size = new System.Drawing.Size(242, 20);
             this.txtID.TabIndex = 3;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(82, 32);
+            this.txtDescripcion.Location = new System.Drawing.Point(81, 32);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(196, 20);
+            this.txtDescripcion.Size = new System.Drawing.Size(242, 20);
             this.txtDescripcion.TabIndex = 4;
             // 
             // boxEspecialidad
             // 
             this.boxEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.boxEspecialidad.FormattingEnabled = true;
-            this.boxEspecialidad.Location = new System.Drawing.Point(82, 61);
+            this.boxEspecialidad.Location = new System.Drawing.Point(81, 61);
             this.boxEspecialidad.Name = "boxEspecialidad";
-            this.boxEspecialidad.Size = new System.Drawing.Size(196, 21);
+            this.boxEspecialidad.Size = new System.Drawing.Size(242, 21);
             this.boxEspecialidad.TabIndex = 5;
             // 
             // btnAceptar
             // 
+            this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAceptar.Location = new System.Drawing.Point(3, 90);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(72, 23);
@@ -129,7 +130,8 @@ namespace UI.Desktop
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(82, 90);
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(81, 90);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
@@ -142,7 +144,8 @@ namespace UI.Desktop
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 116);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(335, 116);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "PlanDesktop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

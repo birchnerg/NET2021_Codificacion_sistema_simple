@@ -40,7 +40,7 @@ namespace UI.Desktop
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(163, 34);
+            this.lblTitulo.Location = new System.Drawing.Point(88, 24);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(60, 13);
             this.lblTitulo.TabIndex = 0;
@@ -49,7 +49,7 @@ namespace UI.Desktop
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(74, 78);
+            this.lblUsuario.Location = new System.Drawing.Point(22, 57);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 1;
@@ -58,7 +58,7 @@ namespace UI.Desktop
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(74, 124);
+            this.lblPass.Location = new System.Drawing.Point(12, 93);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(53, 13);
             this.lblPass.TabIndex = 2;
@@ -66,22 +66,22 @@ namespace UI.Desktop
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(158, 78);
+            this.txtUsuario.Location = new System.Drawing.Point(71, 54);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(133, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(163, 20);
             this.txtUsuario.TabIndex = 3;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(158, 117);
+            this.txtPassword.Location = new System.Drawing.Point(71, 90);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(133, 20);
+            this.txtPassword.Size = new System.Drawing.Size(163, 20);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(181, 179);
+            this.btnAceptar.Location = new System.Drawing.Point(82, 133);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(75, 23);
             this.btnAceptar.TabIndex = 5;
@@ -94,7 +94,7 @@ namespace UI.Desktop
             this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 234);
+            this.ClientSize = new System.Drawing.Size(246, 166);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsuario);

@@ -101,14 +101,19 @@ namespace UI.Desktop
             UsuarioLogic u = new UsuarioLogic();
             if (this.Modo == ModoForm.Baja)
             {
-                try
+                var resultado = MessageBox.Show("¿Desea eliminar el registro?", "Confirmar eliminación",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
                 {
-                    u.Delete(UsuarioActual.ID);
+                    try
+                    {
+                        u.Delete(UsuarioActual.ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }               
             }
             else
             {

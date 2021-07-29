@@ -70,7 +70,7 @@ namespace UI.Desktop
         {
             this.txtID.Text = this.PlanActual.ID.ToString();
             this.txtDescripcion.Text = this.PlanActual.Descripcion;
-            this.boxEspecialidad.SelectedIndex = this.PlanActual.IDEspecialidad - 1;  
+            this.boxEspecialidad.SelectedValue = this.PlanActual.IDEspecialidad;
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -87,6 +87,7 @@ namespace UI.Desktop
                     break;
             }
         }
+
         public override void MapearADatos()
         {
             switch (this.Modo)
@@ -94,16 +95,17 @@ namespace UI.Desktop
                 case ModoForm.Alta:
                     PlanActual = new Plan();
                     PlanActual.Descripcion = this.txtDescripcion.Text;
-                    PlanActual.IDEspecialidad = this.boxEspecialidad.SelectedIndex + 1;
+                    PlanActual.IDEspecialidad = Int32.Parse(this.boxEspecialidad.SelectedValue.ToString());
                     PlanActual.State = BusinessEntity.States.New;
                     break;
                 case ModoForm.Modificacion:
                     PlanActual.Descripcion = this.txtDescripcion.Text;
-                    PlanActual.IDEspecialidad = this.boxEspecialidad.SelectedIndex + 1;
+                    PlanActual.IDEspecialidad = Int32.Parse(this.boxEspecialidad.SelectedValue.ToString());
                     PlanActual.State = BusinessEntity.States.Modified;
                     break;
             }
         }
+
         public override void GuardarCambios()
         {
             MapearADatos();
@@ -136,6 +138,7 @@ namespace UI.Desktop
                 }
             }
         }
+
         public override bool Validar()
         {
             if (string.IsNullOrEmpty(this.txtDescripcion.Text))

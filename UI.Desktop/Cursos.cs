@@ -98,7 +98,6 @@ namespace UI.Desktop
         {
             if (this.dgvCursos.SelectedRows.Count != 0)
             {
-                //int ID = ((Business.Entities.Curso)this.dgvCursos.SelectedRows[0].DataBoundItem).ID;
                 int ID = (int)this.dgvCursos.SelectedRows[0].Cells["Id"].Value;
                 CursoDesktop formCurso = new CursoDesktop(ID, ApplicationForm.ModoForm.Baja);
                 formCurso.ShowDialog();

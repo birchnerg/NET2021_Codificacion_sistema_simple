@@ -34,7 +34,7 @@ namespace UI.Desktop
                 }
                 this.cmboIDPaln.DataSource = planes;
                 this.cmboIDPaln.ValueMember = "id_plan";
-                this.cmboIDPaln.DisplayMember = "id_plan";
+                this.cmboIDPaln.DisplayMember = "desc_plan";
                 this.cmboIDPaln.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -80,7 +80,7 @@ namespace UI.Desktop
             this.txtTelefono.Text = this.PersonaActual.Telefono;
             this.txtLegajo.Text = this.PersonaActual.Legajo.ToString();
             this.dtpFechaNacimiento.Text = this.PersonaActual.FechaNacimiento.ToString();
-            this.cmboIDPaln.Text = this.PersonaActual.IDPlan.ToString();
+            this.cmboIDPaln.SelectedValue = this.PersonaActual.IDPlan;
             this.cmboTipoPersona.Text = this.PersonaActual.TipoPersonasString.ToString();
             switch (this.Modo)
             {
@@ -90,12 +90,12 @@ namespace UI.Desktop
                     break;
                 case ModoForm.Baja:
                     this.btnAceptar.Text = "Eliminar";
-                    this.txtApellido.ReadOnly = true;
-                    this.txtNombre.ReadOnly = true;
-                    this.txtEmail.ReadOnly = true;
-                    this.txtDireccion.ReadOnly = true;
-                    this.txtTelefono.ReadOnly = true;
-                    this.txtLegajo.ReadOnly = true;
+                    this.txtApellido.Enabled = false;
+                    this.txtNombre.Enabled = false;
+                    this.txtEmail.Enabled = false;
+                    this.txtDireccion.Enabled = false;
+                    this.txtTelefono.Enabled = false;
+                    this.txtLegajo.Enabled = false;
                     this.dtpFechaNacimiento.Enabled = false;
                     this.cmboIDPaln.Enabled = false;
                     this.cmboTipoPersona.Enabled = false;
@@ -105,6 +105,7 @@ namespace UI.Desktop
                     break;
             }
         }
+
         public override void MapearADatos() 
         {
             switch (this.Modo)
@@ -118,7 +119,7 @@ namespace UI.Desktop
                     PersonaActual.Telefono = this.txtTelefono.Text;
                     PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
                     PersonaActual.FechaNacimiento = DateTime.Parse(this.dtpFechaNacimiento.Text);
-                    PersonaActual.IDPlan = Int32.Parse(this.cmboIDPaln.Text);
+                    PersonaActual.IDPlan = Int32.Parse(this.cmboIDPaln.SelectedValue.ToString());
                     PersonaActual.TipoPersonasInt = Int32.Parse(this.cmboTipoPersona.SelectedIndex.ToString());
                     PersonaActual.State = BusinessEntity.States.New;
                     break;
@@ -130,25 +131,31 @@ namespace UI.Desktop
                     PersonaActual.Telefono = this.txtTelefono.Text;
                     PersonaActual.Legajo = Int32.Parse(this.txtLegajo.Text);
                     PersonaActual.FechaNacimiento = DateTime.Parse(this.dtpFechaNacimiento.Text);
-                    PersonaActual.IDPlan = Int32.Parse(this.cmboIDPaln.Text);
+                    PersonaActual.IDPlan = Int32.Parse(this.cmboIDPaln.SelectedValue.ToString());
                     PersonaActual.TipoPersonasInt = Int32.Parse(this.cmboTipoPersona.SelectedIndex.ToString());
                     PersonaActual.State = BusinessEntity.States.Modified;
                     break;
             }
         }
+
         public override void GuardarCambios() 
         {
             MapearADatos();
             PersonaLogic u = new PersonaLogic();
             if (this.Modo == ModoForm.Baja)
             {
-                try
+                var resultado = MessageBox.Show("¿Desea eliminar el registro?", "Confirmar eliminación",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
                 {
-                    u.Delete(PersonaActual.ID);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    try
+                    {
+                        u.Delete(PersonaActual.ID);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
             else
@@ -163,6 +170,7 @@ namespace UI.Desktop
                 }
             }
         }
+
         public override bool Validar() 
         {
             if (string.IsNullOrEmpty(this.txtNombre.Text) || string.IsNullOrEmpty(this.txtApellido.Text) || string.IsNullOrEmpty(this.txtDireccion.Text)

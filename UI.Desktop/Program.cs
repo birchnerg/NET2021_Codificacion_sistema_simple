@@ -16,9 +16,7 @@ namespace UI.Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Cursos());
             Application.Run(new MenuPpal());
-
         }
     }
 }
