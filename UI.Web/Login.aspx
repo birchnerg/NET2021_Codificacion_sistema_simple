@@ -30,8 +30,10 @@
                 <td class="auto-style4"></td>
                 <td class="auto-style5"></td>
                 <td class="auto-style4">
-            <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+                    <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+                    <span runat="server" id="loginError" style="color:red;"></span>
                 </td>
+                
             </tr>
             <tr>
                 <td>&nbsp;</td>

@@ -41,7 +41,8 @@ namespace UI.Web
             }
             else
             {
-                Page.Response.Write("Usuario o Contraseña incorrecto");
+                //Page.Response.Write("Usuario o Contraseña incorrecto");
+                loginError.InnerText = "Usuario o Contraseña incorrecto";
             }
         }
 
