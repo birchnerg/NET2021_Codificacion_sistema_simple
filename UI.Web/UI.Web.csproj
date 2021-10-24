@@ -104,6 +104,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Academia\Button.skin" />
+    <Content Include="App_Themes\Academia\GridView.skin" />
     <None Include="packages.config" />
     <Content Include="Site.Master" />
     <None Include="Web.Debug.config">

@@ -1,29 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.Web.Login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="UI.Web.Login" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Login</title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 161px;
-        }
-        .auto-style2 {
-            height: 52px;
-        }
-        .auto-style4 {
-            height: 30px;
-        }
-        .auto-style5 {
-            width: 161px;
-            height: 30px;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+    <asp:Content ID="Content1" ContentPlaceHolderID="bodyContentPlaceHolder" Runat="Server">
         <div>
         <table style="width:100%;">
             <tr>
@@ -65,6 +42,4 @@
             </tr>
         </table>            
         </div>
-    </form>
-</body>
-</html>
+    </asp:Content>
