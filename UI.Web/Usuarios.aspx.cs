@@ -118,7 +118,10 @@ namespace UI.Web
 
         private void SaveEntity(Usuario usuario)
         {
-            this.Logic.Save(usuario);
+            if (Page.IsValid)
+            {
+                this.Logic.Save(usuario);
+            }            
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)
