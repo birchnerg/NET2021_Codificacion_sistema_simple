@@ -16,7 +16,14 @@ namespace UI.Web
         {
             if (!this.IsPostBack) // Verifica que no se una nueva visita (primera carga)
             {
-                LoadGrid();
+                if (Session["Usuario"] != null)
+                {
+                    LoadGrid();
+                }
+                else
+                {
+                    Page.Response.Redirect("~/Login.aspx");
+                }
             }
         }
         UsuarioLogic _logic;

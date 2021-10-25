@@ -12,7 +12,6 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         public bool Validar()
@@ -36,7 +35,7 @@ namespace UI.Web
         {
             if (Validar())
             {
-
+                Session["Usuario"] = txtUsuario.Text;
                 Page.Response.Redirect("~/Default.aspx");
             }
             else
