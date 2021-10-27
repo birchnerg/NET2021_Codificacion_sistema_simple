@@ -10,7 +10,7 @@ using System.Data;
 
 namespace UI.Web
 {
-    public partial class Planes : System.Web.UI.Page
+    public partial class Planes : BaseABM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,49 +54,11 @@ namespace UI.Web
             this.gridView.DataSource = consulta.ToList();
             this.gridView.DataBind();
         }
-        public enum FormModes
-        {
-            Alta,
-            Baja,
-            Modificacion
-        }
-        public FormModes FormMode
-        {
-            get { return (FormModes)this.ViewState["FormMode"]; }
-            set { this.ViewState["FormMode"] = value; }
-        }
         private Plan Entity
         {
             get;
             set;
         }
-        private int SelectedID
-        {
-            get
-            {
-                if (this.ViewState["SelectedID"] != null)
-                {
-                    return (int)this.ViewState["SelectedID"];
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            set
-            {
-                this.ViewState["SelectedID"] = value;
-            }
-        }
-
-        private bool IsEntitySelected
-        {
-            get
-            {
-                return (this.SelectedID != 0);
-            }
-        }
-
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.gridView.SelectedValue;
