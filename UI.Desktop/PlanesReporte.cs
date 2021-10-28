@@ -24,20 +24,8 @@ namespace UI.Desktop
 
         private void PlanesReporte_Load(object sender, EventArgs e)
         {
-            PlanLogic pl = new PlanLogic();
-            EspecialidadLogic el = new EspecialidadLogic();
-            List<Plan> planes = pl.GetAll();
-            List<Especialidad> especialidades = el.GetAll();
-            var consultaPlanes =
-                from p in planes
-                join es in especialidades
-                on p.IDEspecialidad equals es.ID
-                select new
-                {
-                    ID = p.ID,
-                    Descripcion = es.Descripcion,
-                    IDEspecialidad = p.Descripcion
-                };
+            List<ReportePlanes> consultaPlanes = new List<ReportePlanes>();
+            consultaPlanes = ReportesLogic.ObtenerPlanes(); 
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("Planes", consultaPlanes));
             reportViewer1.RefreshReport();

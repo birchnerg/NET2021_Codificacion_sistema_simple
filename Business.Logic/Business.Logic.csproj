@@ -47,6 +47,7 @@
     <Compile Include="EspecialidadLogic.cs" />
     <Compile Include="PlanLogic.cs" />
     <Compile Include="ComisionLogic.cs" />
+    <Compile Include="ReportesLogic.cs" />
     <Compile Include="SesionLogic.cs" />
     <Compile Include="ValidadoresLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

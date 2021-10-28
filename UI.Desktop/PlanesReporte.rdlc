@@ -6,18 +6,18 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.14181cm</Width>
+              <Width>1.4109cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.81744cm</Width>
+              <Width>5.78033cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.06305cm</Width>
+              <Width>8.92507cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.06302cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -51,21 +51,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox6">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>DESCRIPCION</Value>
+                              <Value>Especialidad</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -81,30 +81,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox7">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>ESPECIALIDAD</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
+                              <Value>Descripcion</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -121,7 +112,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.06302cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -162,13 +153,14 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!IDEspecialidad.Value</Value>
+                              <Value>=Fields!Especialidad.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
+                      <rd:DefaultName>Especialidad</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -234,10 +226,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Planes</DataSetName>
-        <Top>1.79598cm</Top>
-        <Left>1.87537cm</Left>
-        <Height>1.2cm</Height>
-        <Width>14.02229cm</Width>
+        <Top>0.47308cm</Top>
+        <Left>0.3937cm</Left>
+        <Height>2.12604cm</Height>
+        <Width>16.1163cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -391,11 +383,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>9735ce56-3700-4210-b94e-9ff7e95ef20b</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="BusinessEntities1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>c0bad9a4-f2cf-4f49-a29b-2f47455d58f7</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="Planes">
       <Query>
-        <DataSourceName>BusinessEntities</DataSourceName>
+        <DataSourceName>BusinessEntities1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -403,23 +402,19 @@
           <DataField>Descripcion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Especialidad">
+          <DataField>Especialidad</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="IDEspecialidad">
-          <DataField>IDEspecialidad</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="State">
-          <DataField>State</DataField>
-          <rd:TypeName>Business.Entities.BusinessEntity+States</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Business.Entities</rd:DataSetName>
-        <rd:TableName>Plan</rd:TableName>
-        <rd:ObjectDataSourceType>Business.Entities.Plan, Business.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>ReportePlanes</rd:TableName>
+        <rd:ObjectDataSourceType>Business.Entities.ReportePlanes, Business.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
