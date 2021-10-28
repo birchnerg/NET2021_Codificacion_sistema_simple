@@ -9,7 +9,7 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class WebForm1 : BaseABM
+    public partial class Especialidades : BaseABM
     {
         protected void Page_Load(object sender, EventArgs e)
         {

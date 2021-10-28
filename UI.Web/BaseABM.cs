@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UI.Web
 {
-    public partial class BaseABM : System.Web.UI.Page
+    public partial class BaseABM: System.Web.UI.Page 
     {
         public enum FormModes
         {
