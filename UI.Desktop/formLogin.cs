@@ -18,17 +18,24 @@ namespace UI.Desktop
         {
             InitializeComponent();
         }
+
         public override bool Validar()
         {
-            UsuarioLogic usuario = new UsuarioLogic();
+            UsuarioLogic usuarioLogic = new UsuarioLogic();
+            PersonaLogic personaLogic = new PersonaLogic();
             string usr = this.txtUsuario.Text;
             string clave = this.txtPassword.Text;
-
-            if (usuario.Auth(usr, clave))
+            try
             {
+                Usuario usuario = usuarioLogic.GetOne(usr, clave);
+                if (usuario.ID == 0)
+                {
+                    throw new Exception("Usuario o Contraseña incorrecto");
+                }
+                PersonaLoggedIn = personaLogic.GetOne(usuario.IdPersona);
                 return true;
             }
-            else
+            catch
             {
                 return false;
             }
