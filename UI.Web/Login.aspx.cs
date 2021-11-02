@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Business.Entities;
 using Business.Logic;
 
 namespace UI.Web
@@ -16,15 +17,24 @@ namespace UI.Web
 
         public bool Validar()
         {
-            UsuarioLogic usuario = new UsuarioLogic();
+            UsuarioLogic usuarioLogic = new UsuarioLogic();
+            PersonaLogic personaLogic = new PersonaLogic();
             string usr = this.txtUsuario.Text;
             string clave = this.txtClave.Text;
 
-            if (usuario.Auth(usr, clave))
+            try
             {
+                Usuario usuario = usuarioLogic.GetOne(usr, clave);
+                if (usuario.ID == 0)
+                {
+                    throw new Exception("Usuario o Contraseña incorrecto");
+                }
+                Persona persona = personaLogic.GetOne(usuario.IdPersona);
+                Session["IdUsuario"] = persona.ID;
+                Session["TipoUsuario"] = persona.TipoPersonasString;
                 return true;
             }
-            else
+            catch
             {
                 return false;
             }
