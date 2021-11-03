@@ -45,5 +45,39 @@ namespace UI.Web
                 return (this.SelectedID != 0);
             }
         }
+
+        protected bool IsLoggedIn()
+        {
+            if (Session["Usuario"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        protected bool CheckPermission(string tipoUsuario)
+        {
+            if (IsLoggedIn())
+            {
+                if (tipoUsuario == Session["TipoUsuario"].ToString())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            } 
+            else
+            {
+                Page.Response.Redirect("~/Login.aspx");
+                return false;
+            }          
+            
+        }
+
+
     }
 }

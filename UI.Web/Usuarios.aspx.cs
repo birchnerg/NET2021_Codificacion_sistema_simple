@@ -16,13 +16,13 @@ namespace UI.Web
         {
             if (!this.IsPostBack) // Verifica que no se una nueva visita (primera carga)
             {
-                if (Session["Usuario"] != null)
+                if (CheckPermission("NoDocente"))
                 {
                     LoadGrid();
                 }
                 else
                 {
-                    Page.Response.Redirect("~/Login.aspx");
+                    Page.Response.Redirect("~/Default.aspx");
                 }
             }
         }

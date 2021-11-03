@@ -16,18 +16,18 @@ namespace UI.Web
         {
             if (!this.IsPostBack) // Verifica que no se una nueva visita (primera carga)
             {
-                Array tipos = Enum.GetValues(typeof(Persona.TipoPersonas));
-                foreach (Persona.TipoPersonas tipo in tipos)
-                {
-                    tipoPersonaList.Items.Add(new ListItem(tipo.ToString(), ((int)tipo).ToString()));
-                }
-                if (Session["Usuario"] != null)
-                {
+                if (CheckPermission("NoDocente")) 
+                { 
+                    Array tipos = Enum.GetValues(typeof(Persona.TipoPersonas));
+                    foreach (Persona.TipoPersonas tipo in tipos)
+                    {
+                        tipoPersonaList.Items.Add(new ListItem(tipo.ToString(), ((int)tipo).ToString()));
+                    }
                     LoadGrid();
                 }
                 else
                 {
-                    Page.Response.Redirect("~/Login.aspx");
+                    Page.Response.Redirect("~/Default.aspx");
                 }
             }
         }

@@ -248,7 +248,7 @@ namespace Data.Database
             }
             usuario.State = BusinessEntity.States.Unmodified;            
         }
-        public bool Auth(string usuario, string clave)
+        /*public bool Auth(string usuario, string clave)
         {
             bool auth = false;
             try
@@ -280,6 +280,49 @@ namespace Data.Database
                 this.CloseConnection();
             }
             return auth;
+        }*/
+
+        public Business.Entities.Usuario GetOne(string usuario, string clave) //Recupera un usuario usando usuario y clave
+        {
+            //return Usuarios.Find(delegate(Usuario u) { return u.ID == ID; });
+            Usuario usr = new Usuario();
+            try
+            {
+                this.OpenConnection();
+
+                //Objeto SqlCommand para la sentencia SQL que se va a ejecutar
+                SqlCommand cmdUsuarios = new SqlCommand("SELECT * FROM usuarios WHERE nombre_usuario=@usuario AND clave=@clave", sqlConn);
+                cmdUsuarios.Parameters.Add("@usuario", SqlDbType.VarChar, 50).Value = usuario;
+                cmdUsuarios.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = clave;
+
+                //DataReader para recuperar los datos de la DB
+                SqlDataReader drUsuario = cmdUsuarios.ExecuteReader();
+
+                //Read() lee una fila de las devueltas por el commandSql, devuelve true mientras pueda leer datos
+                if (drUsuario.Read())
+                {
+                    usr.ID = (int)drUsuario["id_usuario"];
+                    usr.NombreUsuario = (string)drUsuario["nombre_usuario"];
+                    usr.Clave = (string)drUsuario["clave"];
+                    usr.Habilitado = (bool)drUsuario["habilitado"];
+                    usr.Nombre = (string)drUsuario["nombre"];
+                    usr.Apellido = (string)drUsuario["apellido"];
+                    usr.Email = (string)drUsuario["email"];
+                    usr.IdPersona = (int)drUsuario["id_persona"];
+                }
+                drUsuario.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ExcepcionManejada = new Exception("Error al recuperar datos del usuario con usuario y clave", ex);
+                throw ExcepcionManejada;
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return usr;
         }
+
     }
 }
