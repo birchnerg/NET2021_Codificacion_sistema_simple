@@ -101,5 +101,11 @@ namespace UI.Desktop
                 MessageBox.Show("Debes seleccionar una fila para realizar la baja.");
             }
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            PlanesReporte report = new PlanesReporte();
+            report.ShowDialog();
+        }
     }
 }
