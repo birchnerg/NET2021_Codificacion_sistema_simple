@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap>
-  <siteMapNode url="~/Default.aspx" title="Home"  description="">
+  <siteMapNode url="~/Login.aspx" title="Home"  description="">
     <siteMapNode url="~/Usuarios.aspx" title="Usuarios"  description="" />
+    <siteMapNode url="~/Planes.aspx" title="Planes"  description="" />
+	<siteMapNode url="~/Especialidades.aspx" title="Especialidades"  description="" />
+    <siteMapNode url="~/Personas.aspx" title="Personas"  description="" />
+	<siteMapNode url="~/Logout.aspx" title="Logout"  description="" />
     <siteMapNode url="" title=""  description="" />
   </siteMapNode>
+	
 </siteMap>
 

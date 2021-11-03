@@ -2,17 +2,71 @@
 <!DOCTYPE html> 
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head runat="server">
-   <title>Academia</title>    
+   <title>Academia</title>
+     <style>
+         :not(.content) > table 
+         {
+          width: 100%;
+          border: 0px solid #000;
+         }
+         .wrapper{
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #04AA6D;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size:20px;
+         }
+         .content{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 8px;
+         }
+         .footer{
+             padding-top: 5px;
+            padding-bottom: 5px;
+            background-color: honeydew;
+            color: black;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size:11px;
+         }
+     </style>
  </head>
  <body>
    <form id="bodyForm" runat="server">
-     <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource">
-     </asp:Menu>
-     <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
-      <div>
-        <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
-        </asp:ContentPlaceHolder>
-      </div>
+       <table border="1" cellpadding="0" cellspacing="0" width="100%" height="100%"> 
+        <!-- site header --> 
+        <th class="wrapper"> 
+            <td colspan="2" align="center" class="wrapper">Academia Web</td> 
+        </th> 
+<tr> 
+            <!-- site navigation --> 
+            <td valign="top" width="150"> 
+                <table border="0" width="100%" cellpadding="4" cellspacing="0"> 
+                    <tr> 
+                        <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource">
+                        </asp:Menu>
+                    </tr>                    
+                </table> 
+            </td> 
+             
+            <td valign="top" align="left" class="content">              
+                
+                 <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+                  <div>
+                    <asp:ContentPlaceHolder ID="bodyContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                  </div>
+            </td> 
+        </tr> 
+         
+        <!-- site footer --> 
+        <tr> 
+            <td colspan="2" align="center" class="footer">.NET - Grupo Nº9</td> 
+        </tr> 
+    </table> 
+
+     
     </form>
   </body>
 </html>

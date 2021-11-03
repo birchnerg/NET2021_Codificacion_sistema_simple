@@ -10,13 +10,20 @@ using Business.Entities;
 
 namespace UI.Web
 {
-    public partial class Usuarios : System.Web.UI.Page
+    public partial class Usuarios : BaseABM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack) // Verifica que no se una nueva visita (primera carga)
             {
-                LoadGrid();
+                if (CheckPermission("NoDocente"))
+                {
+                    LoadGrid();
+                }
+                else
+                {
+                    Page.Response.Redirect("~/Default.aspx");
+                }
             }
         }
         UsuarioLogic _logic;
@@ -35,50 +42,12 @@ namespace UI.Web
         {
             this.gridView.DataSource = this.Logic.GetAll();
             this.gridView.DataBind();
-        }
-        public enum FormModes
-        {
-            Alta,
-            Baja,
-            Modificacion
-        }
-        public FormModes FormMode
-        {
-            get { return (FormModes)this.ViewState["FormMode"]; }
-            set { this.ViewState["FormMode"] = value; }
-        }
+        }        
         private Usuario Entity
         {
             get;
             set;
         }
-        private int SelectedID
-        {
-            get
-            {
-                if (this.ViewState["SelectedID"] != null)
-                {
-                    return (int)this.ViewState["SelectedID"];
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            set
-            {
-                this.ViewState["SelectedID"] = value;
-            }
-        }
-
-        private bool IsEntitySelected
-        {
-            get
-            {
-                return (this.SelectedID != 0);
-            }
-        }
-
         protected void gridView_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SelectedID = (int)this.gridView.SelectedValue;
@@ -118,7 +87,10 @@ namespace UI.Web
 
         private void SaveEntity(Usuario usuario)
         {
-            this.Logic.Save(usuario);
+            if (Page.IsValid)
+            {
+                this.Logic.Save(usuario);
+            }            
         }
 
         protected void aceptarLinkButton_Click(object sender, EventArgs e)

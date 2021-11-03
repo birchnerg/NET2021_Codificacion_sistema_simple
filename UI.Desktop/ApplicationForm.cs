@@ -13,18 +13,26 @@ namespace UI.Desktop
     public partial class ApplicationForm : Form
     {
         public enum ModoForm { Alta, Baja, Modificacion, Consulta}
-        
-        public ApplicationForm()
-        {
-            InitializeComponent();
-        }
-        
+
         private ModoForm _modo;
         public ModoForm Modo
         {
             get { return _modo; }
             set { _modo = value; }
         }
+
+        protected static Business.Entities.Persona PersonaLoggedIn //Static para que persista el objeto
+        {
+            get;
+            set;
+        }
+
+        public ApplicationForm()
+        {
+            InitializeComponent();
+            PersonaLoggedIn = new Business.Entities.Persona();
+        }
+        
 
         public virtual void MapearDeDatos() { }
         public virtual void MapearADatos() { }

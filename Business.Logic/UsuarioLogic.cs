@@ -48,6 +48,19 @@ namespace Business.Logic
             }
             return usu;
         }
+        public Business.Entities.Usuario GetOne(string _usr, string _clave)
+        {
+            Usuario usu = new Usuario();
+            try
+            {
+                usu = UsuarioData.GetOne(_usr,_clave);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return usu;
+        }
         public void Save(Business.Entities.Usuario _usuario) 
         {
             try
@@ -75,7 +88,7 @@ namespace Business.Logic
             bool exito;
             try
             {
-                exito = UsuarioData.Auth(_usuario, _clave);
+                exito = true;//UsuarioData.Auth(_usuario, _clave);
             }
             catch (Exception)
             {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace UI.Desktop
 {
-    public partial class MenuPpal : Form
+    public partial class MenuPpal : ApplicationForm
     {
         public MenuPpal()
         {
@@ -24,6 +24,26 @@ namespace UI.Desktop
             if (login.ShowDialog() != DialogResult.OK)
             {
                 this.Dispose();
+            }
+            
+            switch (PersonaLoggedIn.TipoPersonasString)
+            {
+                case "Alumno":
+                    this.tsmAlumno.Visible = true;
+                    break;
+                case "Docente":
+                    this.tsmDocente.Visible = true;
+                    break;
+                case "NoDocente":
+                    this.tsmAlumno.Visible = true;
+                    this.tsmComisiones.Visible = true;
+                    this.tsmCursos.Visible = true;
+                    this.tsmDocente.Visible = true;
+                    this.tsmEspecialidades.Visible = true;
+                    this.tsmMaterias.Visible = true;
+                    this.tsmPlanes.Visible = true;
+                    this.tsmUsuarios.Visible = true;
+                    break;
             }
         }
 
