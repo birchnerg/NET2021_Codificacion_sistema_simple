@@ -41,7 +41,9 @@ namespace UI.Desktop
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tscUsuarios.ContentPanel.SuspendLayout();
@@ -58,11 +60,11 @@ namespace UI.Desktop
             // tscUsuarios.ContentPanel
             // 
             this.tscUsuarios.ContentPanel.Controls.Add(this.tlUsuarios);
-            this.tscUsuarios.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tscUsuarios.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
             this.tscUsuarios.ContentPanel.Size = new System.Drawing.Size(1280, 597);
             this.tscUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tscUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tscUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tscUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.tscUsuarios.Name = "tscUsuarios";
             this.tscUsuarios.Size = new System.Drawing.Size(1280, 628);
             this.tscUsuarios.TabIndex = 0;
@@ -82,7 +84,7 @@ namespace UI.Desktop
             this.tlUsuarios.Controls.Add(this.btnSalir, 1, 1);
             this.tlUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tlUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tlUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.tlUsuarios.Name = "tlUsuarios";
             this.tlUsuarios.RowCount = 2;
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -99,13 +101,15 @@ namespace UI.Desktop
             this.dgvInscripciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.id_alumno,
+            this.Materia,
             this.curso,
+            this.Comision,
             this.condicion,
             this.Nota});
             this.tlUsuarios.SetColumnSpan(this.dgvInscripciones, 2);
             this.dgvInscripciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInscripciones.Location = new System.Drawing.Point(4, 4);
-            this.dgvInscripciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvInscripciones.Margin = new System.Windows.Forms.Padding(4);
             this.dgvInscripciones.MultiSelect = false;
             this.dgvInscripciones.Name = "dgvInscripciones";
             this.dgvInscripciones.ReadOnly = true;
@@ -118,7 +122,7 @@ namespace UI.Desktop
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizar.Location = new System.Drawing.Point(1068, 565);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(100, 28);
             this.btnActualizar.TabIndex = 1;
@@ -130,7 +134,7 @@ namespace UI.Desktop
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(1176, 565);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(100, 28);
             this.btnSalir.TabIndex = 2;
@@ -200,6 +204,15 @@ namespace UI.Desktop
             this.id_alumno.ReadOnly = true;
             this.id_alumno.Width = 101;
             // 
+            // Materia
+            // 
+            this.Materia.DataPropertyName = "Materia";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 6;
+            this.Materia.Name = "Materia";
+            this.Materia.ReadOnly = true;
+            this.Materia.Width = 84;
+            // 
             // curso
             // 
             this.curso.DataPropertyName = "Curso";
@@ -208,6 +221,15 @@ namespace UI.Desktop
             this.curso.Name = "curso";
             this.curso.ReadOnly = true;
             this.curso.Width = 74;
+            // 
+            // Comision
+            // 
+            this.Comision.DataPropertyName = "Comision";
+            this.Comision.HeaderText = "Comisión";
+            this.Comision.MinimumWidth = 6;
+            this.Comision.Name = "Comision";
+            this.Comision.ReadOnly = true;
+            this.Comision.Width = 94;
             // 
             // condicion
             // 
@@ -234,10 +256,10 @@ namespace UI.Desktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 628);
             this.Controls.Add(this.tscUsuarios);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AlumnoInscripcion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Comisiones";
+            this.Text = "Inscripciones";
             this.Load += new System.EventHandler(this.Comisiones_Load);
             this.tscUsuarios.ContentPanel.ResumeLayout(false);
             this.tscUsuarios.TopToolStripPanel.ResumeLayout(false);
@@ -265,7 +287,9 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_alumno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
         private System.Windows.Forms.DataGridViewTextBoxColumn curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn condicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nota;
     }

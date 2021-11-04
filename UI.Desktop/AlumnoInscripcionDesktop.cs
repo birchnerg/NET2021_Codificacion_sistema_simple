@@ -17,25 +17,33 @@ namespace UI.Desktop
         public AlumnoInscripcionDesktop()
         {
             InitializeComponent();
-            PlanLogic p = new PlanLogic();
+            CursoLogic c = new CursoLogic();
             try
             {
-                List<Plan> plan = p.GetAll();
-                DataTable planes = new DataTable();
-                planes.Columns.Add("id_plan", typeof(int));
-                planes.Columns.Add("desc_plan", typeof(string));
-                foreach (var e in plan)
+                List<Curso> curso = c.GetAll();
+                DataTable cursos = new DataTable();
+                cursos.Columns.Add("id_curso", typeof(int));
+                foreach (var e in curso)
                 {
-                    planes.Rows.Add(new object[] { e.ID, e.Descripcion });
+                    cursos.Rows.Add(new object[] { e.ID});
                 }
-                this.boxPlan.DataSource = planes;
-                this.boxPlan.ValueMember = "id_plan";
-                this.boxPlan.DisplayMember = "desc_plan";
-                this.boxPlan.SelectedIndex = -1;
+                this.boxCurso.DataSource = cursos;
+                this.boxCurso.ValueMember = "id_curso";
+                this.boxCurso.DisplayMember = "id_curso";
+                this.boxCurso.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            if (PersonaLoggedIn.TipoPersonasString == "Alumno")
+            { 
+                this.txtIDAlumno.Text = PersonaLoggedIn.ID.ToString(); ;
+                this.txtIDAlumno.ReadOnly = true;
+                this.txtCondicion.Text = "Cursa";
+                this.txtCondicion.Enabled = false;
+                this.txtNota.Text = "0";
+                this.txtNota.Enabled = false;
             }
         }
 
@@ -65,13 +73,14 @@ namespace UI.Desktop
             get { return _inscripcionActual; }
             set { _inscripcionActual = value; }
         }
-        /*
+        
         public override void MapearDeDatos() 
         {
             this.txtID.Text = this.InscripcionActual.ID.ToString();
-            this.txtDescripcion.Text = this.InscripcionActual.Descripcion;
-            this.txtAnioEspecialidad.Text = this.InscripcionActual.AnioEspecialidad.ToString();
-            this.boxPlan.SelectedValue = this.InscripcionActual.IDPlan;
+            this.txtIDAlumno.Text = this.InscripcionActual.IDAlumno.ToString();
+            this.txtCondicion.Text = this.InscripcionActual.Condicion.ToString();
+            this.txtNota.Text = this.InscripcionActual.Nota.ToString();
+            this.boxCurso.SelectedValue = this.InscripcionActual.IDCurso;
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -80,9 +89,10 @@ namespace UI.Desktop
                     break;
                 case ModoForm.Baja:
                     this.btnAceptar.Text = "Eliminar";
-                    this.txtDescripcion.Enabled = false;
-                    this.txtAnioEspecialidad.Enabled = false;
-                    this.boxPlan.Enabled = false;
+                    this.txtIDAlumno.Enabled = false;
+                    this.txtCondicion.Enabled = false;
+                    this.txtNota.Enabled = false;
+                    this.boxCurso.Enabled = false;
                     break;
                 case ModoForm.Consulta:
                     this.btnAceptar.Text = "Aceptar";
@@ -95,17 +105,21 @@ namespace UI.Desktop
             switch (this.Modo)
             {
                 case ModoForm.Alta:
-                    ComisionActual = new Comision();
-                    ComisionActual.Descripcion = this.txtDescripcion.Text;
-                    ComisionActual.AnioEspecialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
-                    ComisionActual.IDPlan = Int32.Parse(this.boxPlan.SelectedValue.ToString());
-                    ComisionActual.State = BusinessEntity.States.New;
+                    InscripcionActual = new Business.Entities.AlumnoInscripcion();
+                    InscripcionActual.IDAlumno = Int32.Parse(this.txtIDAlumno.Text);
+                    InscripcionActual.Condicion = this.txtCondicion.Text;
+                    InscripcionActual.Nota = Int32.Parse(this.txtNota.Text);
+                    InscripcionActual.IDCurso = Int32.Parse(this.boxCurso.SelectedValue.ToString());
+
+                    InscripcionActual.State = BusinessEntity.States.New;
                     break;
                 case ModoForm.Modificacion:
-                    ComisionActual.Descripcion = this.txtDescripcion.Text;
-                    ComisionActual.AnioEspecialidad = Int32.Parse(this.txtAnioEspecialidad.Text);
-                    ComisionActual.IDPlan = Int32.Parse(this.boxPlan.SelectedValue.ToString());
-                    ComisionActual.State = BusinessEntity.States.Modified;
+                    InscripcionActual = new Business.Entities.AlumnoInscripcion();
+                    InscripcionActual.IDAlumno = Int32.Parse(this.txtIDAlumno.Text);
+                    InscripcionActual.Condicion = this.txtCondicion.Text;
+                    InscripcionActual.Nota = Int32.Parse(this.txtNota.Text);
+                    InscripcionActual.IDCurso = Int32.Parse(this.boxCurso.SelectedValue.ToString());
+                    InscripcionActual.State = BusinessEntity.States.Modified;
                     break;
             }
         }
@@ -113,7 +127,7 @@ namespace UI.Desktop
         public override void GuardarCambios() 
         {
             MapearADatos();
-            ComisionLogic c = new ComisionLogic();
+            AlumnoInscripcionLogic a = new AlumnoInscripcionLogic();
             if (this.Modo == ModoForm.Baja)
             {
                 var resultado = MessageBox.Show("¿Desea eliminar el registro?", "Confirmar eliminación",
@@ -122,7 +136,7 @@ namespace UI.Desktop
                 {
                     try
                     {
-                        c.Delete(ComisionActual.ID);
+                        a.Delete(InscripcionActual.ID);
                     }
                     catch (Exception ex)
                     {
@@ -134,7 +148,7 @@ namespace UI.Desktop
             {
                 try
                 {
-                    c.Save(ComisionActual);
+                    a.Save(InscripcionActual);
                 }
                 catch (Exception ex)
                 {
@@ -146,24 +160,29 @@ namespace UI.Desktop
         public override bool Validar() 
         {
             int i;
-            if (string.IsNullOrEmpty(this.txtDescripcion.Text) || string.IsNullOrEmpty(this.txtAnioEspecialidad.Text))
+            if (string.IsNullOrEmpty(this.txtIDAlumno.Text) || string.IsNullOrEmpty(this.txtCondicion.Text) || string.IsNullOrEmpty(this.txtNota.Text))
             {
                 Notificar("Error", "Campos vacíos. Por favor complételos.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (!int.TryParse(this.txtAnioEspecialidad.Text, out i))
+            else if (!int.TryParse(this.txtNota.Text, out i))
             {
-                Notificar("Error", "Año especialidad incorrecto. Por favor ingrese un año válido.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notificar("Error", "Nota incorrecta. Por favor ingrese una nota válida.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            else if (this.boxPlan.SelectedIndex == -1)
+            else if (!int.TryParse(this.txtIDAlumno.Text, out i))
             {
-                Notificar("Error", "Plan no indicado. Por favor seleccione una.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Notificar("Error", "ID Alumno incorrecta. Por favor ingrese un ID válido.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else if (this.boxCurso.SelectedIndex == -1)
+            {
+                Notificar("Error", "Curso no indicado. Por favor seleccione uno.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else return true;
         }
-        */
+        
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (Validar())

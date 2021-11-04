@@ -76,7 +76,7 @@ namespace Data.Database
                     ins.ID = (int)drInscripcion["id_inscripcion"];
                     ins.IDAlumno = (int)drInscripcion["id_alumno"];
                     ins.IDCurso = (int)drInscripcion["id_curso"];
-                    ins.Nota = (int)drInscripcion["nota"];
+                    ins.Nota = (drInscripcion["nota"] as int?).GetValueOrDefault();
                     ins.Condicion = (string)drInscripcion["condicion"];
 
                     inscripciones.Add(ins);
@@ -104,7 +104,7 @@ namespace Data.Database
                 this.OpenConnection();
 
                 //Objeto SqlCommand para la sentencia SQL que se va a ejecutar
-                SqlCommand cmdInscripcion = new SqlCommand("SELECT * FROM alumno_inscripciones WHERE id_inscripcion=@id_inscripcion", sqlConn);
+                SqlCommand cmdInscripcion = new SqlCommand("SELECT * FROM alumnos_inscripciones WHERE id_inscripcion=@id_inscripcion", sqlConn);
                 cmdInscripcion.Parameters.Add("@id_inscripcion", SqlDbType.Int).Value = ID;
 
                 //DataReader para recuperar los datos de la DB
@@ -116,7 +116,7 @@ namespace Data.Database
                     ins.ID = (int)drInscripcion["id_inscripcion"];
                     ins.IDAlumno = (int)drInscripcion["id_alumno"];
                     ins.IDCurso = (int)drInscripcion["id_curso"];
-                    ins.Nota = (int)drInscripcion["nota"];
+                    ins.Nota = (drInscripcion["nota"] as int?).GetValueOrDefault();
                     ins.Condicion = (string)drInscripcion["condicion"];
 
                 }
@@ -188,7 +188,7 @@ namespace Data.Database
             try
             {
                 this.OpenConnection();
-                SqlCommand cmdSave = new SqlCommand("INSERT INTO alumnos_inscripiones (id_alumno,id_curso,condicion,nota) VALUES" +
+                SqlCommand cmdSave = new SqlCommand("INSERT INTO alumnos_inscripciones (id_alumno,id_curso,condicion,nota) VALUES" +
                     "(@id_alumno,@id_curso," +
                     "@condicion,@nota)" +
                     "SELECT @@identity", //Recupera el ID que asigno el SQL automaticamente

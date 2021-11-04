@@ -15,6 +15,7 @@ namespace UI.Desktop
         public MenuPpal()
         {
             InitializeComponent();
+            PersonaLoggedIn = new Business.Entities.Persona();
         }
 
         private void MenuPpal_Shown(object sender, EventArgs e)

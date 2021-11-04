@@ -37,7 +37,9 @@ namespace UI.Desktop
                     {
                         ID = i.ID,
                         IDAlumno = i.IDAlumno,
+                        Materia = c.IDMateria, //Mostrar descripcion
                         Curso = c.ID,
+                        Comision = c.IDComision,
                         Condicion = i.Condicion,
                         Nota = i.Nota
                     };
@@ -48,16 +50,65 @@ namespace UI.Desktop
                 MessageBox.Show(ex.Message);
             }
         }
+        public void Listar(int idAlumno)
+        {
+            AlumnoInscripcionLogic al = new AlumnoInscripcionLogic();
+            CursoLogic cl = new CursoLogic();
 
+            try
+            {
+                List<Curso> cursos = cl.GetAll();
+                List<Business.Entities.AlumnoInscripcion> inscripciones = al.GetAll(idAlumno);
+                var consultaInscripciones =
+                    from i in inscripciones
+                    join c in cursos
+                    on i.IDCurso equals c.ID
+                    select new
+                    {
+                        ID = i.ID,
+                        IDAlumno = i.IDAlumno,
+                        Materia = c.IDMateria, //Mostrar descripcion
+                        Curso = c.ID,
+                        Comision = c.IDComision,
+                        Condicion = i.Condicion,
+                        Nota = i.Nota
+                    };
+                this.dgvInscripciones.DataSource = consultaInscripciones.ToList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void Comisiones_Load(object sender, EventArgs e)
         {
-            Listar();
+            switch (PersonaLoggedIn.TipoPersonasString)
+            {
+                case "Alumno":
+                    this.tsbEliminar.Visible = false;
+                    this.tsbEditar.Visible = false;
+                    this.dgvInscripciones.Columns["ID"].Visible = false;
+                    this.dgvInscripciones.Columns["Curso"].Visible = false;
+                    Listar(PersonaLoggedIn.ID);
+                    break;
+                case "NoDocente":
+                    Listar();
+                    break;
+            }
             dgvInscripciones.ClearSelection();
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Listar();
+            switch (PersonaLoggedIn.TipoPersonasString)
+            {
+                case "Alumno":
+                    Listar(PersonaLoggedIn.ID);
+                    break;
+                case "NoDocente":
+                    Listar();
+                    break;
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -67,9 +118,17 @@ namespace UI.Desktop
 
         private void tsbNuevo_Click(object sender, EventArgs e)
         {
-            ComisionDesktop formComision = new ComisionDesktop(ApplicationForm.ModoForm.Alta);
-            formComision.ShowDialog();
-            this.Listar();
+            AlumnoInscripcionDesktop formInscripcionDesktop = new AlumnoInscripcionDesktop(ApplicationForm.ModoForm.Alta);
+            formInscripcionDesktop.ShowDialog();
+            switch (PersonaLoggedIn.TipoPersonasString)
+            {
+                case "Alumno":
+                    Listar(PersonaLoggedIn.ID);
+                    break;
+                case "NoDocente":
+                    Listar();
+                    break;
+            }
             dgvInscripciones.ClearSelection();
         }
 
@@ -78,8 +137,8 @@ namespace UI.Desktop
             if (this.dgvInscripciones.SelectedRows.Count != 0)
             {
                 int ID = (int)this.dgvInscripciones.SelectedRows[0].Cells["Id"].Value;
-                ComisionDesktop formComision = new ComisionDesktop(ID, ApplicationForm.ModoForm.Modificacion);
-                formComision.ShowDialog();
+                AlumnoInscripcionDesktop formInscripcionDesktop = new AlumnoInscripcionDesktop(ID, ApplicationForm.ModoForm.Modificacion);
+                formInscripcionDesktop.ShowDialog();
                 this.Listar();
                 dgvInscripciones.ClearSelection();
             }
@@ -93,9 +152,9 @@ namespace UI.Desktop
         {
             if (this.dgvInscripciones.SelectedRows.Count != 0)
             {
-                int ID = (int)this.dgvInscripciones.SelectedRows[0].Cells["Id"].Value;
-                ComisionDesktop formComision = new ComisionDesktop(ID, ApplicationForm.ModoForm.Baja);
-                formComision.ShowDialog();
+                int ID = (int)this.dgvInscripciones.SelectedRows[0].Cells["ID"].Value;
+                AlumnoInscripcionDesktop formInscripcionDesktop = new AlumnoInscripcionDesktop(ID, ApplicationForm.ModoForm.Baja);
+                formInscripcionDesktop.ShowDialog();
                 this.Listar();
                 dgvInscripciones.ClearSelection();
             }
