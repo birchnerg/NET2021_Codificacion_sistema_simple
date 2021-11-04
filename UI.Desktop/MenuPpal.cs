@@ -93,5 +93,11 @@ namespace UI.Desktop
         {
             this.Close();
         }
+
+        private void misDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlumnoInscripcion formAlumnoInscripcion = new AlumnoInscripcion();
+            formAlumnoInscripcion.ShowDialog();
+        }
     }
 }
