@@ -41,7 +41,7 @@
         </th> 
 <tr> 
             <!-- site navigation --> 
-            <td valign="top" width="150"> 
+            <td valign="top" width="150" height="250"> 
                 <table border="0" width="100%" cellpadding="4" cellspacing="0"> 
                     <tr> 
                         <asp:Menu runat="server" ID="menu" DataSourceID="SiteMapDataSource">
