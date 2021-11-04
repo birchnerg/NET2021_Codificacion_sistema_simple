@@ -49,7 +49,10 @@ namespace UI.Desktop
             int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
             dgvUsuarios.ClearSelection();
             */
-            
+
+            materiasEstadoAlumno reporte = new materiasEstadoAlumno();
+            reporte.ShowDialog();
+
             if (Validar())
             {
                 MessageBox.Show("Usted ha ingresado al sistema correctamente."
@@ -57,9 +60,9 @@ namespace UI.Desktop
                 this.DialogResult = DialogResult.OK;
             }
             else
-            {
+            {                          
                 MessageBox.Show("Usuario o Contraseña incorrecto", "Login"
-                , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                , MessageBoxButtons.OK, MessageBoxIcon.Error);               
             }
         }
     }
