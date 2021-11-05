@@ -18,9 +18,18 @@ namespace UI.Desktop
         public materiasEstadoAlumno(Persona alumno)
         {
             InitializeComponent();
+            // ENCABEZADO
             List<ReportParameter> parametros = infoTxt(alumno);
             reporte.LocalReport.SetParameters(parametros);
-            this.reporte.RefreshReport();
+
+            //TABLA
+            List<ReporteEstadoAcademico> consulta = new List<ReporteEstadoAcademico>();
+            consulta = ReportesLogic.ObtenerEstadoAcademico();
+            reporte.LocalReport.DataSources.Clear();
+            reporte.LocalReport.DataSources.Add(new ReportDataSource("materia", consulta));
+            reporte.RefreshReport();
+
+            reporte.RefreshReport();
         }
 
         private void materiasEstadoAlumno_Load(object sender, EventArgs e)
