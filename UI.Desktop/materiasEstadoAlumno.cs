@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Entities;
+using Business.Logic;
 
 namespace UI.Desktop
 {
@@ -33,8 +34,8 @@ namespace UI.Desktop
             parameters.Add(new ReportParameter("apellido", alumno.Apellido ));
             parameters.Add(new ReportParameter("nombre", alumno.Nombre));
             parameters.Add(new ReportParameter("legajo", alumno.Legajo.ToString()));
-            parameters.Add(new ReportParameter("carrera", "Ingenieria en sistemas"));
-            parameters.Add(new ReportParameter("plan", alumno.IDPlan.ToString()));
+            parameters.Add(new ReportParameter("carrera", EspecialidadLogic.DescripcionEspecialidad(PlanLogic.EspecialidadPlan(alumno.IDPlan))));
+            parameters.Add(new ReportParameter("plan", PlanLogic.DescripcionPlan(alumno.IDPlan)));
             return parameters;
         }
     }
