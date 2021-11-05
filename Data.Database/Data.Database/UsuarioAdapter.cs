@@ -89,6 +89,7 @@ namespace Data.Database
                     usr.Nombre = (string)drUsuario["nombre"];
                     usr.Apellido = (string)drUsuario["apellido"];
                     usr.Email = (string)drUsuario["email"];
+                    usr.IdPersona = (drUsuario["id_persona"] as int?).GetValueOrDefault();
 
                     usuarios.Add(usr);
                 }

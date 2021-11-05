@@ -27,6 +27,7 @@ namespace UI.Desktop
             string clave = this.txtPassword.Text;
             try
             {
+                //Usuario usuario = usuarioLogic.GetOne(usr, clave) ?? throw new Exception("Usuario o Contraseña incorrecto");
                 Usuario usuario = usuarioLogic.GetOne(usr, clave);
                 if (usuario.ID == 0)
                 {

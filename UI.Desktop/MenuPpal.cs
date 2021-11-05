@@ -15,6 +15,7 @@ namespace UI.Desktop
         public MenuPpal()
         {
             InitializeComponent();
+            PersonaLoggedIn = new Business.Entities.Persona();
         }
 
         private void MenuPpal_Shown(object sender, EventArgs e)
@@ -91,7 +92,22 @@ namespace UI.Desktop
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            MenuPpal formMenu = new MenuPpal();
+            formMenu.Show();
+            this.Dispose(false);
+        }
+
+        private void misDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AlumnoInscripcion formAlumnoInscripcion = new AlumnoInscripcion();
+            formAlumnoInscripcion.ShowDialog();
+        }
+
+        private void salirDocente_Click(object sender, EventArgs e)
+        {
+            MenuPpal formMenu = new MenuPpal();
+            formMenu.Show();
+            this.Dispose(false);
         }
     }
 }
