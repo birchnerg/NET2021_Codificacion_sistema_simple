@@ -34,7 +34,6 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.26141cm</Top>
-              <Left>0cm</Left>
               <Height>0.70583cm</Height>
               <Width>16.51cm</Width>
               <Style>
@@ -67,7 +66,6 @@
                 </Paragraph>
               </Paragraphs>
               <Top>1.14363cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>16.51cm</Width>
               <ZIndex>1</ZIndex>
@@ -88,7 +86,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="Alumno: " &amp; Parameters!nombre.Value</Value>
+                      <Value>="Alumno: " &amp;Parameters!apellido.Value &amp; " " &amp; Parameters!nombre.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -96,7 +94,6 @@
                 </Paragraph>
               </Paragraphs>
               <Top>2.13169cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>8.6166cm</Width>
               <ZIndex>2</ZIndex>
@@ -125,7 +122,6 @@
                 </Paragraph>
               </Paragraphs>
               <Top>3.16563cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>8.6166cm</Width>
               <ZIndex>3</ZIndex>
@@ -214,7 +210,6 @@
                 </Paragraph>
               </Paragraphs>
               <Top>3.94202cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>6.70688cm</Width>
               <ZIndex>6</ZIndex>
@@ -230,7 +225,6 @@
             </Textbox>
             <Line Name="Line1">
               <Top>1.92002cm</Top>
-              <Left>0cm</Left>
               <Height>0cm</Height>
               <Width>16.51cm</Width>
               <ZIndex>7</ZIndex>
@@ -280,7 +274,6 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.79058cm</Top>
-              <Left>0cm</Left>
               <Height>0.6cm</Height>
               <Width>16.51cm</Width>
               <Style>
@@ -328,6 +321,10 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="apellido">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -353,6 +350,11 @@
           <ColumnIndex>3</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>legajo</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>apellido</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

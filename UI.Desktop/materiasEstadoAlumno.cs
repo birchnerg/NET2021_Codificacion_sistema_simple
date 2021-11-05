@@ -8,15 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Business.Entities;
 
 namespace UI.Desktop
 {
     public partial class materiasEstadoAlumno : Form
     {
-        public materiasEstadoAlumno()
+        public materiasEstadoAlumno(Persona alumno)
         {
             InitializeComponent();
-            List<ReportParameter> parametros = infoTxt();
+            List<ReportParameter> parametros = infoTxt(alumno);
             reporte.LocalReport.SetParameters(parametros);
             this.reporte.RefreshReport();
         }
@@ -26,13 +27,14 @@ namespace UI.Desktop
             this.reporte.RefreshReport();
         }
 
-        private List<ReportParameter> infoTxt()
+        private List<ReportParameter> infoTxt(Persona alumno)
         {
             List<ReportParameter> parameters = new List<ReportParameter>();
-            parameters.Add(new ReportParameter("nombre", "Julio Lopez"));
-            parameters.Add(new ReportParameter("legajo", "44356"));
+            parameters.Add(new ReportParameter("apellido", alumno.Apellido ));
+            parameters.Add(new ReportParameter("nombre", alumno.Nombre));
+            parameters.Add(new ReportParameter("legajo", alumno.Legajo.ToString()));
             parameters.Add(new ReportParameter("carrera", "Ingenieria en sistemas"));
-            parameters.Add(new ReportParameter("plan", "2008"));
+            parameters.Add(new ReportParameter("plan", alumno.IDPlan.ToString()));
             return parameters;
         }
     }

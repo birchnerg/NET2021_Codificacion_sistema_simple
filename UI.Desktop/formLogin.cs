@@ -33,6 +33,11 @@ namespace UI.Desktop
                     throw new Exception("Usuario o Contraseña incorrecto");
                 }
                 PersonaLoggedIn = personaLogic.GetOne(usuario.IdPersona);
+                //Carga reporte despues de registrar persona para obtener los datos
+                //Moverlo a la accion del boton reporte correspondiente
+                materiasEstadoAlumno reporte = new materiasEstadoAlumno(PersonaLoggedIn);
+                reporte.ShowDialog();
+                //
                 return true;
             }
             catch
@@ -50,8 +55,7 @@ namespace UI.Desktop
             dgvUsuarios.ClearSelection();
             */
 
-            materiasEstadoAlumno reporte = new materiasEstadoAlumno();
-            reporte.ShowDialog();
+            
 
             if (Validar())
             {
