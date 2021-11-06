@@ -23,24 +23,23 @@ namespace UI.Desktop
         {
             CursoLogic cu = new CursoLogic();
             ComisionLogic co = new ComisionLogic();
-            //MateriaLogic ma = new MateriaLogic();
+            MateriaLogic ma = new MateriaLogic();
             try
             {
                 List<Curso> cursos = cu.GetAll();
                 List<Comision> comisiones = co.GetAll();
-                //List<Materia> materias = ma.GetAll();
+                List<Materia> materias = ma.GetAll();
                 var consultaCursos =
                     from c in cursos
                     join com in comisiones
                     on c.IDComision equals com.ID
-                    //join ma in materias
-                    //on c.IDMateria equals ma.ID
+                    join ma in materias
+                    on c.IDMateria equals ma.ID
                     select new
                     {
                         ID = c.ID,
-                        //Materia = c.Descripcion,
-                        Materia = c.IDMateria,
-                        IDMateria = c.IDMateria,
+                        Materia = ma.Descripcion,
+                        IDMateria = ma.IDMateria,
                         Comision = com.Descripcion,
                         IDComision = com.ID,
                         AnioCalendario = c.AnioCalendario,

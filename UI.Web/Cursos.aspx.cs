@@ -42,19 +42,17 @@ namespace UI.Web
         {
             List<Curso> cursos = new CursoLogic().GetAll();
             List<Comision> comisiones = new ComisionLogic().GetAll();
-            // Descomentar cuando se implemente MateriaLogic
-
-            // List<Materia> materias = new MateriaLogic().GetAll();
+            List<Materia> materias = new MateriaLogic().GetAll();
             var consulta =
                 from cur in this.Logic.GetAll()
                 join com in comisiones
                 on cur.IDComision equals com.ID
-                /* join m in materias
-                on cur.IDMateria equals m.ID */
+                join m in materias
+                on cur.IDMateria equals m.ID
                 select new
                 {
                     ID = cur.ID,
-                    // Materia = m.Descripcion,
+                    Materia = m.Descripcion,
                     Comision = com.Descripcion,
                     AnioCalendario = cur.AnioCalendario,
                     Cupo = cur.Cupo
@@ -75,7 +73,7 @@ namespace UI.Web
         private void LoadForm(int id)
         {
             this.Entity = this.Logic.GetOne(id);
-            // List<Materia> materias = new MateriaLogic().GetAll();
+            List<Materia> materias = new MateriaLogic().GetAll();
             DataTable dtMateria = new DataTable();
             dtMateria.Columns.Add("id_materia", typeof(int));
             dtMateria.Columns.Add("desc_materia", typeof(string));
@@ -194,7 +192,7 @@ namespace UI.Web
             this.FormMode = FormModes.Alta;
             this.ClearForm();
             this.EnableForm(true);
-            // List<Materia> materias = new MateriaLogic().GetAll();
+            List<Materia> materias = new MateriaLogic().GetAll();
             DataTable dtMateria = new DataTable();
             dtMateria.Columns.Add("id_materia", typeof(int));
             dtMateria.Columns.Add("desc_materia", typeof(string));
