@@ -20,7 +20,7 @@ namespace UI.Desktop
             MateriaLogic ma = new MateriaLogic();
             try
             {
-                List<Materias> materias = ma.GetAll();
+                List<Materia> materias = ma.GetAll();
                 DataTable dtMaterias = new DataTable();
                 dtMaterias.Columns.Add("id_materia", typeof(int));
                 dtMaterias.Columns.Add("desc_materia", typeof(string));
@@ -90,8 +90,8 @@ namespace UI.Desktop
             this.txtID.Text = this.CursoActual.ID.ToString();
             this.txtAnioCalendario.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
-            this.boxComision.SelectedItem = this.CursoActual.IDComision;
-            this.boxMateria.Text = this.CursoActual.IDMateria.ToString();
+            this.boxComision.SelectedValue = this.CursoActual.IDComision;
+            this.boxMateria.SelectedValue = this.CursoActual.IDMateria;
             switch (this.Modo)
             {
                 case ModoForm.Alta:

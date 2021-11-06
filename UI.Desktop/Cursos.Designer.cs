@@ -33,16 +33,17 @@ namespace UI.Desktop
             this.tscPlanes = new System.Windows.Forms.ToolStripContainer();
             this.tlPlanes = new System.Windows.Forms.TableLayoutPanel();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anio_calendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsPlanes = new System.Windows.Forms.ToolStrip();
             this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anio_calendario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tscPlanes.ContentPanel.SuspendLayout();
             this.tscPlanes.TopToolStripPanel.SuspendLayout();
             this.tscPlanes.SuspendLayout();
@@ -94,7 +95,8 @@ namespace UI.Desktop
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.id_comision,
+            this.materia,
+            this.comision,
             this.anio_calendario,
             this.cupo});
             this.tlPlanes.SetColumnSpan(this.dgvCursos, 2);
@@ -107,42 +109,6 @@ namespace UI.Desktop
             this.dgvCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCursos.Size = new System.Drawing.Size(794, 388);
             this.dgvCursos.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Materia";
-            this.id.HeaderText = "Materia";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 67;
-            // 
-            // id_comision
-            // 
-            this.id_comision.DataPropertyName = "Comision";
-            this.id_comision.HeaderText = "Comisión";
-            this.id_comision.MinimumWidth = 6;
-            this.id_comision.Name = "id_comision";
-            this.id_comision.ReadOnly = true;
-            this.id_comision.Width = 74;
-            // 
-            // anio_calendario
-            // 
-            this.anio_calendario.DataPropertyName = "AnioCalendario";
-            this.anio_calendario.HeaderText = "Año Calendario";
-            this.anio_calendario.MinimumWidth = 6;
-            this.anio_calendario.Name = "anio_calendario";
-            this.anio_calendario.ReadOnly = true;
-            this.anio_calendario.Width = 96;
-            // 
-            // cupo
-            // 
-            this.cupo.DataPropertyName = "Cupo";
-            this.cupo.HeaderText = "Cupo";
-            this.cupo.MinimumWidth = 6;
-            this.cupo.Name = "cupo";
-            this.cupo.ReadOnly = true;
-            this.cupo.Width = 57;
             // 
             // btnActualizar
             // 
@@ -211,6 +177,50 @@ namespace UI.Desktop
             this.tsbEliminar.ToolTipText = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 43;
+            // 
+            // materia
+            // 
+            this.materia.DataPropertyName = "Materia";
+            this.materia.HeaderText = "Materia";
+            this.materia.MinimumWidth = 6;
+            this.materia.Name = "materia";
+            this.materia.ReadOnly = true;
+            this.materia.Width = 67;
+            // 
+            // comision
+            // 
+            this.comision.DataPropertyName = "Comision";
+            this.comision.HeaderText = "Comisión";
+            this.comision.MinimumWidth = 6;
+            this.comision.Name = "comision";
+            this.comision.ReadOnly = true;
+            this.comision.Width = 74;
+            // 
+            // anio_calendario
+            // 
+            this.anio_calendario.DataPropertyName = "AnioCalendario";
+            this.anio_calendario.HeaderText = "Año Calendario";
+            this.anio_calendario.MinimumWidth = 6;
+            this.anio_calendario.Name = "anio_calendario";
+            this.anio_calendario.ReadOnly = true;
+            this.anio_calendario.Width = 96;
+            // 
+            // cupo
+            // 
+            this.cupo.DataPropertyName = "Cupo";
+            this.cupo.HeaderText = "Cupo";
+            this.cupo.MinimumWidth = 6;
+            this.cupo.Name = "cupo";
+            this.cupo.ReadOnly = true;
+            this.cupo.Width = 57;
+            // 
             // Cursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,7 +256,8 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_comision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comision;
         private System.Windows.Forms.DataGridViewTextBoxColumn anio_calendario;
         private System.Windows.Forms.DataGridViewTextBoxColumn cupo;
     }

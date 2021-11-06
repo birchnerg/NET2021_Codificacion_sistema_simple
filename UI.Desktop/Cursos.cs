@@ -33,13 +33,13 @@ namespace UI.Desktop
                     from c in cursos
                     join com in comisiones
                     on c.IDComision equals com.ID
-                    join ma in materias
-                    on c.IDMateria equals ma.ID
+                    join m in materias
+                    on c.IDMateria equals m.ID
                     select new
                     {
                         ID = c.ID,
-                        Materia = ma.Descripcion,
-                        IDMateria = ma.IDMateria,
+                        Materia = m.Descripcion,
+                        IDMateria = m.ID,
                         Comision = com.Descripcion,
                         IDComision = com.ID,
                         AnioCalendario = c.AnioCalendario,
