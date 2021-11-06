@@ -17,7 +17,6 @@ namespace UI.Desktop
         public CursoDesktop()
         {
             InitializeComponent();
-            /*---A agregar cuando exista ABM materia
             MateriaLogic ma = new MateriaLogic();
             try
             {
@@ -36,7 +35,7 @@ namespace UI.Desktop
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
             ComisionLogic com = new ComisionLogic();
             try
             {
@@ -121,18 +120,14 @@ namespace UI.Desktop
                     CursoActual.AnioCalendario = Int32.Parse(this.txtAnioCalendario.Text);
                     CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
                     CursoActual.IDComision = (int)this.boxComision.SelectedValue;
-                    CursoActual.IDMateria = Int32.Parse(this.boxMateria.Text);
-                    //Cambiar cuando exista ABM Materias por 
-                    //CursoActual.IDMateria = (int)this.boxMateria.SelectedValue;
+                    CursoActual.IDMateria = (int)this.boxMateria.SelectedValue;
                     CursoActual.State = BusinessEntity.States.New;
                     break;
                 case ModoForm.Modificacion:
                     CursoActual.AnioCalendario = Int32.Parse(this.txtAnioCalendario.Text);
                     CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
                     CursoActual.IDComision = (int)this.boxComision.SelectedValue;
-                    CursoActual.IDMateria = Int32.Parse(this.boxMateria.Text);
-                    //Cambiar cuando exista ABM Materias por 
-                    //CursoActual.IDMateria = (int)this.boxMateria.SelectedValue;
+                    CursoActual.IDMateria = (int)this.boxMateria.SelectedValue;
                     CursoActual.State = BusinessEntity.States.Modified;
                     break;
             }
