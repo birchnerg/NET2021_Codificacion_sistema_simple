@@ -6,8 +6,8 @@
             DataKeyNames="ID" OnSelectedIndexChanged="gridView_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField HeaderText="Materia" DataField="Materia" />
-                <asp:BoundField HeaderText="Comisión" DataField="Comisión" />
-                <asp:BoundField HeaderText="Año Calendario" DataField="Año Calendario" />
+                <asp:BoundField HeaderText="Comisión" DataField="Comision" />
+                <asp:BoundField HeaderText="Año Calendario" DataField="AnioCalendario" />
                 <asp:BoundField HeaderText="Cupo" DataField="Cupo" />
                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True" />
             </Columns>           
@@ -22,11 +22,14 @@
     <asp:Panel ID="formPanel" runat="server" Visible="false">
         <asp:Label ID="materiaLabel" runat="server" Text="Materia: "></asp:Label>
         <asp:DropDownList ID="materiaList" runat="server" ></asp:DropDownList>
+        <br />
         <asp:Label ID="comisionLabel" runat="server" Text="Comision: "></asp:Label>
         <asp:DropDownList ID="comisionList" runat="server" ></asp:DropDownList>
+        <br />
         <asp:Label ID="anioLabel" runat="server" Text="Anio Calendario: "></asp:Label>
         <asp:TextBox ID="anioTextBox" ValidationGroup="ValidationGroup" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="validatorAnio" runat="server" ForeColor="Red" ValidationGroup="ValidationGroup" ControlToValidate="anioTextBox" ErrorMessage="El anio no puede estar vacio">*</asp:RequiredFieldValidator>
+        <br />
         <asp:Label ID="cupoLabel" runat="server" Text="Cupo: "></asp:Label>
         <asp:TextBox ID="cupoTextBox" ValidationGroup="ValidationGroup" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="validatorCupo" runat="server" ForeColor="Red" ValidationGroup="ValidationGroup" ControlToValidate="cupoTextBox" ErrorMessage="El cupo no puede estar vacio">*</asp:RequiredFieldValidator>
