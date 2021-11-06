@@ -90,6 +90,12 @@ namespace UI.Desktop
             formCursos.ShowDialog();
         }
 
+        private void verMateriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Materias formMaterias = new Materias();
+            formMaterias.ShowDialog();
+        }
+
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuPpal formMenu = new MenuPpal();
