@@ -13,6 +13,7 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.Master.FindControl("menu").Visible = false;
         }
 
         public bool Validar()

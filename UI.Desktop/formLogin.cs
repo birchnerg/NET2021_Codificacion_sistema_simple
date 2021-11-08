@@ -27,6 +27,7 @@ namespace UI.Desktop
             string clave = this.txtPassword.Text;
             try
             {
+                //Usuario usuario = usuarioLogic.GetOne(usr, clave) ?? throw new Exception("Usuario o Contraseña incorrecto");
                 Usuario usuario = usuarioLogic.GetOne(usr, clave);
                 if (usuario.ID == 0)
                 {
@@ -35,8 +36,6 @@ namespace UI.Desktop
                 PersonaLoggedIn = personaLogic.GetOne(usuario.IdPersona);
                 //Carga reporte despues de registrar persona para obtener los datos
                 //Moverlo a la accion del boton reporte correspondiente
-                materiasEstadoAlumno reporte = new materiasEstadoAlumno(PersonaLoggedIn);
-                reporte.ShowDialog();
                 //
                 return true;
             }

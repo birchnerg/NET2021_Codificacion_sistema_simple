@@ -33,6 +33,10 @@
           <DataField>Condicion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Curso">
+          <DataField>Curso</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="ID">
           <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -523,7 +527,7 @@
         <Height>2in</Height>
         <Style />
       </Body>
-      <Width>7.25508in</Width>
+      <Width>8.07267in</Width>
       <Page>
         <PageHeader>
           <Height>5.26521cm</Height>

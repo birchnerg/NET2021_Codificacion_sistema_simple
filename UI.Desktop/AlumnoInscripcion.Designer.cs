@@ -1,7 +1,7 @@
 ﻿
 namespace UI.Desktop
 {
-    partial class Usuarios
+    partial class AlumnoInscripcion
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,10 +29,10 @@ namespace UI.Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlumnoInscripcion));
             this.tscUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.dgvInscripciones = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.tsUsuarios = new System.Windows.Forms.ToolStrip();
@@ -40,17 +40,17 @@ namespace UI.Desktop
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_persona = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.habilitado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.id_alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.curso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tscUsuarios.ContentPanel.SuspendLayout();
             this.tscUsuarios.TopToolStripPanel.SuspendLayout();
             this.tscUsuarios.SuspendLayout();
             this.tlUsuarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInscripciones)).BeginInit();
             this.tsUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,11 +60,11 @@ namespace UI.Desktop
             // tscUsuarios.ContentPanel
             // 
             this.tscUsuarios.ContentPanel.Controls.Add(this.tlUsuarios);
-            this.tscUsuarios.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tscUsuarios.ContentPanel.Size = new System.Drawing.Size(1280, 601);
+            this.tscUsuarios.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.tscUsuarios.ContentPanel.Size = new System.Drawing.Size(1280, 597);
             this.tscUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tscUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tscUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tscUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.tscUsuarios.Name = "tscUsuarios";
             this.tscUsuarios.Size = new System.Drawing.Size(1280, 628);
             this.tscUsuarios.TabIndex = 0;
@@ -79,50 +79,50 @@ namespace UI.Desktop
             this.tlUsuarios.ColumnCount = 2;
             this.tlUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlUsuarios.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlUsuarios.Controls.Add(this.dgvUsuarios, 0, 0);
+            this.tlUsuarios.Controls.Add(this.dgvInscripciones, 0, 0);
             this.tlUsuarios.Controls.Add(this.btnActualizar, 0, 1);
             this.tlUsuarios.Controls.Add(this.btnSalir, 1, 1);
             this.tlUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tlUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tlUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.tlUsuarios.Name = "tlUsuarios";
             this.tlUsuarios.RowCount = 2;
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlUsuarios.Size = new System.Drawing.Size(1280, 601);
+            this.tlUsuarios.Size = new System.Drawing.Size(1280, 597);
             this.tlUsuarios.TabIndex = 0;
             // 
-            // dgvUsuarios
+            // dgvInscripciones
             // 
-            this.dgvUsuarios.AllowUserToAddRows = false;
-            this.dgvUsuarios.AllowUserToDeleteRows = false;
-            this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvInscripciones.AllowUserToAddRows = false;
+            this.dgvInscripciones.AllowUserToDeleteRows = false;
+            this.dgvInscripciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvInscripciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInscripciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.id_persona,
-            this.nombre,
-            this.apellido,
-            this.usuario,
-            this.email,
-            this.habilitado});
-            this.tlUsuarios.SetColumnSpan(this.dgvUsuarios, 2);
-            this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUsuarios.Location = new System.Drawing.Point(4, 4);
-            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvUsuarios.MultiSelect = false;
-            this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.ReadOnly = true;
-            this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(1272, 557);
-            this.dgvUsuarios.TabIndex = 0;
+            this.id_alumno,
+            this.Materia,
+            this.curso,
+            this.Comision,
+            this.condicion,
+            this.Nota});
+            this.tlUsuarios.SetColumnSpan(this.dgvInscripciones, 2);
+            this.dgvInscripciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInscripciones.Location = new System.Drawing.Point(4, 4);
+            this.dgvInscripciones.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvInscripciones.MultiSelect = false;
+            this.dgvInscripciones.Name = "dgvInscripciones";
+            this.dgvInscripciones.ReadOnly = true;
+            this.dgvInscripciones.RowHeadersWidth = 51;
+            this.dgvInscripciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInscripciones.Size = new System.Drawing.Size(1272, 553);
+            this.dgvInscripciones.TabIndex = 0;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(1068, 569);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Location = new System.Drawing.Point(1068, 565);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(100, 28);
             this.btnActualizar.TabIndex = 1;
@@ -133,8 +133,8 @@ namespace UI.Desktop
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(1176, 569);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Location = new System.Drawing.Point(1176, 565);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(100, 28);
             this.btnSalir.TabIndex = 2;
@@ -195,77 +195,79 @@ namespace UI.Desktop
             this.id.ReadOnly = true;
             this.id.Width = 50;
             // 
-            // id_persona
+            // id_alumno
             // 
-            this.id_persona.DataPropertyName = "IDPersona";
-            this.id_persona.HeaderText = "ID Persona";
-            this.id_persona.MinimumWidth = 6;
-            this.id_persona.Name = "id_persona";
-            this.id_persona.ReadOnly = true;
-            this.id_persona.Width = 107;
+            this.id_alumno.DataPropertyName = "IDAlumno";
+            this.id_alumno.HeaderText = "ID Alumno";
+            this.id_alumno.MinimumWidth = 6;
+            this.id_alumno.Name = "id_alumno";
+            this.id_alumno.ReadOnly = true;
+            this.id_alumno.Width = 101;
             // 
-            // nombre
+            // Materia
             // 
-            this.nombre.DataPropertyName = "Nombre";
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 87;
+            this.Materia.DataPropertyName = "Materia";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 6;
+            this.Materia.Name = "Materia";
+            this.Materia.ReadOnly = true;
+            this.Materia.Width = 84;
             // 
-            // apellido
+            // curso
             // 
-            this.apellido.DataPropertyName = "Apellido";
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.MinimumWidth = 6;
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            this.apellido.Width = 87;
+            this.curso.DataPropertyName = "Curso";
+            this.curso.HeaderText = "Curso";
+            this.curso.MinimumWidth = 6;
+            this.curso.Name = "curso";
+            this.curso.ReadOnly = true;
+            this.curso.Width = 74;
             // 
-            // usuario
+            // Comision
             // 
-            this.usuario.DataPropertyName = "NombreUsuario";
-            this.usuario.HeaderText = "Usuario";
-            this.usuario.MinimumWidth = 6;
-            this.usuario.Name = "usuario";
-            this.usuario.ReadOnly = true;
-            this.usuario.Width = 86;
+            this.Comision.DataPropertyName = "Comision";
+            this.Comision.HeaderText = "Comisión";
+            this.Comision.MinimumWidth = 6;
+            this.Comision.Name = "Comision";
+            this.Comision.ReadOnly = true;
+            this.Comision.Width = 94;
             // 
-            // email
+            // condicion
             // 
-            this.email.DataPropertyName = "Email";
-            this.email.HeaderText = "Email";
-            this.email.MinimumWidth = 6;
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            this.email.Width = 71;
+            this.condicion.DataPropertyName = "Condicion";
+            this.condicion.HeaderText = "Condición";
+            this.condicion.MinimumWidth = 6;
+            this.condicion.Name = "condicion";
+            this.condicion.ReadOnly = true;
+            this.condicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.condicion.Width = 99;
             // 
-            // habilitado
+            // Nota
             // 
-            this.habilitado.DataPropertyName = "Habilitado";
-            this.habilitado.HeaderText = "Habilitado";
-            this.habilitado.MinimumWidth = 6;
-            this.habilitado.Name = "habilitado";
-            this.habilitado.ReadOnly = true;
-            this.habilitado.Width = 77;
+            this.Nota.DataPropertyName = "Nota";
+            this.Nota.HeaderText = "Nota";
+            this.Nota.MinimumWidth = 6;
+            this.Nota.Name = "Nota";
+            this.Nota.ReadOnly = true;
+            this.Nota.Width = 67;
             // 
-            // Usuarios
+            // AlumnoInscripcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 628);
             this.Controls.Add(this.tscUsuarios);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Usuarios";
-            this.Text = "Usuarios";
-            this.Load += new System.EventHandler(this.Usuarios_Load);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "AlumnoInscripcion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Inscripciones";
+            this.Load += new System.EventHandler(this.Comisiones_Load);
             this.tscUsuarios.ContentPanel.ResumeLayout(false);
             this.tscUsuarios.TopToolStripPanel.ResumeLayout(false);
             this.tscUsuarios.TopToolStripPanel.PerformLayout();
             this.tscUsuarios.ResumeLayout(false);
             this.tscUsuarios.PerformLayout();
             this.tlUsuarios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInscripciones)).EndInit();
             this.tsUsuarios.ResumeLayout(false);
             this.tsUsuarios.PerformLayout();
             this.ResumeLayout(false);
@@ -276,7 +278,7 @@ namespace UI.Desktop
 
         private System.Windows.Forms.ToolStripContainer tscUsuarios;
         private System.Windows.Forms.TableLayoutPanel tlUsuarios;
-        private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.DataGridView dgvInscripciones;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStrip tsUsuarios;
@@ -284,12 +286,12 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripButton tsbEditar;
         private System.Windows.Forms.ToolStripButton tsbEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_persona;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn habilitado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_alumno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Materia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn curso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn condicion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nota;
     }
 }
 

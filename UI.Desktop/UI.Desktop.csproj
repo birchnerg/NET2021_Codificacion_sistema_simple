@@ -68,6 +68,30 @@
     <Compile Include="ApplicationForm.Designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AlumnoInscripcionDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnoInscripcionDesktop.Designer.cs">
+      <DependentUpon>AlumnoInscripcionDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlumnoInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnoInscripcion.Designer.cs">
+      <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MateriaDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MateriaDesktop.Designer.cs">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Materias.Designer.cs">
+      <DependentUpon>Materias.cs</DependentUpon>
+    </Compile>
     <Compile Include="materiasEstadoAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +202,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnoInscripcionDesktop.resx">
+      <DependentUpon>AlumnoInscripcionDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnoInscripcion.resx">
+      <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MateriaDesktop.resx">
+      <DependentUpon>MateriaDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Materias.resx">
+      <DependentUpon>Materias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>

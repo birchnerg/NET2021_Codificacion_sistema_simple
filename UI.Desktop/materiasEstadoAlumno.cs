@@ -23,12 +23,12 @@ namespace UI.Desktop
             reporte.LocalReport.SetParameters(parametros);
 
             //TABLA
-            List<ReporteEstadoAcademico> consulta = new List<ReporteEstadoAcademico>();
-            consulta = ReportesLogic.ObtenerEstadoAcademico();
+            // List<ReporteEstadoAcademico> consulta = ReportesLogic.EstadoAlumno(alumno.IDPlan, alumno.ID);
+            List<ReporteEstadoAcademico> consultaAlumno = ReportesLogic.ObtenerEstadoAcademico(alumno.IDPlan, alumno.ID );
+            List<ReporteEstadoAcademico> consultaMaterias = ReportesLogic.MateriasPlan(alumno.IDPlan);
+            var consulta = consultaAlumno.Union(consultaMaterias, new ReportesLogic.MateriasComparer());
             reporte.LocalReport.DataSources.Clear();
             reporte.LocalReport.DataSources.Add(new ReportDataSource("materia", consulta));
-            reporte.RefreshReport();
-
             reporte.RefreshReport();
         }
 
@@ -47,5 +47,7 @@ namespace UI.Desktop
             parameters.Add(new ReportParameter("plan", PlanLogic.DescripcionPlan(alumno.IDPlan)));
             return parameters;
         }
+
+        
     }
 }

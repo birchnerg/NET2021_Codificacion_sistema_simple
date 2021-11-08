@@ -30,7 +30,6 @@ namespace UI.Desktop
         public ApplicationForm()
         {
             InitializeComponent();
-            PersonaLoggedIn = new Business.Entities.Persona();
         }
         
 

@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Entities;
+using Data.Database;
 
 
 namespace Business.Logic
 {
     public class ReportesLogic
     {
+
         public static List<ReportePlanes> ObtenerPlanes()
         {
             List<ReportePlanes> listaPlanes = new List<ReportePlanes>();
@@ -31,8 +33,21 @@ namespace Business.Logic
             return listaPlanes;
         }
 
-        public static List<ReporteEstadoAcademico> ObtenerEstadoAcademico()
+        public static List<ReporteEstadoAcademico> ObtenerEstadoAcademico(int idPlan, int idAlum)
         {
+            List<ReporteEstadoAcademico> ea = new List<ReporteEstadoAcademico>();
+            ReporteEstAcAdapter EstAcData = new ReporteEstAcAdapter();
+            try
+            {
+                ea = EstAcData.GetAllPlan(idPlan, idAlum);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ea;
+
+            /*
             List<ReporteEstadoAcademico> ea = new List<ReporteEstadoAcademico>();
             ReporteEstadoAcademico uno = new ReporteEstadoAcademico();
             ReporteEstadoAcademico dos = new ReporteEstadoAcademico();
@@ -61,7 +76,59 @@ namespace Business.Logic
             cuatro.NombreMateria = "Economia";
             cuatro.Nota = "-";
             ea.Add(cuatro);
+            return ea;*/
+        }
+
+        public static List<ReporteEstadoAcademico> MateriasPlan(int id)
+        {
+            List<ReporteEstadoAcademico> ea = new List<ReporteEstadoAcademico>();
+            ReporteEstAcAdapter EstAcData = new ReporteEstAcAdapter();
+            try
+            {
+                ea = EstAcData.MateriasPlan(id);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             return ea;
+        }
+        /*
+                public static List<ReporteEstadoAcademico> EstadoAlumno(int idPlan, int idPersona)
+                {
+                    List<ReporteEstadoAcademico> estAca = MateriasPlan(idPlan);
+                    AlumnoInscripcionLogic alLogic = new AlumnoInscripcionLogic();
+                    List<AlumnoInscripcion> matAlum = alLogic.GetAll(idPersona);
+                    foreach (ReporteEstadoAcademico materia in estAca)
+                    {
+                        foreach (AlumnoInscripcion inscripcion in matAlum)
+                        {
+                            if (materia.Curso == inscripcion.IDCurso.ToString())
+                            {
+                                materia.Condicion = inscripcion.Condicion;
+                                if (inscripcion.Nota != 0)
+                                {
+                                    materia.Nota = inscripcion.Nota.ToString();
+                                }
+                            }
+                        }
+                    }
+                    return estAca;
+                }
+        */
+
+        public class MateriasComparer : IEqualityComparer<ReporteEstadoAcademico>
+        {
+            public bool Equals(ReporteEstadoAcademico materia1, ReporteEstadoAcademico materia2)
+            {
+                return materia1.NombreMateria == materia2.NombreMateria;
+            }
+
+            public int GetHashCode(ReporteEstadoAcademico item)
+            {
+                int hCode = item.NombreMateria.Length;
+                return hCode.GetHashCode();
+            }
         }
     }
 }
