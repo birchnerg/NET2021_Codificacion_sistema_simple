@@ -192,5 +192,10 @@ namespace UI.Web
             this.formPanel.Visible = false;
             this.gridPanel.Visible = true;
         }
+
+        protected void linkReporte_Click(object sender, EventArgs e)
+        {
+            Page.Response.Redirect("~/planesReporte.aspx");
+        }
     }
 }

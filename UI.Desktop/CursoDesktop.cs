@@ -17,11 +17,10 @@ namespace UI.Desktop
         public CursoDesktop()
         {
             InitializeComponent();
-            /*---A agregar cuando exista ABM materia
             MateriaLogic ma = new MateriaLogic();
             try
             {
-                List<Materias> materias = ma.GetAll();
+                List<Materia> materias = ma.GetAll();
                 DataTable dtMaterias = new DataTable();
                 dtMaterias.Columns.Add("id_materia", typeof(int));
                 dtMaterias.Columns.Add("desc_materia", typeof(string));
@@ -36,7 +35,7 @@ namespace UI.Desktop
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }*/
+            }
             ComisionLogic com = new ComisionLogic();
             try
             {
@@ -91,8 +90,8 @@ namespace UI.Desktop
             this.txtID.Text = this.CursoActual.ID.ToString();
             this.txtAnioCalendario.Text = this.CursoActual.AnioCalendario.ToString();
             this.txtCupo.Text = this.CursoActual.Cupo.ToString();
-            this.boxComision.SelectedItem = this.CursoActual.IDComision;
-            this.boxMateria.Text = this.CursoActual.IDMateria.ToString();
+            this.boxComision.SelectedValue = this.CursoActual.IDComision;
+            this.boxMateria.SelectedValue = this.CursoActual.IDMateria;
             switch (this.Modo)
             {
                 case ModoForm.Alta:
@@ -121,18 +120,14 @@ namespace UI.Desktop
                     CursoActual.AnioCalendario = Int32.Parse(this.txtAnioCalendario.Text);
                     CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
                     CursoActual.IDComision = (int)this.boxComision.SelectedValue;
-                    CursoActual.IDMateria = Int32.Parse(this.boxMateria.Text);
-                    //Cambiar cuando exista ABM Materias por 
-                    //CursoActual.IDMateria = (int)this.boxMateria.SelectedValue;
+                    CursoActual.IDMateria = (int)this.boxMateria.SelectedValue;
                     CursoActual.State = BusinessEntity.States.New;
                     break;
                 case ModoForm.Modificacion:
                     CursoActual.AnioCalendario = Int32.Parse(this.txtAnioCalendario.Text);
                     CursoActual.Cupo = Int32.Parse(this.txtCupo.Text);
                     CursoActual.IDComision = (int)this.boxComision.SelectedValue;
-                    CursoActual.IDMateria = Int32.Parse(this.boxMateria.Text);
-                    //Cambiar cuando exista ABM Materias por 
-                    //CursoActual.IDMateria = (int)this.boxMateria.SelectedValue;
+                    CursoActual.IDMateria = (int)this.boxMateria.SelectedValue;
                     CursoActual.State = BusinessEntity.States.Modified;
                     break;
             }
