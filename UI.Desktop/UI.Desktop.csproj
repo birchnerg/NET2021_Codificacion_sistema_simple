@@ -50,6 +50,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnoInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnoInscripcion.Designer.cs">
+      <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroNotas.Designer.cs">
+      <DependentUpon>RegistroNotas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroNotasDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroNotasDesktop.Designer.cs">
+      <DependentUpon>RegistroNotasDesktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfesorDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfesorDesktop.Designer.cs">
+      <DependentUpon>ProfesorDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,11 +86,11 @@
     <Compile Include="AlumnoInscripcionDesktop.Designer.cs">
       <DependentUpon>AlumnoInscripcionDesktop.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlumnoInscripcion.cs">
+    <Compile Include="Profesor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlumnoInscripcion.Designer.cs">
-      <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
+    <Compile Include="Profesor.Designer.cs">
+      <DependentUpon>Profesor.cs</DependentUpon>
     </Compile>
     <Compile Include="MateriaDesktop.cs">
       <SubType>Form</SubType>
@@ -182,14 +206,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AlumnoInscripcion.resx">
+      <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroNotas.resx">
+      <DependentUpon>RegistroNotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroNotasDesktop.resx">
+      <DependentUpon>RegistroNotasDesktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfesorDesktop.resx">
+      <DependentUpon>ProfesorDesktop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplicationForm.resx">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AlumnoInscripcionDesktop.resx">
       <DependentUpon>AlumnoInscripcionDesktop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AlumnoInscripcion.resx">
-      <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
+    <EmbeddedResource Include="Profesor.resx">
+      <DependentUpon>Profesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MateriaDesktop.resx">
       <DependentUpon>MateriaDesktop.cs</DependentUpon>

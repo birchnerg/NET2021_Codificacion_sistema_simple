@@ -80,7 +80,7 @@ namespace UI.Desktop
                 MessageBox.Show(ex.Message);
             }
         }
-        private void Comisiones_Load(object sender, EventArgs e)
+        private void AlumnoInscripcion_Load(object sender, EventArgs e)
         {
             switch (PersonaLoggedIn.TipoPersonasString)
             {
