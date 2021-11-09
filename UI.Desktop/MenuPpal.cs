@@ -34,6 +34,7 @@ namespace UI.Desktop
                     break;
                 case "Docente":
                     this.tsmDocente.Visible = true;
+                    this.ProfesoresToolStripMenuItem.Visible = false;
                     break;
                 case "NoDocente":
                     this.tsmAlumno.Visible = true;
@@ -108,6 +109,18 @@ namespace UI.Desktop
             MenuPpal formMenu = new MenuPpal();
             formMenu.Show();
             this.Dispose(false);
+        }
+
+        private void NotasDeCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroNotas formRegistroNotas = new RegistroNotas();
+            formRegistroNotas.ShowDialog();
+        }
+
+        private void ProfesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Profesor formProfesores = new Profesor();
+            formProfesores.ShowDialog();
         }
     }
 }

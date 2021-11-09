@@ -47,10 +47,11 @@ namespace UI.Desktop
             this.tsmComisiones = new System.Windows.Forms.ToolStripMenuItem();
             this.verComisionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDocente = new System.Windows.Forms.ToolStripMenuItem();
-            this.NotasDeCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RegistroDeNotasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDocente = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.ProfesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,7 @@ namespace UI.Desktop
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(756, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(756, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,21 +81,21 @@ namespace UI.Desktop
             this.misDatosToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.tsmAlumno.Name = "tsmAlumno";
-            this.tsmAlumno.Size = new System.Drawing.Size(75, 26);
+            this.tsmAlumno.Size = new System.Drawing.Size(75, 24);
             this.tsmAlumno.Text = "Alumno";
             this.tsmAlumno.Visible = false;
             // 
             // misDatosToolStripMenuItem
             // 
             this.misDatosToolStripMenuItem.Name = "misDatosToolStripMenuItem";
-            this.misDatosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.misDatosToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.misDatosToolStripMenuItem.Text = "Incripción a curso";
             this.misDatosToolStripMenuItem.Click += new System.EventHandler(this.misDatosToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -103,7 +104,7 @@ namespace UI.Desktop
             this.tsmCursos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verCursosToolStripMenuItem});
             this.tsmCursos.Name = "tsmCursos";
-            this.tsmCursos.Size = new System.Drawing.Size(66, 26);
+            this.tsmCursos.Size = new System.Drawing.Size(66, 24);
             this.tsmCursos.Text = "Cursos";
             this.tsmCursos.Visible = false;
             // 
@@ -119,7 +120,7 @@ namespace UI.Desktop
             this.tsmMaterias.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verMateriasToolStripMenuItem});
             this.tsmMaterias.Name = "tsmMaterias";
-            this.tsmMaterias.Size = new System.Drawing.Size(80, 26);
+            this.tsmMaterias.Size = new System.Drawing.Size(80, 24);
             this.tsmMaterias.Text = "Materias";
             this.tsmMaterias.Visible = false;
             // 
@@ -134,7 +135,7 @@ namespace UI.Desktop
             this.tsmPlanes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verPlanesToolStripMenuItem});
             this.tsmPlanes.Name = "tsmPlanes";
-            this.tsmPlanes.Size = new System.Drawing.Size(65, 26);
+            this.tsmPlanes.Size = new System.Drawing.Size(65, 24);
             this.tsmPlanes.Text = "Planes";
             this.tsmPlanes.Visible = false;
             // 
@@ -150,7 +151,7 @@ namespace UI.Desktop
             this.tsmEspecialidades.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verEspecialidadesToolStripMenuItem});
             this.tsmEspecialidades.Name = "tsmEspecialidades";
-            this.tsmEspecialidades.Size = new System.Drawing.Size(121, 26);
+            this.tsmEspecialidades.Size = new System.Drawing.Size(121, 24);
             this.tsmEspecialidades.Text = "Especialidades";
             this.tsmEspecialidades.Visible = false;
             // 
@@ -167,7 +168,7 @@ namespace UI.Desktop
             this.verUsuariosToolStripMenuItem,
             this.verPersonasToolStripMenuItem});
             this.tsmUsuarios.Name = "tsmUsuarios";
-            this.tsmUsuarios.Size = new System.Drawing.Size(79, 26);
+            this.tsmUsuarios.Size = new System.Drawing.Size(79, 24);
             this.tsmUsuarios.Text = "Usuarios";
             this.tsmUsuarios.Visible = false;
             // 
@@ -190,7 +191,7 @@ namespace UI.Desktop
             this.tsmComisiones.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verComisionesToolStripMenuItem});
             this.tsmComisiones.Name = "tsmComisiones";
-            this.tsmComisiones.Size = new System.Drawing.Size(99, 26);
+            this.tsmComisiones.Size = new System.Drawing.Size(99, 24);
             this.tsmComisiones.Text = "Comisiones";
             this.tsmComisiones.Visible = false;
             // 
@@ -204,18 +205,20 @@ namespace UI.Desktop
             // tsmDocente
             // 
             this.tsmDocente.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NotasDeCursosToolStripMenuItem,
+            this.ProfesoresToolStripMenuItem,
+            this.RegistroDeNotasToolStripMenuItem,
             this.salirDocente});
             this.tsmDocente.Name = "tsmDocente";
-            this.tsmDocente.Size = new System.Drawing.Size(79, 26);
+            this.tsmDocente.Size = new System.Drawing.Size(79, 24);
             this.tsmDocente.Text = "Docente";
             this.tsmDocente.Visible = false;
             // 
-            // NotasDeCursosToolStripMenuItem
+            // RegistroDeNotasToolStripMenuItem
             // 
-            this.NotasDeCursosToolStripMenuItem.Name = "NotasDeCursosToolStripMenuItem";
-            this.NotasDeCursosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.NotasDeCursosToolStripMenuItem.Text = "Notas de cursos";
+            this.RegistroDeNotasToolStripMenuItem.Name = "RegistroDeNotasToolStripMenuItem";
+            this.RegistroDeNotasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.RegistroDeNotasToolStripMenuItem.Text = "Registro de Notas";
+            this.RegistroDeNotasToolStripMenuItem.Click += new System.EventHandler(this.NotasDeCursosToolStripMenuItem_Click);
             // 
             // salirDocente
             // 
@@ -250,6 +253,13 @@ namespace UI.Desktop
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenido a la Academia";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ProfesoresToolStripMenuItem
+            // 
+            this.ProfesoresToolStripMenuItem.Name = "ProfesoresToolStripMenuItem";
+            this.ProfesoresToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.ProfesoresToolStripMenuItem.Text = "Profesores";
+            this.ProfesoresToolStripMenuItem.Click += new System.EventHandler(this.ProfesoresToolStripMenuItem_Click);
             // 
             // MenuPpal
             // 
@@ -296,7 +306,8 @@ namespace UI.Desktop
         private System.Windows.Forms.ToolStripMenuItem verComisionesToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem tsmDocente;
-        private System.Windows.Forms.ToolStripMenuItem NotasDeCursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RegistroDeNotasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirDocente;
+        private System.Windows.Forms.ToolStripMenuItem ProfesoresToolStripMenuItem;
     }
 }
