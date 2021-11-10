@@ -158,7 +158,7 @@ namespace Data.Database
             }
         }
 
-        protected void Insert(Persona persona)
+        protected int Insert(Persona persona)
         {
             try
             {
@@ -182,6 +182,7 @@ namespace Data.Database
 
                 persona.ID = Decimal.ToInt32((decimal)cmdSave.ExecuteScalar());
                 //asi se obtiene el id que se asigno al DB automaticamente
+                return persona.ID;
             }
             catch (Exception ex)
             {
@@ -194,21 +195,23 @@ namespace Data.Database
             }
         }
 
-        public void Save(Persona persona)
+        public int Save(Persona persona)
         {
+            int id=0;
             if (persona.State == BusinessEntity.States.Deleted)
             {
                 this.Delete(persona.ID);
             }
             else if (persona.State == BusinessEntity.States.New)
             {
-                this.Insert(persona);
+                id = this.Insert(persona);
             }
             else if (persona.State == BusinessEntity.States.Modified)
             {
                 this.Update(persona);
             }
-            persona.State = BusinessEntity.States.Unmodified;            
+            persona.State = BusinessEntity.States.Unmodified;
+            return id;
         }
     }
 }

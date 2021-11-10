@@ -127,7 +127,11 @@ namespace UI.Web
         {
             if (Page.IsValid)
             {
-                this.Logic.Save(persona);
+                persona.ID = this.Logic.Save(persona);
+                if (this.FormMode == FormModes.Alta)
+                {
+                    Response.Redirect("~/Usuarios.aspx?Nombre=" + persona.Nombre + "&Apellido=" + persona.Apellido + "&Email=" + persona.Email + "&IDPersona=" + persona.ID);
+                }
             }
         }
         protected void aceptarLinkButton_Click(object sender, EventArgs e)

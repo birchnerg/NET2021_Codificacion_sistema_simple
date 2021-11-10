@@ -35,6 +35,10 @@
         <asp:Label ID="habilitadoLabel" runat="server" Text="Habilitado: "></asp:Label>
         <asp:CheckBox ID="habilidatoCheckBox" runat="server" />
         <br />
+        <asp:Label ID="IDPersonaLabel" runat="server" Text="ID Persona: "></asp:Label>
+        <asp:TextBox ID="IDPersonaTextBox" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="validatorUsuario0" runat="server" ControlToValidate="IDPersonaTextBox" ErrorMessage=" El id de persona no puede estar vacio" ForeColor="Red" ValidationGroup="ValidationGroup">*</asp:RequiredFieldValidator>
+        <br />
         <asp:Label ID="nombreUsuarioLabel" runat="server" Text="Usuario: "></asp:Label>
         <asp:TextBox ID="nombreUsuarioTextBox" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="validatorUsuario" runat="server" ForeColor="Red" ControlToValidate="nombreTextBox" ErrorMessage=" El nombre de usuario no puede estar vacio" ValidationGroup="ValidationGroup">*</asp:RequiredFieldValidator>
