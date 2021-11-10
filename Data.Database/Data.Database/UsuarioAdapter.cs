@@ -207,12 +207,13 @@ namespace Data.Database
             {
                 this.OpenConnection();
                 SqlCommand cmdSave = new SqlCommand("INSERT INTO usuarios (nombre_usuario,clave,habilitado," +
-                    "nombre,apellido,email) VALUES(@nombre_usuario,@clave,@habilitado," +
-                    "@nombre,@apellido,@email)" +
+                    "nombre,apellido,email,id_persona) VALUES(@nombre_usuario,@clave,@habilitado," +
+                    "@nombre,@apellido,@email,@id_persona)" +
                     "SELECT @@identity", //Recupera el ID que asigno el SQL automaticamente
                     sqlConn);
 
                 cmdSave.Parameters.Add("@id", SqlDbType.Int).Value = usuario.ID;
+                cmdSave.Parameters.Add("@id_persona", SqlDbType.Int).Value = usuario.IdPersona;
                 cmdSave.Parameters.Add("@nombre_usuario", SqlDbType.VarChar, 50).Value = usuario.NombreUsuario;
                 cmdSave.Parameters.Add("@clave", SqlDbType.VarChar, 50).Value = usuario.Clave;
                 cmdSave.Parameters.Add("@habilitado", SqlDbType.Bit).Value = usuario.Habilitado;

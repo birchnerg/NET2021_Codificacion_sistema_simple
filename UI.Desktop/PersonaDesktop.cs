@@ -162,7 +162,14 @@ namespace UI.Desktop
             {
                 try
                 {
-                    u.Save(PersonaActual);
+                    PersonaActual.ID = u.Save(PersonaActual);
+
+                    if (this.Modo == ModoForm.Alta)
+                    {
+                        MessageBox.Show("Por favor complete los siguientes datos faltantes");
+                        UsuarioDesktop formUsuario = new UsuarioDesktop(PersonaActual, ModoForm.Alta);
+                        formUsuario.ShowDialog();
+                    }
                 }
                 catch (Exception ex)
                 {
