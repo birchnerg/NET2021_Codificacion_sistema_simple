@@ -17,19 +17,36 @@ namespace UI.Desktop
         public AlumnoInscripcionDesktop()
         {
             InitializeComponent();
-            CursoLogic c = new CursoLogic();
+            CursoLogic cur = new CursoLogic();
+            MateriaLogic mat = new MateriaLogic();
+            ComisionLogic com = new ComisionLogic();
             try
             {
-                List<Curso> curso = c.GetAll();
+                List<Curso> curso = cur.GetAll();
+                List<Business.Entities.Materia> materias = mat.GetAll();
+                List<Business.Entities.Comision> comisiones = com.GetAll();
                 DataTable cursos = new DataTable();
                 cursos.Columns.Add("id_curso", typeof(int));
-                foreach (var e in curso)
+                cursos.Columns.Add("materia", typeof(string));
+                var consulta =
+                    from c in curso
+                    join m in materias
+                    on c.IDMateria equals m.ID
+                    join co in comisiones
+                    on c.IDComision equals co.ID
+                    select new
+                    {
+                        id_curso = c.ID,
+                        materia = m.Descripcion + " " + co.Descripcion
+                     };
+
+                foreach (var e in consulta)
                 {
-                    cursos.Rows.Add(new object[] { e.ID});
+                    cursos.Rows.Add(new object[] { e.id_curso, e.materia});
                 }
                 this.boxCurso.DataSource = cursos;
                 this.boxCurso.ValueMember = "id_curso";
-                this.boxCurso.DisplayMember = "id_curso";
+                this.boxCurso.DisplayMember = "materia";
                 this.boxCurso.SelectedIndex = -1;
             }
             catch (Exception ex)
