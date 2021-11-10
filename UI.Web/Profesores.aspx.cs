@@ -10,7 +10,7 @@ using System.Data;
 
 namespace UI.Web
 {
-    public partial class Alumnos : BaseABM
+    public partial class Profesores : BaseABM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,26 +20,20 @@ namespace UI.Web
                 {
                     LoadGrid();
                 }
-                else if (CheckPermission("Alumno"))
-                {
-                    LoadGridAlumno();
-                    this.eliminarLinkButton.Visible = false;
-                    this.editarLinkButrron.Visible = false;
-                }
                 else
                 {
                     Page.Response.Redirect("~/Default.aspx");
                 }
             }
         }
-        AlumnoInscripcionLogic _logic;
-        private AlumnoInscripcionLogic Logic
+        DocenteCursoLogic _logic;
+        private DocenteCursoLogic Logic
         {
             get
             {
                 if (_logic == null)
                 {
-                    _logic = new AlumnoInscripcionLogic();
+                    _logic = new DocenteCursoLogic();
                 }
                 return _logic;
             }
@@ -58,43 +52,24 @@ namespace UI.Web
         }
         private void LoadGrid()
         {
-            var consultaInscripciones =
-                    from i in this.Logic.GetAll()
+            var consultaDocenteCursos =
+                    from d in this.Logic.GetAll()
                     join c in this.CursoLogic.GetAll()
-                    on i.IDCurso equals c.ID
+                    on d.IDCurso equals c.ID
                     select new
                     {
-                        ID = i.ID,
-                        IDAlumno = i.IDAlumno,
+                        ID = d.ID,
+                        IDDocente = d.IDDocente,
+                        Cargo = d.Cargo,
                         Materia = c.IDMateria, //Mostrar descripcion
                         IDCurso = c.ID,
                         Comision = c.IDComision,
-                        Condicion = i.Condicion,
-                        Nota = i.Nota
                     };
-            this.gridView.DataSource = consultaInscripciones.ToList();
+            this.gridView.DataSource = consultaDocenteCursos.ToList();
             this.gridView.DataBind();
         }
-        private void LoadGridAlumno()
-        {
-            var consultaInscripciones =
-                    from i in this.Logic.GetAll(Int32.Parse(Session["IdUsuario"].ToString()))
-                    join c in this.CursoLogic.GetAll()
-                    on i.IDCurso equals c.ID
-                    select new
-                    {
-                        ID = i.ID,
-                        IDAlumno = i.IDAlumno,
-                        Materia = c.IDMateria, //Mostrar descripcion
-                        IDCurso = c.ID,
-                        Comision = c.IDComision,
-                        Condicion = i.Condicion,
-                        Nota = i.Nota
-                    };
-            this.gridView.DataSource = consultaInscripciones.ToList();
-            this.gridView.DataBind();
-        }
-        private AlumnoInscripcion Entity
+        
+        private DocenteCurso EntityDocenteCurso
         {
             get;
             set;
@@ -106,8 +81,11 @@ namespace UI.Web
 
         private void LoadForm(int id)
         {
-            this.Entity = this.Logic.GetOne(id);
-            this.iDAlumnoTextBox.Text = this.Entity.IDAlumno.ToString();
+            this.EntityDocenteCurso = this.Logic.GetOne(id);
+            this.iDDocenteTextBox.Text = this.EntityDocenteCurso.IDDocente.ToString();
+
+            this.CargoTextBox.Text = this.EntityDocenteCurso.Cargo.ToString();
+
             List<Curso> curso = CursoLogic.GetAll();
             DataTable cursos = new DataTable();
             cursos.Columns.Add("id_curso", typeof(int));
@@ -119,11 +97,7 @@ namespace UI.Web
             this.idCursoList.DataValueField = "id_curso";
             this.idCursoList.DataTextField = "id_curso"; //materia y comision
             this.idCursoList.DataBind();
-            this.idCursoList.SelectedValue = this.Entity.IDCurso.ToString();
-            
-
-            this.condicionTextBox.Text = this.Entity.Condicion;
-            this.notaTextBox.Text = this.Entity.Nota.ToString();
+            this.idCursoList.SelectedValue = this.EntityDocenteCurso.IDCurso.ToString();
         }
 
         protected void editarLinkButrron_Click(object sender, EventArgs e)
@@ -138,19 +112,18 @@ namespace UI.Web
             }
         }
 
-        private void LoadEntity(AlumnoInscripcion alumno)
+        private void LoadEntity(DocenteCurso docente)
         {
-            alumno.IDAlumno = Int32.Parse(this.iDAlumnoTextBox.Text);
-            alumno.IDCurso = Int32.Parse(this.idCursoList.SelectedValue);
-            alumno.Condicion = this.condicionTextBox.Text;
-            alumno.Nota = Int32.Parse(this.notaTextBox.Text);
+            docente.IDDocente = Int32.Parse(this.iDDocenteTextBox.Text);
+            docente.IDCurso = Int32.Parse(this.idCursoList.SelectedValue);
+            docente.Cargo = (DocenteCurso.TiposCargos)Enum.Parse(typeof(DocenteCurso.TiposCargos), this.CargoTextBox.Text.ToString());
         }
 
-        private void SaveEntity(AlumnoInscripcion alumno)
+        private void SaveEntity(DocenteCurso docente)
         {
             if (Page.IsValid)
             {
-                this.Logic.Save(alumno);
+                this.Logic.Save(docente);
             }            
         }
 
@@ -163,25 +136,18 @@ namespace UI.Web
                     this.LoadGrid();
                     break;
                 case FormModes.Modificacion:
-                    this.Entity = new AlumnoInscripcion();
-                    this.Entity.ID = this.SelectedID;
-                    this.Entity.State = BusinessEntity.States.Modified;
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    this.LoadGrid();
+                    this.EntityDocenteCurso = new DocenteCurso();
+                    this.EntityDocenteCurso.ID = this.SelectedID;
+                    this.EntityDocenteCurso.State = BusinessEntity.States.Modified;
+                    this.LoadEntity(this.EntityDocenteCurso);
+                    this.SaveEntity(this.EntityDocenteCurso);
+                    LoadGrid();
                     break;
                 case FormModes.Alta:
-                    this.Entity = new AlumnoInscripcion();
-                    this.LoadEntity(this.Entity);
-                    this.SaveEntity(this.Entity);
-                    if (CheckPermission("NoDocente"))
-                    {
-                        LoadGrid();
-                    }
-                    else if (CheckPermission("Alumno"))
-                    {
-                        LoadGridAlumno();
-                    }
+                    this.EntityDocenteCurso = new DocenteCurso();
+                    this.LoadEntity(this.EntityDocenteCurso);
+                    this.SaveEntity(this.EntityDocenteCurso);
+                    LoadGrid();
                     break;
                 default:
                     break;
@@ -192,23 +158,9 @@ namespace UI.Web
 
         private void EnableForm(bool enable)
         {
-            if (CheckPermission("Alumno"))
-            {
-                this.iDAlumnoTextBox.Enabled = false;
-                this.iDAlumnoTextBox.Text = Session["IdUsuario"].ToString();
-                this.idCursoList.Enabled = enable;
-                this.condicionTextBox.Enabled = false;
-                this.condicionTextBox.Text = "Cursa";
-                this.notaTextBox.Enabled = false;
-                this.notaTextBox.Text = "0";
-            }
-            else if (CheckPermission("NoDente"))
-            {
-                this.iDAlumnoTextBox.Enabled = enable;
-                this.idCursoList.Enabled = enable;
-                this.condicionTextBox.Enabled = enable;
-                this.notaTextBox.Enabled = enable;
-            }
+            this.iDDocenteTextBox.Enabled = enable;
+            this.CargoTextBox.Enabled = enable;
+            this.idCursoList.Enabled = enable;
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
@@ -246,14 +198,12 @@ namespace UI.Web
             this.idCursoList.DataValueField = "id_curso";
             this.idCursoList.DataTextField = "id_curso"; //materia y comision
             this.idCursoList.DataBind();
-
         }
 
         private void ClearForm()
         {
-            this.iDAlumnoTextBox.Text = string.Empty;
-            this.condicionTextBox.Text = string.Empty;
-            this.notaTextBox.Text = string.Empty;
+            this.iDDocenteTextBox.Text = string.Empty;
+            this.CargoTextBox.Text = string.Empty;
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
