@@ -23,6 +23,8 @@ namespace UI.Web
                 else if (CheckPermission("Alumno"))
                 {
                     LoadGridAlumno();
+                    this.eliminarLinkButton.Visible = false;
+                    this.editarLinkButrron.Visible = false;
                 }
                 else
                 {
@@ -229,9 +231,9 @@ namespace UI.Web
             List<Curso> curso = CursoLogic.GetAll();
             DataTable cursos = new DataTable();
             cursos.Columns.Add("id_curso", typeof(int));
-            foreach (var e in curso)
+            foreach (var s in curso)
             {
-                cursos.Rows.Add(new object[] { e.ID });
+                cursos.Rows.Add(new object[] { s.ID });
             }
             this.idCursoList.DataSource = cursos;
             this.idCursoList.DataValueField = "id_curso";
