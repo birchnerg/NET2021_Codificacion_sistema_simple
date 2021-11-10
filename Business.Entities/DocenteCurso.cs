@@ -28,8 +28,8 @@ namespace Business.Entities
         }
         public enum TiposCargos
         {
-            Cargo1,
-            Cargo2
+            Cargo1=1,
+            Cargo2=2
         }
     }
 }

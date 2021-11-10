@@ -88,8 +88,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AlumnoReporte.aspx" />
     <Content Include="Cursos.aspx" />
+    <Content Include="AlumnoReporte.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
