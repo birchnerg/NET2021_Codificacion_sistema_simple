@@ -25,6 +25,7 @@
         <asp:Label ID="anioLabel" runat="server" Text="Anio Calendario: "></asp:Label>
         <asp:TextBox ID="anioTextBox" runat="server" ValidationGroup="ValidationGroup"></asp:TextBox>
         <asp:RequiredFieldValidator ID="validatorAnio" runat="server" ForeColor="Red" ValidationGroup="ValidationGroup" ControlToValidate="anioTextBox" ErrorMessage="El anio no puede estar vacio">*</asp:RequiredFieldValidator>
+        <asp:RegularExpressionValidator ID="AnioRegularValidator" runat="server" ControlToValidate="anioTextBox" ErrorMessage="Ingrese un anio valido" ForeColor="Red" ValidationExpression="^(19|20)\d{2}$" ValidationGroup="ValidationGroup">*</asp:RegularExpressionValidator>
         <br />
         <asp:Label ID="planLabel" runat="server" Text="Plan: "></asp:Label>
         <asp:RequiredFieldValidator ID="validatorDesc" runat="server" ControlToValidate="descripcionTextBox" ErrorMessage="La descripcion no puede estar vacio" ForeColor="Red" ValidationGroup="ValidationGroup">*</asp:RequiredFieldValidator>
