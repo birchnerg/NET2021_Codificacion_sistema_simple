@@ -129,5 +129,11 @@ namespace UI.Desktop
             Profesor formProfesores = new Profesor();
             formProfesores.ShowDialog();
         }
+
+        private void reporteAcademicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            materiasEstadoAlumno report = new materiasEstadoAlumno(PersonaLoggedIn);
+            report.ShowDialog();
+        }
     }
 }

@@ -68,6 +68,12 @@
     <Compile Include="AlumnoInscripcion.Designer.cs">
       <DependentUpon>AlumnoInscripcion.cs</DependentUpon>
     </Compile>
+    <Compile Include="materiasEstadoAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="materiasEstadoAlumno.Designer.cs">
+      <DependentUpon>materiasEstadoAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistroNotas.cs">
       <SubType>Form</SubType>
     </Compile>
