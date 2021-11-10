@@ -52,6 +52,7 @@
     <Compile Include="Plan.cs" />
     <Compile Include="ModuloUsuario.cs" />
     <Compile Include="Modulo.cs" />
+    <Compile Include="ReporteEstadoAcademico.cs" />
     <Compile Include="ReportePlanes.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

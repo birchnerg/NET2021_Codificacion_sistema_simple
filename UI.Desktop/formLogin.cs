@@ -34,6 +34,9 @@ namespace UI.Desktop
                     throw new Exception("Usuario o Contraseña incorrecto");
                 }
                 PersonaLoggedIn = personaLogic.GetOne(usuario.IdPersona);
+                //Carga reporte despues de registrar persona para obtener los datos
+                //Moverlo a la accion del boton reporte correspondiente
+                //
                 return true;
             }
             catch
@@ -50,7 +53,9 @@ namespace UI.Desktop
             int ID = ((Business.Entities.Usuario)this.dgvUsuarios.SelectedRows[0].DataBoundItem).ID;
             dgvUsuarios.ClearSelection();
             */
+
             
+
             if (Validar())
             {
                 MessageBox.Show("Usted ha ingresado al sistema correctamente."
@@ -58,9 +63,9 @@ namespace UI.Desktop
                 this.DialogResult = DialogResult.OK;
             }
             else
-            {
+            {                          
                 MessageBox.Show("Usuario o Contraseña incorrecto", "Login"
-                , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                , MessageBoxButtons.OK, MessageBoxIcon.Error);               
             }
         }
     }

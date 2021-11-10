@@ -70,5 +70,19 @@ namespace Business.Logic
                 throw;
             }
         }
+
+        public static string DescripcionPlan(int id)
+        {
+            PlanLogic pl = new PlanLogic();
+            Plan pla = pl.GetOne(id);            
+            return pla.Descripcion;
+        }
+
+        public static int EspecialidadPlan(int id)
+        {
+            PlanLogic pl = new PlanLogic();
+            Plan pla = pl.GetOne(id);
+            return pla.IDEspecialidad;
+        }
     }
 }

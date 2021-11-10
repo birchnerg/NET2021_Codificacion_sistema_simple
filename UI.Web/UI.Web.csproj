@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cursos.aspx" />
+    <Content Include="AlumnoReporte.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
@@ -105,6 +106,13 @@
     <Content Include="Especialidades.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnoReporte.aspx.cs">
+      <DependentUpon>AlumnoReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlumnoReporte.aspx.designer.cs">
+      <DependentUpon>AlumnoReporte.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -205,6 +213,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="materiasEstadoAlumno.rdlc" />
     <EmbeddedResource Include="PlanesReporte.rdlc" />
   </ItemGroup>
   <PropertyGroup>

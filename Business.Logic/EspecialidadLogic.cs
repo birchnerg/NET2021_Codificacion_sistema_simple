@@ -70,5 +70,12 @@ namespace Business.Logic
                 throw;
             }            
         }
+
+        public static string DescripcionEspecialidad(int id)
+        {
+            EspecialidadLogic esp = new EspecialidadLogic();
+            Especialidad espec = esp.GetOne(id);
+            return espec.Descripcion;
+        }
     }
 }

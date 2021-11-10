@@ -31,6 +31,7 @@ namespace UI.Desktop
             {
                 case "Alumno":
                     this.tsmAlumno.Visible = true;
+                    this.tsmReporteAcademico.Visible = true;
                     break;
                 case "Docente":
                     this.tsmDocente.Visible = true;
@@ -127,6 +128,12 @@ namespace UI.Desktop
         {
             Profesor formProfesores = new Profesor();
             formProfesores.ShowDialog();
+        }
+
+        private void reporteAcademicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            materiasEstadoAlumno report = new materiasEstadoAlumno(PersonaLoggedIn);
+            report.ShowDialog();
         }
     }
 }
