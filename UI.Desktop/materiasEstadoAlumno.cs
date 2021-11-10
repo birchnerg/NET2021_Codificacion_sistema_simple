@@ -24,9 +24,10 @@ namespace UI.Desktop
 
             //TABLA
             // List<ReporteEstadoAcademico> consulta = ReportesLogic.EstadoAlumno(alumno.IDPlan, alumno.ID);
-            List<ReporteEstadoAcademico> consultaAlumno = ReportesLogic.ObtenerEstadoAcademico(alumno.IDPlan, alumno.ID );
-            List<ReporteEstadoAcademico> consultaMaterias = ReportesLogic.MateriasPlan(alumno.IDPlan);
-            var consulta = consultaAlumno.Union(consultaMaterias, new ReportesLogic.MateriasComparer());
+     //       List<ReporteEstadoAcademico> consultaAlumno = ReportesLogic.ObtenerEstadoAcademico(alumno.IDPlan, alumno.ID );
+     //       List<ReporteEstadoAcademico> consultaMaterias = ReportesLogic.MateriasPlan(alumno.IDPlan);
+     //       var consulta = consultaAlumno.Union(consultaMaterias, new ReportesLogic.MateriasComparer());
+            var consulta = ReportesLogic.EstadoAlumno(alumno.IDPlan, alumno.ID);
             reporte.LocalReport.DataSources.Clear();
             reporte.LocalReport.DataSources.Add(new ReportDataSource("materia", consulta));
             reporte.RefreshReport();

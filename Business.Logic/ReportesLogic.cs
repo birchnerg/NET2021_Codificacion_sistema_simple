@@ -130,5 +130,14 @@ namespace Business.Logic
                 return hCode.GetHashCode();
             }
         }
+
+        public static System.Collections.Generic.IEnumerable<ReporteEstadoAcademico> EstadoAlumno(int idPlan, int idAlum)
+        {
+            List<ReporteEstadoAcademico> consultaAlumno = ReportesLogic.ObtenerEstadoAcademico(idPlan, idAlum);
+            List<ReporteEstadoAcademico> consultaMaterias = ReportesLogic.MateriasPlan(idPlan);
+            var consulta = consultaAlumno.Union(consultaMaterias, new ReportesLogic.MateriasComparer());
+            return consulta;
+        }
+
     }
 }
