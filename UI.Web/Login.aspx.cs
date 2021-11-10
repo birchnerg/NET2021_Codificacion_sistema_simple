@@ -33,6 +33,11 @@ namespace UI.Web
                 Persona persona = personaLogic.GetOne(usuario.IdPersona);
                 Session["IdUsuario"] = persona.ID;
                 Session["TipoUsuario"] = persona.TipoPersonasString;
+                Session["IdPlan"] = persona.IDPlan;
+                Session["Apellido"] = persona.Apellido;
+                Session["Nombre"] = persona.Nombre;
+                Session["Legajo"] = persona.Legajo.ToString();
+
                 return true;
             }
             catch
