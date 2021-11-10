@@ -29,16 +29,10 @@ namespace UI.Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profesor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlumnoInscripcion));
             this.tscUsuarios = new System.Windows.Forms.ToolStripContainer();
             this.tlUsuarios = new System.Windows.Forms.TableLayoutPanel();
             this.dgvInscripciones = new System.Windows.Forms.DataGridView();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.tsUsuarios = new System.Windows.Forms.ToolStrip();
-            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_alumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +40,12 @@ namespace UI.Desktop
             this.Comision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.condicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nota = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.tsUsuarios = new System.Windows.Forms.ToolStrip();
+            this.tsbNuevo = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEliminar = new System.Windows.Forms.ToolStripButton();
             this.tscUsuarios.ContentPanel.SuspendLayout();
             this.tscUsuarios.TopToolStripPanel.SuspendLayout();
             this.tscUsuarios.SuspendLayout();
@@ -118,6 +118,70 @@ namespace UI.Desktop
             this.dgvInscripciones.Size = new System.Drawing.Size(1272, 553);
             this.dgvInscripciones.TabIndex = 0;
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
+            // 
+            // id_alumno
+            // 
+            this.id_alumno.DataPropertyName = "IDAlumno";
+            this.id_alumno.HeaderText = "ID Alumno";
+            this.id_alumno.MinimumWidth = 6;
+            this.id_alumno.Name = "id_alumno";
+            this.id_alumno.ReadOnly = true;
+            this.id_alumno.Width = 101;
+            // 
+            // Materia
+            // 
+            this.Materia.DataPropertyName = "Materia";
+            this.Materia.HeaderText = "Materia";
+            this.Materia.MinimumWidth = 6;
+            this.Materia.Name = "Materia";
+            this.Materia.ReadOnly = true;
+            this.Materia.Width = 84;
+            // 
+            // curso
+            // 
+            this.curso.DataPropertyName = "Curso";
+            this.curso.HeaderText = "Curso";
+            this.curso.MinimumWidth = 6;
+            this.curso.Name = "curso";
+            this.curso.ReadOnly = true;
+            this.curso.Width = 74;
+            // 
+            // Comision
+            // 
+            this.Comision.DataPropertyName = "Comision";
+            this.Comision.HeaderText = "Comisión";
+            this.Comision.MinimumWidth = 6;
+            this.Comision.Name = "Comision";
+            this.Comision.ReadOnly = true;
+            this.Comision.Width = 94;
+            // 
+            // condicion
+            // 
+            this.condicion.DataPropertyName = "Condicion";
+            this.condicion.HeaderText = "Condición";
+            this.condicion.MinimumWidth = 6;
+            this.condicion.Name = "condicion";
+            this.condicion.ReadOnly = true;
+            this.condicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.condicion.Width = 99;
+            // 
+            // Nota
+            // 
+            this.Nota.DataPropertyName = "Nota";
+            this.Nota.HeaderText = "Nota";
+            this.Nota.MinimumWidth = 6;
+            this.Nota.Name = "Nota";
+            this.Nota.ReadOnly = true;
+            this.Nota.Width = 67;
+            // 
             // btnActualizar
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -185,70 +249,6 @@ namespace UI.Desktop
             this.tsbEliminar.Size = new System.Drawing.Size(29, 24);
             this.tsbEliminar.Text = "Eliminar";
             this.tsbEliminar.Click += new System.EventHandler(this.tsbEliminar_Click);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
-            // 
-            // id_alumno
-            // 
-            this.id_alumno.DataPropertyName = "IDAlumno";
-            this.id_alumno.HeaderText = "ID Alumno";
-            this.id_alumno.MinimumWidth = 6;
-            this.id_alumno.Name = "id_alumno";
-            this.id_alumno.ReadOnly = true;
-            this.id_alumno.Width = 101;
-            // 
-            // Materia
-            // 
-            this.Materia.DataPropertyName = "Materia";
-            this.Materia.HeaderText = "Materia";
-            this.Materia.MinimumWidth = 6;
-            this.Materia.Name = "Materia";
-            this.Materia.ReadOnly = true;
-            this.Materia.Width = 84;
-            // 
-            // curso
-            // 
-            this.curso.DataPropertyName = "Curso";
-            this.curso.HeaderText = "Curso";
-            this.curso.MinimumWidth = 6;
-            this.curso.Name = "curso";
-            this.curso.ReadOnly = true;
-            this.curso.Width = 74;
-            // 
-            // Comision
-            // 
-            this.Comision.DataPropertyName = "Comision";
-            this.Comision.HeaderText = "Comisión";
-            this.Comision.MinimumWidth = 6;
-            this.Comision.Name = "Comision";
-            this.Comision.ReadOnly = true;
-            this.Comision.Width = 94;
-            // 
-            // condicion
-            // 
-            this.condicion.DataPropertyName = "Condicion";
-            this.condicion.HeaderText = "Condición";
-            this.condicion.MinimumWidth = 6;
-            this.condicion.Name = "condicion";
-            this.condicion.ReadOnly = true;
-            this.condicion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.condicion.Width = 99;
-            // 
-            // Nota
-            // 
-            this.Nota.DataPropertyName = "Nota";
-            this.Nota.HeaderText = "Nota";
-            this.Nota.MinimumWidth = 6;
-            this.Nota.Name = "Nota";
-            this.Nota.ReadOnly = true;
-            this.Nota.Width = 67;
             // 
             // AlumnoInscripcion
             // 

@@ -11,7 +11,7 @@ namespace UI.Web
 {
 
 
-    public partial class Planes
+    public partial class Alumnos
     {
 
         /// <summary>
@@ -69,15 +69,6 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.LinkButton nuevoLinkButton;
 
         /// <summary>
-        /// linkReporte control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton linkReporte;
-
-        /// <summary>
         /// formPanel control.
         /// </summary>
         /// <remarks>
@@ -87,49 +78,112 @@ namespace UI.Web
         protected global::System.Web.UI.WebControls.Panel formPanel;
 
         /// <summary>
-        /// descLabel control.
+        /// IDLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descLabel;
+        protected global::System.Web.UI.WebControls.Label IDLabel;
 
         /// <summary>
-        /// descTextBox control.
+        /// iDAlumnoTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descTextBox;
+        protected global::System.Web.UI.WebControls.TextBox iDAlumnoTextBox;
 
         /// <summary>
-        /// validatorDesc control.
+        /// validatorIDAlumno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorDesc;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorIDAlumno;
 
         /// <summary>
-        /// especialidadLabel control.
+        /// IDCursoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label especialidadLabel;
+        protected global::System.Web.UI.WebControls.Label IDCursoLabel;
 
         /// <summary>
-        /// especialidadList control.
+        /// idCursoList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList especialidadList;
+        protected global::System.Web.UI.WebControls.DropDownList idCursoList;
+
+        /// <summary>
+        /// validatorIdCurso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorIdCurso;
+
+        /// <summary>
+        /// CondicionLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CondicionLabel;
+
+        /// <summary>
+        /// condicionTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox condicionTextBox;
+
+        /// <summary>
+        /// validatorCondicion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorCondicion;
+
+        /// <summary>
+        /// NotaLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NotaLabel;
+
+        /// <summary>
+        /// notaTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox notaTextBox;
+
+        /// <summary>
+        /// validatorNota control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatorNota;
 
         /// <summary>
         /// formActionsPanel control.
