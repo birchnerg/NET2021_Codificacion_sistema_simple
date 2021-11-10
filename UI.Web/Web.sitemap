@@ -2,7 +2,8 @@
 <siteMap>
   <siteMapNode url="~/Default.aspx" title="Home"  description="">
 	<siteMapNode url="~/Alumnos.aspx" title="Alumnos"  description="" />
-	  <siteMapNode url="~/RegistroNotas.aspx" title="RegistroNotas"  description="" />  
+	<siteMapNode url="~/RegistroNotas.aspx" title="RegistroNotas"  description="" />  
+	<siteMapNode url="~/Profesores.aspx" title="Profesores"  description="" /> 
     <siteMapNode url="~/Usuarios.aspx" title="Usuarios"  description="" />
 	<siteMapNode url="~/Personas.aspx" title="Personas"  description="" />
     <siteMapNode url="~/Planes.aspx" title="Planes"  description="" />
