@@ -132,6 +132,7 @@ namespace Data.Database
                     usr.Nombre = (string)drUsuario["nombre"];
                     usr.Apellido = (string)drUsuario["apellido"];
                     usr.Email = (string)drUsuario["email"];
+                    usr.IdPersona = (int)drUsuario["id_persona"];
 
                 }
                 drUsuario.Close();

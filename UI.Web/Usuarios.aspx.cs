@@ -14,6 +14,7 @@ namespace UI.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!this.IsPostBack) // Verifica que no se una nueva visita (primera carga)
             {
                 if (CheckPermission("NoDocente"))
@@ -24,7 +25,21 @@ namespace UI.Web
                 {
                     Page.Response.Redirect("~/Default.aspx");
                 }
+
+                if (Request.QueryString.Keys.Count > 0)
+                {
+                    this.ClearForm();
+                    this.nombreTextBox.Text = Request.QueryString["Nombre"];
+                    this.apellidoTextBox.Text = Request.QueryString["Apellido"];
+                    this.emailTextBox.Text = Request.QueryString["Email"];
+                    this.IDPersonaTextBox.Text = Request.QueryString["IDPersona"];
+                    this.gridPanel.Visible = false;
+                    this.formPanel.Visible = true;
+                    this.FormMode = FormModes.Alta;
+                    this.EnableForm(true);
+                }
             }
+
         }
         UsuarioLogic _logic;
         private UsuarioLogic Logic
@@ -61,6 +76,7 @@ namespace UI.Web
             this.emailTextBox.Text = this.Entity.Email;
             this.habilidatoCheckBox.Checked = this.Entity.Habilitado;
             this.nombreUsuarioTextBox.Text = this.Entity.NombreUsuario;
+            this.IDPersonaTextBox.Text = this.Entity.IdPersona.ToString();
         }
 
         protected void editarLinkButrron_Click(object sender, EventArgs e)
@@ -83,6 +99,7 @@ namespace UI.Web
             usuario.NombreUsuario = this.nombreUsuarioTextBox.Text;
             usuario.Clave = this.claveTextBox.Text;
             usuario.Habilitado = this.habilidatoCheckBox.Checked;
+            usuario.IdPersona = Int32.Parse(this.IDPersonaTextBox.Text);
         }
 
         private void SaveEntity(Usuario usuario)
@@ -132,6 +149,7 @@ namespace UI.Web
             this.claveLabel.Visible = enable;
             this.repetirClaveTextBox.Visible = enable;
             this.repetirClaveLabel.Visible = enable;
+            this.IDPersonaTextBox.Visible = enable;
         }
 
         protected void eliminarLinkButton_Click(object sender, EventArgs e)
@@ -168,6 +186,7 @@ namespace UI.Web
             this.emailTextBox.Text = string.Empty;
             this.habilidatoCheckBox.Checked = false;
             this.nombreUsuarioTextBox.Text = string.Empty;
+            this.IDPersonaTextBox.Text = string.Empty;
         }
 
         protected void cancelarLinkButton_Click(object sender, EventArgs e)
