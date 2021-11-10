@@ -88,6 +88,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="RegistroNotas.aspx" />
     <Content Include="Cursos.aspx" />
     <Content Include="AlumnoReporte.aspx" />
     <Content Include="Default.aspx" />
@@ -113,6 +114,13 @@
     </Compile>
     <Compile Include="AlumnoReporte.aspx.designer.cs">
       <DependentUpon>AlumnoReporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroNotas.aspx.cs">
+      <DependentUpon>RegistroNotas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroNotas.aspx.designer.cs">
+      <DependentUpon>RegistroNotas.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
