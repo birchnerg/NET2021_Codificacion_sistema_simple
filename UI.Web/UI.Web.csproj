@@ -88,7 +88,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Materias.aspx" />
     <Content Include="RegistroNotas - Copy.aspx" />
     <Content Include="Profesores.aspx" />
     <Content Include="Cursos.aspx" />
@@ -98,6 +97,8 @@
     <Content Include="Logout.aspx" />
     <Content Include="Personas.aspx" />
     <Content Include="Planes.aspx" />
+    <Content Include="Comisiones.aspx" />
+    <Content Include="Materias.aspx" />
     <Content Include="planesReporte.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll" />
@@ -140,6 +141,13 @@
     </Compile>
     <Compile Include="BaseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comisiones.aspx.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comisiones.aspx.designer.cs">
+      <DependentUpon>Comisiones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cursos.aspx.cs">
       <DependentUpon>Cursos.aspx</DependentUpon>
