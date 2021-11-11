@@ -21,21 +21,37 @@ namespace UI.Desktop
         }
 
         public void Listar()
-        {   
+        {
             DocenteCursoLogic dl = new DocenteCursoLogic();
             CursoLogic cl = new CursoLogic();
-            AlumnoInscripcionLogic al = new AlumnoInscripcionLogic();
+            AlumnoInscripcionLogic alu = new AlumnoInscripcionLogic();
+            MateriaLogic mat = new MateriaLogic();
+            ComisionLogic com = new ComisionLogic();
+            PersonaLogic per = new PersonaLogic();
             try
             {
                 List<Curso> cursos = cl.GetAll();
                 List<DocenteCurso> docentes = dl.GetAll();
-                List<Business.Entities.AlumnoInscripcion> alumnos = al.GetAll();
+                List<Business.Entities.AlumnoInscripcion> alumnos = alu.GetAll();
+                List<Materia> materias = mat.GetAll();
+                List<Comision> comisiones = com.GetAll();
+                List<Persona> personas = per.GetAll();
                 var consultaDocenteCursos =
                     from d in docentes
                     join c in cursos
                     on d.IDCurso equals c.ID
                     join a in alumnos
                     on c.ID equals a.IDCurso into docCurAl
+                    join m in materias
+                    on c.IDMateria equals m.ID
+                    join co in comisiones
+                    on c.IDComision equals co.ID
+                    join al in alumnos
+                    on c.ID equals al.IDCurso
+                    join pe in personas
+                    on al.IDAlumno equals pe.ID
+
+
                     from da in docCurAl.DefaultIfEmpty() //Left Join
                     select new
                     {
@@ -44,9 +60,13 @@ namespace UI.Desktop
                         Cargo = d.Cargo,
                         //IDAlumno = a.IDAlumno,
                         IDAlumno = da?.IDAlumno ?? 0, //If empty show 0
+                        DescAlumno = pe.Apellido + " " + pe.Nombre,
+                        DescLegajo = pe.Legajo,
                         Materia = c.IDMateria, //Mostrar descripcion
+                        DescMateria = m.Descripcion,
                         Curso = c.ID,
                         Comision = c.IDComision,
+                        DescComision = co.Descripcion,
                         IDInscripcion = da?.ID ?? 0,
                         //Condicion = a.Condicion,
                         //Nota = a.Nota
@@ -64,18 +84,34 @@ namespace UI.Desktop
         {
             DocenteCursoLogic dl = new DocenteCursoLogic();
             CursoLogic cl = new CursoLogic();
-            AlumnoInscripcionLogic al = new AlumnoInscripcionLogic();
+            AlumnoInscripcionLogic alu = new AlumnoInscripcionLogic();
+            MateriaLogic mat = new MateriaLogic();
+            ComisionLogic com = new ComisionLogic();
+            PersonaLogic per = new PersonaLogic();
             try
             {
                 List<Curso> cursos = cl.GetAll();
                 List<DocenteCurso> docentes = dl.GetAll(idDocente);
-                List<Business.Entities.AlumnoInscripcion> alumnos = al.GetAll();
+                List<Business.Entities.AlumnoInscripcion> alumnos = alu.GetAll();
+                List<Materia> materias = mat.GetAll();
+                List<Comision> comisiones = com.GetAll();
+                List<Persona> personas = per.GetAll();
                 var consultaDocenteCursos =
                     from d in docentes
                     join c in cursos
                     on d.IDCurso equals c.ID
                     join a in alumnos
                     on c.ID equals a.IDCurso into docCurAl
+                    join m in materias
+                    on c.IDMateria equals m.ID
+                    join co in comisiones
+                    on c.IDComision equals co.ID
+                    join al in alumnos
+                    on c.ID equals al.IDCurso
+                    join pe in personas
+                    on al.IDAlumno equals pe.ID
+
+
                     from da in docCurAl.DefaultIfEmpty() //Left Join
                     select new
                     {
@@ -84,9 +120,13 @@ namespace UI.Desktop
                         Cargo = d.Cargo,
                         //IDAlumno = a.IDAlumno,
                         IDAlumno = da?.IDAlumno ?? 0, //If empty show 0
+                        DescAlumno = pe.Apellido + " " + pe.Nombre,
+                        DescLegajo = pe.Legajo,
                         Materia = c.IDMateria, //Mostrar descripcion
+                        DescMateria = m.Descripcion,
                         Curso = c.ID,
                         Comision = c.IDComision,
+                        DescComision = co.Descripcion,
                         IDInscripcion = da?.ID ?? 0,
                         //Condicion = a.Condicion,
                         //Nota = a.Nota
@@ -173,6 +213,11 @@ namespace UI.Desktop
         private void tsbEliminar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Para borrar un registro, elimine un alumno del curso desde el menú Alumnos");
+        }
+
+        private void tscUsuarios_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
