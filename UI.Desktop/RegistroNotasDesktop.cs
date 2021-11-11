@@ -243,6 +243,11 @@ namespace UI.Desktop
                 Notificar("Error", "Nota incorrecta. Por favor ingrese una nota válida.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+            else if (Int32.Parse(this.txtNota.Text) < 0 || Int32.Parse(this.txtNota.Text) > 10)
+            {
+                Notificar("Error", "Nota incorrecta. Por favor ingrese una nota entre 0 y 10.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             else if (this.boxCurso.SelectedIndex == -1)
             {
                 Notificar("Error", "Curso no indicado. Por favor seleccione uno.", MessageBoxButtons.OK, MessageBoxIcon.Error);

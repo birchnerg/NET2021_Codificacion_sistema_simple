@@ -49,6 +49,7 @@
         <asp:Label ID="NotaLabel" runat="server" Text="Nota:"></asp:Label>
         <asp:TextBox ID="notaTextBox" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="validatorNota" runat="server" ForeColor="Red" ControlToValidate="notaTextBox" ErrorMessage="La nota no puede estar vacio" ValidationGroup="ValidationGroup">*</asp:RequiredFieldValidator>
+        <asp:RangeValidator ID="RangeValidator" runat="server" ControlToValidate="notaTextBox" ErrorMessage="Ingrese una nota entre 0 y 10" ForeColor="Red" MaximumValue="10" MinimumValue="0" ValidationGroup="ValidationGroup">*</asp:RangeValidator>
         <br />
         <asp:Panel ID="formActionsPanel" runat="server">
             <asp:LinkButton ID="aceptarLinkButton" runat="server" OnClick="aceptarLinkButton_Click" ValidationGroup="ValidationGroup">Aceptar</asp:LinkButton>
