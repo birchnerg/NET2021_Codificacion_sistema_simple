@@ -48,11 +48,11 @@ namespace Business.Logic
             }
             return per;
         }
-        public void Save(Business.Entities.Persona _persona) 
+        public int Save(Business.Entities.Persona _persona) 
         {
             try
             {
-                PersonaData.Save(_persona);
+                return PersonaData.Save(_persona);
             }
             catch (Exception)
             {

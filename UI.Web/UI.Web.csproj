@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Comisiones.aspx" />
+    <Content Include="RegistroNotas - Copy.aspx" />
+    <Content Include="Profesores.aspx" />
     <Content Include="Cursos.aspx" />
     <Content Include="AlumnoReporte.aspx" />
     <Content Include="Default.aspx" />
@@ -114,6 +116,20 @@
     </Compile>
     <Compile Include="AlumnoReporte.aspx.designer.cs">
       <DependentUpon>AlumnoReporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroNotas - Copy.aspx.cs">
+      <DependentUpon>RegistroNotas - Copy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroNotas - Copy.aspx.designer.cs">
+      <DependentUpon>RegistroNotas - Copy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesores.aspx.cs">
+      <DependentUpon>Profesores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesores.aspx.designer.cs">
+      <DependentUpon>Profesores.aspx</DependentUpon>
     </Compile>
     <Compile Include="BaseABM.cs">
       <SubType>ASPXCodeBehind</SubType>
