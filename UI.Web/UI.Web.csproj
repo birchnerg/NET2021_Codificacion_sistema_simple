@@ -88,7 +88,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RegistroNotas - Copy.aspx" />
+    <Content Include="RegistroNotas.aspx" />
     <Content Include="Profesores.aspx" />
     <Content Include="Cursos.aspx" />
     <Content Include="AlumnoReporte.aspx" />
@@ -125,12 +125,12 @@
     <Compile Include="Materias.aspx.designer.cs">
       <DependentUpon>Materias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RegistroNotas - Copy.aspx.cs">
-      <DependentUpon>RegistroNotas - Copy.aspx</DependentUpon>
+    <Compile Include="RegistroNotas.aspx.cs">
+      <DependentUpon>RegistroNotas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RegistroNotas - Copy.aspx.designer.cs">
-      <DependentUpon>RegistroNotas - Copy.aspx</DependentUpon>
+    <Compile Include="RegistroNotas.aspx.designer.cs">
+      <DependentUpon>RegistroNotas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesores.aspx.cs">
       <DependentUpon>Profesores.aspx</DependentUpon>
