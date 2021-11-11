@@ -24,22 +24,32 @@ namespace UI.Desktop
         {   
             AlumnoInscripcionLogic al = new AlumnoInscripcionLogic();
             CursoLogic cl = new CursoLogic();
+            MateriaLogic mat = new MateriaLogic();
+            ComisionLogic com = new ComisionLogic();
 
             try
             {
                 List<Curso> cursos = cl.GetAll();
                 List<Business.Entities.AlumnoInscripcion> inscripciones = al.GetAll();
+                List<Business.Entities.Materia> materias = mat.GetAll();
+                List<Business.Entities.Comision> comisiones = com.GetAll();
                 var consultaInscripciones =
                     from i in inscripciones
                     join c in cursos
                     on i.IDCurso equals c.ID
+                    join m in materias
+                    on c.IDMateria equals m.ID
+                    join co in comisiones
+                    on c.IDComision equals co.ID
                     select new
                     {
                         ID = i.ID,
                         IDAlumno = i.IDAlumno,
                         Materia = c.IDMateria, //Mostrar descripcion
+                        DescMateria = m.Descripcion,
                         Curso = c.ID,
                         Comision = c.IDComision,
+                        DescComision = co.Descripcion,
                         Condicion = i.Condicion,
                         Nota = i.Nota
                     };
@@ -54,22 +64,32 @@ namespace UI.Desktop
         {
             AlumnoInscripcionLogic al = new AlumnoInscripcionLogic();
             CursoLogic cl = new CursoLogic();
+            MateriaLogic mat = new MateriaLogic();
+            ComisionLogic com = new ComisionLogic();
 
             try
             {
                 List<Curso> cursos = cl.GetAll();
                 List<Business.Entities.AlumnoInscripcion> inscripciones = al.GetAll(idAlumno);
+                List<Business.Entities.Materia> materias = mat.GetAll();
+                List<Business.Entities.Comision> comisiones = com.GetAll();
                 var consultaInscripciones =
                     from i in inscripciones
                     join c in cursos
                     on i.IDCurso equals c.ID
+                    join m in materias
+                    on c.IDMateria equals m.ID
+                    join co in comisiones
+                    on c.IDComision equals co.ID
                     select new
                     {
                         ID = i.ID,
                         IDAlumno = i.IDAlumno,
                         Materia = c.IDMateria, //Mostrar descripcion
+                        DescMateria = m.Descripcion,
                         Curso = c.ID,
                         Comision = c.IDComision,
+                        DescComision = co.Descripcion,
                         Condicion = i.Condicion,
                         Nota = i.Nota
                     };
