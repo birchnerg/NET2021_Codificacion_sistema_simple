@@ -57,11 +57,11 @@ namespace UI.Desktop
             // tscUsuarios.ContentPanel
             // 
             this.tscUsuarios.ContentPanel.Controls.Add(this.tlUsuarios);
-            this.tscUsuarios.ContentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tscUsuarios.ContentPanel.Margin = new System.Windows.Forms.Padding(4);
             this.tscUsuarios.ContentPanel.Size = new System.Drawing.Size(1280, 597);
             this.tscUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tscUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tscUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tscUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.tscUsuarios.Name = "tscUsuarios";
             this.tscUsuarios.Size = new System.Drawing.Size(1280, 628);
             this.tscUsuarios.TabIndex = 0;
@@ -81,7 +81,7 @@ namespace UI.Desktop
             this.tlUsuarios.Controls.Add(this.btnSalir, 1, 1);
             this.tlUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.tlUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tlUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.tlUsuarios.Name = "tlUsuarios";
             this.tlUsuarios.RowCount = 2;
             this.tlUsuarios.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -103,7 +103,7 @@ namespace UI.Desktop
             this.tlUsuarios.SetColumnSpan(this.dgvComisiones, 2);
             this.dgvComisiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvComisiones.Location = new System.Drawing.Point(4, 4);
-            this.dgvComisiones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvComisiones.Margin = new System.Windows.Forms.Padding(4);
             this.dgvComisiones.MultiSelect = false;
             this.dgvComisiones.Name = "dgvComisiones";
             this.dgvComisiones.ReadOnly = true;
@@ -153,7 +153,7 @@ namespace UI.Desktop
             // 
             this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnActualizar.Location = new System.Drawing.Point(1068, 565);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(100, 28);
             this.btnActualizar.TabIndex = 1;
@@ -165,7 +165,7 @@ namespace UI.Desktop
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(1176, 565);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(100, 28);
             this.btnSalir.TabIndex = 2;
@@ -223,7 +223,7 @@ namespace UI.Desktop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 628);
             this.Controls.Add(this.tscUsuarios);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Comisiones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comisiones";

@@ -38,6 +38,7 @@ namespace UI.Web
                 return _logic;
             }
         }
+
         private void LoadGrid()
         {
             List<Curso> cursos = new CursoLogic().GetAll();

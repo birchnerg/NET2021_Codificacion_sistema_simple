@@ -39,6 +39,24 @@ namespace UI.Desktop
             }
         }
 
+        public UsuarioDesktop(Persona persona, ModoForm modo) : this()
+        {
+            Modo = modo;
+            try
+            {
+                UsuarioActual = new Usuario();
+                UsuarioActual.IdPersona = persona.ID;
+                UsuarioActual.Nombre = persona.Nombre;
+                UsuarioActual.Apellido = persona.Apellido;
+                UsuarioActual.Email = persona.Email;
+                MapearDeDatos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private Usuario _usuario;
         public Usuario UsuarioActual
         {
@@ -75,7 +93,7 @@ namespace UI.Desktop
             switch (this.Modo)
             {
                 case ModoForm.Alta:
-                    UsuarioActual = new Usuario();
+                    if (UsuarioActual == null) { UsuarioActual = new Usuario(); }                    
                     UsuarioActual.Nombre = this.txtNombre.Text;
                     UsuarioActual.Apellido = this.txtApellido.Text;
                     UsuarioActual.Email = this.txtEmail.Text;
