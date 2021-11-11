@@ -38,6 +38,7 @@ namespace UI.Desktop
                 docentes.Columns.Add("id_persona", typeof(int));
                 DataTable alumnos = new DataTable();
                 alumnos.Columns.Add("id_persona", typeof(int));
+                alumnos.Columns.Add("nombre", typeof(string));
                 foreach (var e in persona)
                 {
                     if (e.TipoPersonasString == "Docente") //Si el tipo de persona es Docente
@@ -45,7 +46,7 @@ namespace UI.Desktop
                         docentes.Rows.Add(new object[] { e.ID }); //Agregar el id al box IDDocente
                     } else if (e.TipoPersonasString == "Alumno") //Si es alumno
                     {
-                        alumnos.Rows.Add(new object[] { e.ID });//a IDAlumno
+                        alumnos.Rows.Add(new object[] { e.ID, e.Apellido + " " + e.Nombre});//a IDAlumno
                     }
                     
                 }
@@ -56,7 +57,7 @@ namespace UI.Desktop
 
                 this.boxAlumno.DataSource = alumnos;
                 this.boxAlumno.ValueMember = "id_persona";
-                this.boxAlumno.DisplayMember = "id_persona";
+                this.boxAlumno.DisplayMember = "nombre";
                 this.boxAlumno.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -65,12 +66,22 @@ namespace UI.Desktop
             }
 
             if (PersonaLoggedIn.TipoPersonasString == "Docente")
-            { 
+            {
+                
                 this.boxDocente.Text = PersonaLoggedIn.ID.ToString();
-                this.boxDocente.Enabled = false;
-                this.boxCurso.Enabled = false;
-                this.boxAlumno.Enabled = false;
-                this.txtCargo.Enabled = false;
+                this.boxDocente.Visible = false;
+                this.boxCurso.Visible = false;
+                this.boxAlumno.Visible = true;
+                this.txtCargo.Visible = false;
+                this.txtID.Visible = false;
+                this.txtIDInscripcion.Visible = false;
+                this.label1.Visible = false;
+                this.label2.Visible = true;
+                this.label8.Visible = false;
+                this.label6.Visible = false;
+                this.label3.Visible = false;
+                this.label7.Visible = false;
+                this.label1.Visible = false;
             }
         }
 
