@@ -56,6 +56,31 @@ namespace UI.Web
                 return _Cursologic;
             }
         }
+        MateriaLogic _MateriaLogic;
+        private MateriaLogic MateriaLogic
+        {
+            get
+            {
+                if (_MateriaLogic == null)
+                {
+                    _MateriaLogic = new MateriaLogic();
+                }
+                return _MateriaLogic;
+            }
+        }
+        ComisionLogic _ComisionLogic;
+        private ComisionLogic ComisionLogic
+        {
+            get
+            {
+                if (_ComisionLogic == null)
+                {
+                    _ComisionLogic = new ComisionLogic();
+                }
+                return _ComisionLogic;
+            }
+        }
+
         private void LoadGrid()
         {
             var consultaInscripciones =
@@ -81,13 +106,17 @@ namespace UI.Web
                     from i in this.Logic.GetAll(Int32.Parse(Session["IdUsuario"].ToString()))
                     join c in this.CursoLogic.GetAll()
                     on i.IDCurso equals c.ID
+                    join m in this.MateriaLogic.GetAll()
+                    on c.IDMateria equals m.ID
+                    join com in this.ComisionLogic.GetAll()
+                    on c.IDComision equals com.ID
                     select new
                     {
                         ID = i.ID,
-                        IDAlumno = i.IDAlumno,
-                        Materia = c.IDMateria, //Mostrar descripcion
+                        IDAlumno = Session["Apellido"].ToString() + " "+Session["Nombre"].ToString(),
+                        Materia = m.Descripcion, //Mostrar descripcion
                         IDCurso = c.ID,
-                        Comision = c.IDComision,
+                        Comision = com.Descripcion,
                         Condicion = i.Condicion,
                         Nota = i.Nota
                     };
@@ -140,7 +169,7 @@ namespace UI.Web
 
         private void LoadEntity(AlumnoInscripcion alumno)
         {
-            alumno.IDAlumno = Int32.Parse(this.iDAlumnoTextBox.Text);
+            alumno.IDAlumno = Int32.Parse(Session["IdUsuario"].ToString());
             alumno.IDCurso = Int32.Parse(this.idCursoList.SelectedValue);
             alumno.Condicion = this.condicionTextBox.Text;
             alumno.Nota = Int32.Parse(this.notaTextBox.Text);
@@ -235,16 +264,36 @@ namespace UI.Web
             this.FormMode = FormModes.Alta;
             this.ClearForm();
             this.EnableForm(true);
-            List<Curso> curso = CursoLogic.GetAll();
+            this.condicionTextBox.Visible = false;
+            this.notaTextBox.Visible = false;
+            this.CondicionLabel.Visible = false;
+            this.NotaLabel.Visible = false;
+            this.iDAlumnoTextBox.Text = Session["Apellido"].ToString() + " " + Session["Nombre"].ToString();
+
+
+            var materias =
+                    from i in this.Logic.GetAll(Int32.Parse(Session["IdUsuario"].ToString()))
+                    join c in this.CursoLogic.GetAll()
+                    on i.IDCurso equals c.ID
+                    join m in this.MateriaLogic.GetAll()
+                    on c.IDMateria equals m.ID
+                    join com in this.ComisionLogic.GetAll()
+                    on c.IDComision equals com.ID
+                    select new
+                    {
+                        id_curso = i.IDCurso,
+                        desc_curso = com.Descripcion + " - " + m.Descripcion 
+                    };
             DataTable cursos = new DataTable();
             cursos.Columns.Add("id_curso", typeof(int));
-            foreach (var s in curso)
+            cursos.Columns.Add("descripcion", typeof(string));
+            foreach (var s in materias)
             {
-                cursos.Rows.Add(new object[] { s.ID });
+                cursos.Rows.Add(new object[] { s.id_curso, s.desc_curso });
             }
             this.idCursoList.DataSource = cursos;
             this.idCursoList.DataValueField = "id_curso";
-            this.idCursoList.DataTextField = "id_curso"; //materia y comision
+            this.idCursoList.DataTextField = "descripcion"; //materia y comision
             this.idCursoList.DataBind();
 
         }
